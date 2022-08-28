@@ -91,7 +91,7 @@ const SideBar = (props) => {
             label={`Home`}
           />
           <SideBarButton
-            selected={true}
+            selected={false}
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -136,7 +136,7 @@ const SideBar = (props) => {
             label={`Customers`}
           />
           <SideBarButton
-            selected={false}
+            selected={true}
             icon={
               <svg
                 className="sidebar-button-ico"

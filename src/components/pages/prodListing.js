@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-
+import React, { useState, ReactText } from "react";
+import { DataTable, Text } from "grommet";
+import DATA from "./fakeProdData";
 const ProdTableOpt = (props) => {
   return (
     <>
@@ -89,9 +90,78 @@ const ProdTableOpt = (props) => {
 };
 
 const ProdTable = (props) => {
+  const [select, setSelect] = useState([]);
   return (
     <>
-      <div></div>
+      <div className="data-tab-main-cont">
+        <DataTable
+          className="data-tab-main"
+          columns={[
+            {
+              property: "image",
+              align: "center",
+              verticalAlign: "middle",
+              render: (e) => (
+                <div className="data-tab-data-img-data">{e.image}</div>
+              ),
+            },
+            {
+              property: "status",
+              header: "Status",
+              render: (e) => (
+                <div className="data-tab-data-stat-data">{e.status}</div>
+              ),
+              align: "start",
+              verticalAlign: "middle",
+            },
+            {
+              header: "Product",
+              property: "product",
+              primary: true,
+              render: (e) => (
+                <div className="data-tab-data-nrm-data">{e.product}</div>
+              ),
+              verticalAlign: "middle",
+              align: "start",
+            },
+            {
+              property: "sales",
+              header: "Sales",
+              render: (e) => (
+                <div className="data-tab-data-nrm-data">{e.sales}</div>
+              ),
+              align: "start",
+              verticalAlign: "middle",
+            },
+            {
+              property: "inventory",
+              header: "Inventory",
+              render: (e) => (
+                <div className="data-tab-data-nrm-data">{e.inventory}</div>
+              ),
+              align: "start",
+              verticalAlign: "middle",
+            },
+            {
+              property: "revenue",
+              header: "Revenue",
+              render: (e) => (
+                <div className="data-tab-data-nrm-data">{e.revenue}</div>
+              ),
+              align: "start",
+              verticalAlign: "middle",
+            },
+          ]}
+          data={DATA}
+          onSelect={() => {}}
+          select={select}
+          paginate
+          pad="small"
+          sortable
+          fill="horizontal"
+          // resizeable
+        />
+      </div>
     </>
   );
 };
@@ -99,7 +169,29 @@ const ProdTable = (props) => {
 const PageHeader = (props) => {
   return (
     <>
-      <div className="app-page-head-cont">Products</div>
+      <div className="app-page-head-cont">
+        <svg
+          className="app-page-head-cont-ico"
+          width="42"
+          height="42"
+          viewBox="0 0 42 42"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_31_471)">
+            <path
+              d="M12 15.25V11.75C12 9.42936 12.9219 7.20376 14.5628 5.56282C16.2038 3.92187 18.4294 3 20.75 3C23.0706 3 25.2962 3.92187 26.9372 5.56282C28.5781 7.20376 29.5 9.42936 29.5 11.75V15.25H34.75C35.2141 15.25 35.6592 15.4344 35.9874 15.7626C36.3156 16.0908 36.5 16.5359 36.5 17V38C36.5 38.4641 36.3156 38.9092 35.9874 39.2374C35.6592 39.5656 35.2141 39.75 34.75 39.75H6.75C6.28587 39.75 5.84075 39.5656 5.51256 39.2374C5.18437 38.9092 5 38.4641 5 38V17C5 16.5359 5.18437 16.0908 5.51256 15.7626C5.84075 15.4344 6.28587 15.25 6.75 15.25H12ZM12 18.75H8.5V36.25H33V18.75H29.5V22.25H26V18.75H15.5V22.25H12V18.75ZM15.5 15.25H26V11.75C26 10.3576 25.4469 9.02226 24.4623 8.03769C23.4777 7.05312 22.1424 6.5 20.75 6.5C19.3576 6.5 18.0223 7.05312 17.0377 8.03769C16.0531 9.02226 15.5 10.3576 15.5 11.75V15.25Z"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_31_471">
+              <rect width="42" height="42" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        Products
+      </div>
     </>
   );
 };
@@ -108,7 +200,7 @@ const ProdListing = (props) => {
   return (
     <>
       <div className="app-page-cont">
-        <PageHeader/>
+        <PageHeader />
         <div className="app-prod-list-bottom-cont">
           <div className="prodtable-card-cont">
             <ProdTableOpt />
