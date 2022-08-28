@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BaseCont, InnerCont, PageCont } from "./components/base/holder";
+import SideBar from "./components/nav/sideBar";
+import TopBar from "./components/nav/topBar";
+import { grommet } from "grommet/themes";
+import { Grommet, Box, Heading, Paragraph, Text } from "grommet";
+import ProdListing from "./components/pages/prodListing";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grommet theme={grommet}>
+      <div className="App">
+        <BaseCont>
+          <SideBar />
+          <InnerCont>
+            <TopBar />
+            <PageCont>
+              <ProdListing />
+            </PageCont>
+          </InnerCont>
+        </BaseCont>
+      </div>
+    </Grommet>
   );
 }
 
