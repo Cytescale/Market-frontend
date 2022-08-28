@@ -297,11 +297,27 @@
      
 }
 .data-tab-main{
+     
+}
+
+.data-tab-row-cont{
+     border-style: none;
 
 }
 
+.MuiTableRow-root	{
+     
+     border-style: none;
+}
+
+.data-tab-body-cont{
+     box-shadow: none;
+     border-style: none;
+}
+
 .data-tab-data-stat-data{
-     font-size: 13px;
+     font-size: 12px;
+     width: fit-content;
      background: rgba(186, 255, 193, 0.45);
      padding-left: 12px;
      padding-right: 12px;
@@ -310,7 +326,6 @@
      align-items: center;
      padding-bottom: 3px;
      border-radius: 8px;
-     font-weight: 700;
 
 }
 
@@ -320,6 +335,7 @@
      background-color: #f5f5f5;
      border-radius: 8px;
 }
+
 
 .data-tab-data-nrm-data{
      font-size: 15px;

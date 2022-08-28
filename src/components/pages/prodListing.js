@@ -1,6 +1,108 @@
 import React, { useState, ReactText } from "react";
 import { DataTable, Text } from "grommet";
 import DATA from "./fakeProdData";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import Checkbox from "@mui/material/Checkbox";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { StyledEngineProvider } from "@mui/material/styles";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "#fff",
+    color: "#666666",
+    borderBottom: "1px solid #e0e0e0",
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 15,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  // "&:nth-of-type(odd)": {
+  //   backgroundColor: theme.palette.action.hover,
+  // },
+  // // hide last border
+  "&:tr": {
+    border: 0,
+    backgroundColor: "red",
+  },
+}));
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("Eclair", 262, 16.0, 24, 6.0),
+  createData("Cupcake", 305, 3.7, 67, 4.3),
+  createData("Gingerbread", 356, 16.0, 49, 3.9),
+];
+
+const CustomizedTables = (props) => {
+  return (
+    <StyledEngineProvider injectFirst>
+      <TableContainer>
+        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>
+                <Checkbox color="primary" checked={true} onChange={null} />
+              </StyledTableCell>
+              <StyledTableCell></StyledTableCell>
+              <StyledTableCell align="left">Status</StyledTableCell>
+              <StyledTableCell align="left">Product</StyledTableCell>
+              <StyledTableCell align="left">Sales</StyledTableCell>
+              <StyledTableCell align="left">Inventory</StyledTableCell>
+              <StyledTableCell align="left">Revenue</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody className="data-tab-body-cont">
+            {DATA.map((row) => (
+              <StyledTableRow
+                key={row.name}
+                className="data-tab-row-cont"
+                sx={{ borderStyle: "none" }}
+              >
+                <StyledTableCell align="left">
+                  <Checkbox color="primary" checked={false} onChange={null} />
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  <div className="data-tab-data-img-data">{row.image}</div>
+                </StyledTableCell>
+                <StyledTableCell align="left">
+                  <div className="data-tab-data-stat-data">{row.status}</div>
+                </StyledTableCell>
+                <StyledTableCell align="left">{row.product}</StyledTableCell>
+                <StyledTableCell align="left">{row.sales}</StyledTableCell>
+                <StyledTableCell align="left">{row.inventory}</StyledTableCell>
+                <StyledTableCell align="left">{row.revenue}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </StyledEngineProvider>
+  );
+};
+
+const ProdTable2 = (props) => {
+  return (
+    <>
+      <div className="data-tab-main-cont">
+        <CustomizedTables />
+      </div>
+    </>
+  );
+};
+
 const ProdTableOpt = (props) => {
   return (
     <>
@@ -204,7 +306,7 @@ const ProdListing = (props) => {
         <div className="app-prod-list-bottom-cont">
           <div className="prodtable-card-cont">
             <ProdTableOpt />
-            <ProdTable />
+            <ProdTable2 />
           </div>
         </div>
       </div>
