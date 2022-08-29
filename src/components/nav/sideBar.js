@@ -54,7 +54,7 @@ const CompanyLogo = (props) => {
         >
           <path
             d="M1.56763 9.18893C3.79306 14.6669 10.3422 22.336 18.7353 9.18893C27.1283 -3.95817 36.5387 3.21297 39.0821 8.69093C41.7314 16.3269 49.5632 23.3078 56.5676 11.1809"
-            stroke="black"
+            stroke="currentColor"
             stroke-width="3"
             stroke-linecap="round"
           />

@@ -3,7 +3,7 @@ import SideBar from "./components/nav/sideBar";
 import TopBar from "./components/nav/topBar";
 import { grommet } from "grommet/themes";
 import { Grommet, Box, Heading, Paragraph, Text } from "grommet";
-import ProdListing from "./components/pages/prodListing";
+import ProdListing from "./components/pages/productlisting/prodListing";
 
 function App() {
   return (

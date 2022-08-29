@@ -8,8 +8,8 @@
      top: 0;
      bottom: 0;
      z-index: 50;
-     /* border-right: 1px solid #D5D5D5; */
-     box-shadow: 4px 0px 12px  rgba(0, 0, 0, 0.01);
+     border-right: 1px solid #e0e0e0;
+     /* box-shadow: 4px 0px 12px  rgba(0, 0, 0, 0.01); */
 }
 
 .app-sidebar-top-cont{
@@ -31,7 +31,7 @@
 .sidebar-button{
      background-color: rgba(0, 0, 0, 0);
      width: 100%;
-     padding-left: 18px;
+     padding-left: 22px;
      padding-top: 6px;
      padding-bottom: 6px;
      margin-bottom: 9px;
@@ -78,7 +78,7 @@
      color: #666666;
      font-size: 13px;
      font-weight: 600;
-     padding-left: 12px;
+     padding-left: 22px;
      padding-top: 12px;
      padding-bottom: 12px;
 }
@@ -101,10 +101,13 @@
 
 .sidebar-comp-logo-cont{
      display: flex;
+     /* background-color: #000; */
+
      align-items: center;
      padding-left: 22px;
      padding-top: 22px;
      padding-bottom: 22px;
+     border-bottom: 1px solid #e0e0e0;
 }
 
 .sidebar-logo-lable{
@@ -118,6 +121,7 @@
 .sidebar-logo-ico{
      width: 32px;
      height: 32px;
+     color: #000;
 }
 
 
@@ -125,8 +129,8 @@
      width: 100%;
      height: auto;
      padding: 6%;
-     padding-top: 5%;
-     padding-bottom: 5%;
+     padding-top: 3%;
+     padding-bottom: 3%;
 
      /* padding-top: 0px; */
      /* padding-bottom: 0px;   */
@@ -135,49 +139,52 @@
 
 .app-page-head-lab-cont{
      font-weight: 600;
-     font-size: 32px;
+     font-size: 22px;
      color: #555555;
      display: flex;
      align-items: center;
 }
 
 .app-page-head-cont-ico{
-     width: 28px;
-     height: 28px;
+     width: 22px;
+     height: 22px;
      margin-right: 6px;
 }
 .app-page-tab-cont{
      width: 100%;
      height: auto;
-     margin-top: 32px;
+
      /* margin-bottom: 32px; */
      display: inline-flex;
      /* justify-content: center; */
      align-items: center;
+     border-bottom: 1px solid #e0e0e0;
 }
 
 .app-tab-main-cont{
-
+     margin-left: 5%;
 }
 
 .app-tab-butt{
-     height: 42px;
+     height: 52px;
      width: 100px;
-     margin-right: 12px;
-     border-radius: 200px;
+     /* margin-right: 12px; */
+     /* border-radius: 200px; */
      border-style: none;
-     color: #000;
-     background-color: #fff;
-     border: 1px solid #e0e0e0;;
+     color: #555555;
+     background-color: transparent;
+     border:null;
      cursor: pointer;
-     font-size: 14px;
-     font-weight: 500;
+     font-size: 13px;
+     font-weight: 700;
 }
 
 .app-tab-selec{
-     background-color: #0057FF;
-     color: #fff;
+     /* background-color: #0057FF; */
+     /* color: #fff; */
+     color: #0057FF;
      border-style: none;
+     border-bottom: 4px solid #0057FF ;
 }
 
 
@@ -211,8 +218,11 @@
 .app-prod-list-bottom-cont{
      width: auto;
      height: auto;
-     padding: 6%;
-     padding-top: 4%;
+     padding: 5%;
+     padding-top: 3%;
+     min-width: 800px;
+
+     
      /* padding-bottom: 0%;   */
      /* display: flex; */
      /* align-items: center; */
@@ -220,11 +230,11 @@
 
 .prodtable-card-cont{
      background-color: #fff;
-     border-radius: 8px;
+     border-radius: 12px;
      width: 100%;
      margin-bottom: 54px;
-     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.05);
-     /* border: 1px solid #e0e0e0; */
+     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.05);
+     border: 1px solid #e0e0e0;
      padding-bottom: 22px;    
 }
 
@@ -359,6 +369,13 @@
 .data-tab-body-cont{
      box-shadow: none;
      border-style: none;
+}
+
+.data-tab-data-stat-data-cont{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 
 .data-tab-data-stat-data{
