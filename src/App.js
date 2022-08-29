@@ -12,7 +12,7 @@ function App() {
         <BaseCont>
           <SideBar />
           <InnerCont>
-            <TopBar />
+            {/* <TopBar /> */}
             <PageCont>
               <ProdListing />
             </PageCont>

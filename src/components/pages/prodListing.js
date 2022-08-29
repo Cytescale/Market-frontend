@@ -9,6 +9,7 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { Switch } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { StyledEngineProvider } from "@mui/material/styles";
 
@@ -16,36 +17,24 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "#fff",
     color: "#666666",
-    borderBottom: "1px solid #e0e0e0",
+    padding: "4px",
+    fontSize: 14,
+    fontWeight: 600,
+    borderBottom: "0px solid red",
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 15,
+    fontSize: 12,
+    color: "#555555",
   },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  // "&:nth-of-type(odd)": {
-  //   backgroundColor: theme.palette.action.hover,
-  // },
-  // // hide last border
-  "&:tr": {
+  "td, th": {
     border: 0,
-    backgroundColor: "red",
+    borderBottom: "1px solid #f1f1f1",
+    padding: "8px",
   },
 }));
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
 const CustomizedTables = (props) => {
   return (
     <StyledEngineProvider injectFirst>
@@ -53,15 +42,19 @@ const CustomizedTables = (props) => {
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>
-                <Checkbox color="primary" checked={true} onChange={null} />
+              <StyledTableCell align="center" padding="checkbox">
+                <Checkbox color="primary" checked={false} onChange={null} />
               </StyledTableCell>
-              <StyledTableCell></StyledTableCell>
-              <StyledTableCell align="left">Status</StyledTableCell>
+              <StyledTableCell
+                align="center"
+                className="data-tab-selec-img-cont"
+              ></StyledTableCell>
               <StyledTableCell align="left">Product</StyledTableCell>
-              <StyledTableCell align="left">Sales</StyledTableCell>
-              <StyledTableCell align="left">Inventory</StyledTableCell>
-              <StyledTableCell align="left">Revenue</StyledTableCell>
+              <StyledTableCell align="center">Status</StyledTableCell>
+              <StyledTableCell align="center">Sales</StyledTableCell>
+              <StyledTableCell align="center">Inventory</StyledTableCell>
+              <StyledTableCell align="center">Revenue</StyledTableCell>
+              <StyledTableCell align="center"></StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody className="data-tab-body-cont">
@@ -71,19 +64,31 @@ const CustomizedTables = (props) => {
                 className="data-tab-row-cont"
                 sx={{ borderStyle: "none" }}
               >
-                <StyledTableCell align="left">
+                <StyledTableCell
+                  align="center"
+                  padding="checkbox"
+                  // className="data-tab-selec-cell-cont"
+                >
                   <Checkbox color="primary" checked={false} onChange={null} />
                 </StyledTableCell>
-                <StyledTableCell align="left">
+                <StyledTableCell
+                  align="left"
+                  className="data-tab-selec-img-cont"
+                >
                   <div className="data-tab-data-img-data">{row.image}</div>
                 </StyledTableCell>
-                <StyledTableCell align="left">
-                  <div className="data-tab-data-stat-data">{row.status}</div>
+                <StyledTableCell className="data-tab-data-name-cont">
+                  <div className="data-tab-data-name-data">{row.product}</div>
                 </StyledTableCell>
-                <StyledTableCell align="left">{row.product}</StyledTableCell>
-                <StyledTableCell align="left">{row.sales}</StyledTableCell>
-                <StyledTableCell align="left">{row.inventory}</StyledTableCell>
-                <StyledTableCell align="left">{row.revenue}</StyledTableCell>
+                <StyledTableCell align="center">{row.status}</StyledTableCell>
+                <StyledTableCell align="center">{row.sales}</StyledTableCell>
+                <StyledTableCell align="center">
+                  {row.inventory}
+                </StyledTableCell>
+                <StyledTableCell align="center">{row.revenue}</StyledTableCell>
+                <StyledTableCell align="center">
+                  <ActiveSwitch defaultChecked />
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
@@ -93,6 +98,57 @@ const CustomizedTables = (props) => {
   );
 };
 
+const ActiveSwitch = styled((props) => (
+  <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+))(({ theme }) => ({
+  width: 32,
+  height: 17,
+  padding: 0,
+  "& .MuiSwitch-switchBase": {
+    padding: 0,
+    margin: 2,
+    transitionDuration: "300ms",
+    "&.Mui-checked": {
+      transform: "translateX(16px)",
+      color: "#fff",
+      "& + .MuiSwitch-track": {
+        backgroundColor: "#0057FF",
+        opacity: 1,
+        border: 0,
+      },
+      "&.Mui-disabled + .MuiSwitch-track": {
+        opacity: 0.5,
+      },
+    },
+    "&.Mui-focusVisible .MuiSwitch-thumb": {
+      color: "#33cf4d",
+      border: "3px solid #fff",
+    },
+    "&.Mui-disabled .MuiSwitch-thumb": {
+      color:
+        theme.palette.mode === "light"
+          ? theme.palette.grey[100]
+          : theme.palette.grey[600],
+      boxShadow: "null",
+    },
+    "&.Mui-disabled + .MuiSwitch-track": {
+      opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
+    },
+  },
+  "& .MuiSwitch-thumb": {
+    boxSizing: "border-box",
+    width: 12,
+    height: 12,
+  },
+  "& .MuiSwitch-track": {
+    borderRadius: 26 / 2,
+    backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
+    opacity: 1,
+    transition: theme.transitions.create(["background-color"], {
+      duration: 500,
+    }),
+  },
+}));
 const ProdTable2 = (props) => {
   return (
     <>
@@ -191,108 +247,40 @@ const ProdTableOpt = (props) => {
   );
 };
 
-const ProdTable = (props) => {
-  const [select, setSelect] = useState([]);
-  return (
-    <>
-      <div className="data-tab-main-cont">
-        <DataTable
-          className="data-tab-main"
-          columns={[
-            {
-              property: "image",
-              align: "center",
-              verticalAlign: "middle",
-              render: (e) => (
-                <div className="data-tab-data-img-data">{e.image}</div>
-              ),
-            },
-            {
-              property: "status",
-              header: "Status",
-              render: (e) => (
-                <div className="data-tab-data-stat-data">{e.status}</div>
-              ),
-              align: "start",
-              verticalAlign: "middle",
-            },
-            {
-              header: "Product",
-              property: "product",
-              primary: true,
-              render: (e) => (
-                <div className="data-tab-data-nrm-data">{e.product}</div>
-              ),
-              verticalAlign: "middle",
-              align: "start",
-            },
-            {
-              property: "sales",
-              header: "Sales",
-              render: (e) => (
-                <div className="data-tab-data-nrm-data">{e.sales}</div>
-              ),
-              align: "start",
-              verticalAlign: "middle",
-            },
-            {
-              property: "inventory",
-              header: "Inventory",
-              render: (e) => (
-                <div className="data-tab-data-nrm-data">{e.inventory}</div>
-              ),
-              align: "start",
-              verticalAlign: "middle",
-            },
-            {
-              property: "revenue",
-              header: "Revenue",
-              render: (e) => (
-                <div className="data-tab-data-nrm-data">{e.revenue}</div>
-              ),
-              align: "start",
-              verticalAlign: "middle",
-            },
-          ]}
-          data={DATA}
-          onSelect={() => {}}
-          select={select}
-          paginate
-          pad="small"
-          sortable
-          fill="horizontal"
-          // resizeable
-        />
-      </div>
-    </>
-  );
-};
-
 const PageHeader = (props) => {
   return (
     <>
       <div className="app-page-head-cont">
-        <svg
-          className="app-page-head-cont-ico"
-          width="42"
-          height="42"
-          viewBox="0 0 42 42"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_31_471)">
-            <path
-              d="M12 15.25V11.75C12 9.42936 12.9219 7.20376 14.5628 5.56282C16.2038 3.92187 18.4294 3 20.75 3C23.0706 3 25.2962 3.92187 26.9372 5.56282C28.5781 7.20376 29.5 9.42936 29.5 11.75V15.25H34.75C35.2141 15.25 35.6592 15.4344 35.9874 15.7626C36.3156 16.0908 36.5 16.5359 36.5 17V38C36.5 38.4641 36.3156 38.9092 35.9874 39.2374C35.6592 39.5656 35.2141 39.75 34.75 39.75H6.75C6.28587 39.75 5.84075 39.5656 5.51256 39.2374C5.18437 38.9092 5 38.4641 5 38V17C5 16.5359 5.18437 16.0908 5.51256 15.7626C5.84075 15.4344 6.28587 15.25 6.75 15.25H12ZM12 18.75H8.5V36.25H33V18.75H29.5V22.25H26V18.75H15.5V22.25H12V18.75ZM15.5 15.25H26V11.75C26 10.3576 25.4469 9.02226 24.4623 8.03769C23.4777 7.05312 22.1424 6.5 20.75 6.5C19.3576 6.5 18.0223 7.05312 17.0377 8.03769C16.0531 9.02226 15.5 10.3576 15.5 11.75V15.25Z"
-              fill="currentColor"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_31_471">
-              <rect width="42" height="42" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-        Products
+        <div className="app-page-head-lab-cont">
+          <svg
+            className="app-page-head-cont-ico"
+            width="42"
+            height="42"
+            viewBox="0 0 42 42"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_31_471)">
+              <path
+                d="M12 15.25V11.75C12 9.42936 12.9219 7.20376 14.5628 5.56282C16.2038 3.92187 18.4294 3 20.75 3C23.0706 3 25.2962 3.92187 26.9372 5.56282C28.5781 7.20376 29.5 9.42936 29.5 11.75V15.25H34.75C35.2141 15.25 35.6592 15.4344 35.9874 15.7626C36.3156 16.0908 36.5 16.5359 36.5 17V38C36.5 38.4641 36.3156 38.9092 35.9874 39.2374C35.6592 39.5656 35.2141 39.75 34.75 39.75H6.75C6.28587 39.75 5.84075 39.5656 5.51256 39.2374C5.18437 38.9092 5 38.4641 5 38V17C5 16.5359 5.18437 16.0908 5.51256 15.7626C5.84075 15.4344 6.28587 15.25 6.75 15.25H12ZM12 18.75H8.5V36.25H33V18.75H29.5V22.25H26V18.75H15.5V22.25H12V18.75ZM15.5 15.25H26V11.75C26 10.3576 25.4469 9.02226 24.4623 8.03769C23.4777 7.05312 22.1424 6.5 20.75 6.5C19.3576 6.5 18.0223 7.05312 17.0377 8.03769C16.0531 9.02226 15.5 10.3576 15.5 11.75V15.25Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_31_471">
+                <rect width="42" height="42" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          Products
+        </div>
+        <div className="app-page-tab-cont">
+          <div className="app-tab-main-cont">
+            <button className="app-tab-butt app-tab-selec">All</button>
+            <button className="app-tab-butt">Active</button>
+            <button className="app-tab-butt">Draft</button>
+          </div>
+        </div>
       </div>
     </>
   );

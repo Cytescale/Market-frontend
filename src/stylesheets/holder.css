@@ -5,6 +5,7 @@
      max-height: 100vh;
      height: 100%;
      width: 100%;
+     /* background-color: #666666; */
      background-color: #F8F9FA;
      display: flex;
      overflow: hidden;
@@ -35,7 +36,9 @@
 
 .app-page-cont{
      width: 100%;
- 
+     /* background-color: red; */
+     /* padding: 4%; */
      height: 100%;
+     
      
 }

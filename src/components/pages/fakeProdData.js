@@ -2,7 +2,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -10,7 +10,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -18,7 +18,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -26,7 +26,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -34,7 +34,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -42,7 +42,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -50,7 +50,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -58,7 +58,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -66,7 +66,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
@@ -74,7 +74,7 @@ const DATA = [
   {
     image: "",
     status: "active",
-    product: "art",
+    product: "placeholdername",
     sales: 100,
     inventory: 10,
     revenue: 10,
