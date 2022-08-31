@@ -12,7 +12,7 @@ import { Switch } from "@mui/material";
 
 const MTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#fff",
+    backgroundColor: "#f9f9f9",
     color: "#666666",
     padding: "4px",
     fontSize: 13,
@@ -30,7 +30,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     borderBottom: "1px solid #f1f1f1",
     padding: "8px",
   },
-  "tr     :hover": {
+  "tr:hover": {
     backgroundColor: "#f5f5f5",
   },
 }));
@@ -173,7 +173,7 @@ const ProductTableRender = (props) => {
           {DATA.map((row) => (
             <StyledTableRow key={row.name} className="data-tab-row-cont">
               <MTableCell align="center" padding="checkbox">
-                <MCheckbox color="primary" checked={true} onChange={null} />
+                <MCheckbox color="primary" checked={false} onChange={null} />
               </MTableCell>
               <MTableCell align="left" className="data-tab-selec-img-cont">
                 <div className="data-tab-data-img-data">{row.image}</div>

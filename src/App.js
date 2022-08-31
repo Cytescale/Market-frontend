@@ -4,6 +4,7 @@ import TopBar from "./components/nav/topBar";
 import { grommet } from "grommet/themes";
 import { Grommet, Box, Heading, Paragraph, Text } from "grommet";
 import ProdListing from "./components/pages/productlisting/prodListing";
+import AddProduct from "./components/pages/addProduct/addProduct";
 
 function App() {
   return (

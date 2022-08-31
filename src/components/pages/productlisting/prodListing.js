@@ -1,4 +1,5 @@
 import React, { useState, ReactText } from "react";
+import { MButton } from "../../UI";
 import ProductTable from "./productTable";
 const ProdTableOpt = (props) => {
   return (
@@ -30,7 +31,7 @@ const ProdTableOpt = (props) => {
             placeholder="Search for products"
           />
         </div>
-
+        <MButton icon={<i class="ri-sort-asc"></i>}>Sort</MButton>
         <button className="prod-list-sort-butt">
           <svg
             className="prod-list-sort-butt-ico"
@@ -79,8 +80,8 @@ const ProdTableOpt = (props) => {
           Filter
         </button>
         <div className="prod-list-opt-list-right-cont">
-          <button className="prod-list-opt-expt-butt">Export</button>
-          <button className="prod-list-opt-expt-butt">Import</button>
+          <button className="prod-list-sort-butt">Export</button>
+          <button className="prod-list-sort-butt">Import</button>
           <button className="prod-list-opt-add-butt">ADD ITEM</button>
         </div>
       </div>
@@ -114,6 +115,9 @@ const PageHeader = (props) => {
             </defs>
           </svg>
           Products
+        </div>
+        <div className="app-page-head-right-cont">
+          <a href="#">Learn more</a>
         </div>
       </div>
     </>
