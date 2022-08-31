@@ -232,8 +232,8 @@ align-items: center;
      height: 100%;
      display: flex;
      justify-content: center;
-     align-content: center;
-     padding-left: 12px;
+     align-items: center;
+     padding-left: 22px;
 
 }
 
