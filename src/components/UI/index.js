@@ -1,9 +1,10 @@
+import { style } from "@mui/system";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const MTextInputLabelS = styled.div`
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 12px;
   margin-left: 5px;
 `;
 
@@ -48,7 +49,7 @@ const MButtonS = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   color: #0057ff;
   background-color: #fff;
   padding-left: 16px;
@@ -64,7 +65,7 @@ const MFillButtonS = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   color: #fff;
   background-color: #0057ff;
   padding-left: 16px;
@@ -151,7 +152,6 @@ export const MCardFooter = (props) => {
 const MCardHeaderS = styled.div`
   position: relative;
   width: 100%;
-  padding: 22px;
   height: auto;
   font-weight: 600;
   color: #555555;
@@ -160,13 +160,24 @@ const MCardHeaderS = styled.div`
 `;
 
 export const MCardHeader = (props) => {
-  return <MCardHeaderS {...props}>{props.children}</MCardHeaderS>;
+  return (
+    <MCardHeaderS
+      {...props}
+      style={{
+        padding: props.pad ? props.pad : "0px",
+      }}
+    >
+      {props.children}
+    </MCardHeaderS>
+  );
 };
 
 const MPageHeaderContS = styled.div`
   width: auto;
   position: relative;
   height: 92px;
+  min-height: 92px;
+  max-height: 92px;
   padding: 6%;
   display: flex;
   align-items: center;
@@ -233,7 +244,7 @@ const MDropButtonS = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   color: #0057ff;
   background-color: #fff;
   padding-left: 16px;
@@ -265,6 +276,54 @@ export const MDropButton = (props) => {
           <i class="ri-arrow-down-s-line"></i>
         </MIconCont>
       </MDropButtonS>
+    </div>
+  );
+};
+
+const MTextAreaS = styled.textarea`
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  font-size: 14px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+`;
+
+export const MTextArea = (props) => {
+  return (
+    <div>
+      {props.label ? <MTextInputLabelS>{props.label}</MTextInputLabelS> : null}
+      <MTextAreaS {...props} />
+    </div>
+  );
+};
+
+const MFilePickerContS = styled.div`
+  width: 100%;
+  height: 100px;
+  border: 2px dashed #bdbdbd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const MFilePicker = (props) => {
+  return (
+    <div>
+      {props.label ? <MTextInputLabelS>{props.label}</MTextInputLabelS> : null}
+      <MFilePickerContS {...props}>
+        <div className="file-picker-inner-cont">
+          <div className="file-picker-lab-cont">Add file</div>
+          <div className="file-picker-sub-cont">Accepts images or videos</div>
+        </div>
+      </MFilePickerContS>
     </div>
   );
 };

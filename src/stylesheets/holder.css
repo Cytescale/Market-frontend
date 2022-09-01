@@ -30,16 +30,31 @@
      height: 100%;
      display: flex;
      flex: 1;
-     overflow-y: scroll;
+     /* overflow-y: scroll; */
      overflow-x: hidden;
      
 }
 
 .app-page-cont{
      width: 100%;
-     /* background-color: red; */
-     /* padding: 4%; */
-     height: 100%;
-     
-     
+     height: 100vh;
+     max-height: 100vh;
+     min-height: 100vh;
+ 
+}
+
+.noscroll{
+     overflow-y: hidden;
+}
+
+.flex{
+     display: flex;
+}
+
+.flex-col{
+flex-direction: column;
+}
+
+.flex-row{
+     flex-direction: row;
 }

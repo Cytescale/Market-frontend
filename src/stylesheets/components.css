@@ -189,12 +189,12 @@ align-items: center;
 }
 
 .app-tab-main-cont{
-     margin-left: 2%;
+     margin-left: 32px;
 }
 
 .app-tab-butt{
      height: 52px;
-     width: 100px;
+     width: 80px;
      border-style: none;
      color: #555555;
      background-color: transparent;

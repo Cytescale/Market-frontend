@@ -2,8 +2,6 @@ import React, { useState, ReactText } from "react";
 import { MButton, MFillButton, MTextInput, MCard, MPageHeader } from "../../UI";
 import ProductTable from "./productTable";
 
-
-
 const ProdTableOpt = (props) => {
   return (
     <>
@@ -48,7 +46,7 @@ const PageTabCont = (props) => {
 const ProdListing = (props) => {
   return (
     <>
-      <div className="app-page-cont">
+      <div className="app-page-cont ">
         <MPageHeader icon={<i class="ri-shopping-bag-line"></i>}>
           Products
         </MPageHeader>

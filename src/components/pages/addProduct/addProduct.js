@@ -8,6 +8,7 @@ import {
   MCardFooter,
   MCardHeader,
   MDropButton,
+  MTextBox
 } from "../../UI";
 
 const AddProduct = (props) => {
@@ -19,7 +20,7 @@ const AddProduct = (props) => {
         <div className="app-prod-list-bottom-cont">
           <div className="app-prod-add-form-cont">
             <MCard>
-              <MCardHeader>Add Product</MCardHeader>
+              <MCardHeader pad={22}>Add Product</MCardHeader>
               <div className="app-prod-add-form-inner">
                 <div className="app-prod-add-form-data-cont">
                   <MTextInput

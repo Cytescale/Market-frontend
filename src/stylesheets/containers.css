@@ -1,3 +1,4 @@
+/*///////////////////PRODUCT ADD/////////////////////////*/
 
 .app-prod-add-form-cont{
      width: 50%;
@@ -28,4 +29,76 @@
      flex: 1;
      width: auto;
      justify-content: end;
+}
+
+/*////////////////////////PRODUCT DETAIL////////////////////*/
+
+.app-prod-det-bottom-cont{
+     width: 100%;
+     height: calc(100% - 92px);
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     flex: 1;
+     flex-direction: row;
+}
+
+
+.app-prod-det-main-cont{
+width: 50%;
+display: flex;
+flex: 1;
+height: 100%;
+
+}
+.app-prod-det-left-main-cont{
+width: auto;
+height: 100%;
+display: flex;
+flex: 1;
+flex-direction: column;
+position: relative;
+border-right: 1px solid #e0e0e0;
+}
+.app-prod-det-left-tab-cont{
+
+}
+
+.app-prod-det-left-inner-cont{
+     overflow-y: scroll;
+     z-index: 40;
+     
+     padding: 22px;
+}
+
+.app-prod-det-left-footer-cont{
+padding: 12px;
+border-top: 1px solid #e0e0e0;
+position: absolute;
+z-index: 100;
+display: inline-flex;
+justify-content: end;
+background-color: #fff;
+ bottom: 0;
+right: 0; 
+left: 0; 
+}
+
+.app-prod-det-card-inner{
+     padding: 22px;
+}
+
+.app-prod-det-right-main-cont{
+     width: 50%;
+     height: 100%;
+     position: relative;
+     max-height: 100%;
+     min-height: 100%;
+     overflow-y: hidden;
+     background-color: #fff;
+
+}
+
+.app-prod-det-left-card-cont{
+     margin-bottom: 22px;    
 }

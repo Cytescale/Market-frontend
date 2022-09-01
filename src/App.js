@@ -3,6 +3,7 @@ import SideBar from "./components/nav/sideBar";
 
 import TopBar from "./components/nav/topBar";
 import ProdListing from "./components/pages/productlisting/prodListing";
+import ProductDetail from "./components/pages/productDetail/prodDetail";
 import AddProduct from "./components/pages/addProduct/addProduct";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         <InnerCont>
           {/* <TopBar /> */}
           <PageCont>
-            <AddProduct />
+            <ProductDetail />
           </PageCont>
         </InnerCont>
       </BaseCont>
