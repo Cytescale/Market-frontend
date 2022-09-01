@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
+const MTextInputLabelS = styled.div`
+  margin-bottom: 8px;
+  font-size: 14px;
+  margin-left: 5px;
+`;
+
 const MTextInputContS = styled.div`
-  width: 100%;
-  height: 32px;
+  width: auto;
+  height: 36px;
   background-color: #f8f9fa;
   display: flex;
   align-items: center;
@@ -12,7 +18,7 @@ const MTextInputContS = styled.div`
 `;
 
 const MTextInputS = styled.input`
-  height: 32px;
+  height: 36px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   border-style: none;
@@ -24,20 +30,25 @@ const MTextInputS = styled.input`
 export const MTextInput = (props) => {
   return (
     <>
-      <MTextInputContS>
-        {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
-        <MTextInputS {...props} />
-      </MTextInputContS>
+      <div>
+        {props.label ? (
+          <MTextInputLabelS>{props.label}</MTextInputLabelS>
+        ) : null}
+        <MTextInputContS>
+          {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
+          <MTextInputS {...props} />
+        </MTextInputContS>
+      </div>
     </>
   );
 };
 
 const MButtonS = styled.button`
-  height: 32px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 14px;
   color: #0057ff;
   background-color: #fff;
   padding-left: 16px;
@@ -49,11 +60,11 @@ const MButtonS = styled.button`
 `;
 
 const MFillButtonS = styled.button`
-  height: 32px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 14px;
   color: #fff;
   background-color: #0057ff;
   padding-left: 16px;
@@ -72,13 +83,26 @@ const MIconCont = styled.div`
   color: inherit;
   justify-content: center;
   align-items: center;
-  margin-right: 4px;
 `;
 
 export const MButton = (props) => {
   return (
-    <MButtonS {...props}>
-      {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
+    <MButtonS
+      {...props}
+      style={{
+        ...props.style,
+        width: props.hfill ? "100%" : "auto",
+      }}
+    >
+      {props.icon ? (
+        <MIconCont
+          style={{
+            marginRight: props.children ? "5px" : "0px",
+          }}
+        >
+          {props.icon}
+        </MIconCont>
+      ) : null}
       {props.children}
     </MButtonS>
   );
@@ -86,7 +110,13 @@ export const MButton = (props) => {
 
 export const MFillButton = (props) => {
   return (
-    <MFillButtonS {...props}>
+    <MFillButtonS
+      {...props}
+      style={{
+        ...props.style,
+        width: props.hfill ? "100%" : "auto",
+      }}
+    >
       {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
       {props.children}
     </MFillButtonS>
@@ -96,12 +126,145 @@ export const MFillButton = (props) => {
 const MCardS = styled.div`
   background-color: #fff;
   width: 100%;
-  z-index: 100;
   border-radius: 5px;
-  margin-bottom: 54px;
+  position: relative;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
 `;
 
 export const MCard = (props) => {
-  return <MCardS>{props.children}</MCardS>;
+  return <MCardS {...props}>{props.children}</MCardS>;
+};
+
+const MCardFooterS = styled.div`
+  position: relative;
+  width: 100%;
+
+  border-top: 1px solid #e0e0e0;
+  flex-direction: row;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+`;
+
+export const MCardFooter = (props) => {
+  return <MCardFooterS {...props}>{props.children}</MCardFooterS>;
+};
+
+const MCardHeaderS = styled.div`
+  position: relative;
+  width: 100%;
+  padding: 22px;
+  height: auto;
+  font-weight: 600;
+  color: #555555;
+  border-bottom: 1px solid #e0e0e0;
+  flex-direction: row;
+`;
+
+export const MCardHeader = (props) => {
+  return <MCardHeaderS {...props}>{props.children}</MCardHeaderS>;
+};
+
+const MPageHeaderContS = styled.div`
+  width: auto;
+  position: relative;
+  height: 92px;
+  padding: 6%;
+  display: flex;
+  align-items: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #e0e0e0;
+`;
+
+const MPageHeaderLabS = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  color: #555555;
+  display: flex;
+  flex: 1;
+  width: auto;
+  align-items: center;
+`;
+
+const MPageHeaderHelpButtS = styled.button`
+  width: 36px;
+  height: 36px;
+  border-radius: 320px;
+  background: #fff;
+  border-style: none;
+  border: 1px solid #e0e0e0;
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const MPageHeader = (props) => {
+  return (
+    <>
+      <MPageHeaderContS>
+        <MPageHeaderLabS>
+          {props.back ? (
+            <MButton
+              style={{ marginRight: "22px" }}
+              icon={<i class="ri-arrow-left-line"></i>}
+            >
+              Back
+            </MButton>
+          ) : null}
+          {props.icon ? (
+            <div className="app-page-head-cont-ico-cont">{props.icon}</div>
+          ) : null}
+          {props.children}
+        </MPageHeaderLabS>
+        <div>
+          <MPageHeaderHelpButtS>
+            <i class="ri-question-mark"></i>
+          </MPageHeaderHelpButtS>
+        </div>
+      </MPageHeaderContS>
+    </>
+  );
+};
+
+const MDropButtonS = styled.button`
+  position: relative;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #0057ff;
+  background-color: #fff;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #dbdbdb;
+`;
+
+export const MDropButton = (props) => {
+  return (
+    <div>
+      {props.label ? <MTextInputLabelS>{props.label}</MTextInputLabelS> : null}
+      <MDropButtonS
+        {...props}
+        style={{
+          ...props.style,
+          width: props.hfill ? "100%" : "auto",
+        }}
+      >
+        {props.buttonlabel}
+        <MIconCont
+          style={{
+            position: "absolute",
+            right: "12px",
+          }}
+        >
+          <i class="ri-arrow-down-s-line"></i>
+        </MIconCont>
+      </MDropButtonS>
+    </div>
+  );
 };

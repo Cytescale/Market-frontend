@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Text, Heading } from "grommet";
+import { MFillButton } from "../UI";
 
 const SideBarButton = (props) => {
   return (
@@ -70,6 +70,11 @@ const SideBar = (props) => {
       <div className="app-sidebar-cont">
         <CompanyLogo />
         <div className="app-sidebar-top-cont">
+          <div className={`sidebar-add-button-cont`}>
+            <MFillButton icon={<i class="ri-add-line"></i>} hfill>
+              Add Product
+            </MFillButton>
+          </div>
           <SideBarLabel label={"Navigation"} />
           <SideBarButton
             selected={false}

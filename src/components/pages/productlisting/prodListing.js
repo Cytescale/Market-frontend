@@ -1,6 +1,9 @@
 import React, { useState, ReactText } from "react";
-import { MButton, MFillButton, MTextInput, MCard } from "../../UI";
+import { MButton, MFillButton, MTextInput, MCard, MPageHeader } from "../../UI";
 import ProductTable from "./productTable";
+
+
+
 const ProdTableOpt = (props) => {
   return (
     <>
@@ -27,28 +30,6 @@ const ProdTableOpt = (props) => {
     </>
   );
 };
-//
-
-const PageHeader = (props) => {
-  return (
-    <>
-      <div className="app-page-head-cont">
-        <div className="app-page-head-lab-cont">
-          <div className="app-page-head-cont-ico-cont">
-            <i
-              className="app-page-head-cont-ico"
-              class="ri-shopping-bag-line"
-            ></i>
-          </div>
-          Products
-        </div>
-        <div className="app-page-head-right-cont">
-          <a href="#">Learn more</a>
-        </div>
-      </div>
-    </>
-  );
-};
 
 const PageTabCont = (props) => {
   return (
@@ -68,10 +49,12 @@ const ProdListing = (props) => {
   return (
     <>
       <div className="app-page-cont">
-        <PageHeader />
-        <PageTabCont />
+        <MPageHeader icon={<i class="ri-shopping-bag-line"></i>}>
+          Products
+        </MPageHeader>
         <div className="app-prod-list-bottom-cont">
           <MCard>
+            <PageTabCont />
             <ProdTableOpt />
             <ProductTable />
           </MCard>
