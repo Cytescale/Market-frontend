@@ -10,6 +10,8 @@ import {
   MDropButton,
   MTextArea,
   MFilePicker,
+  MHorLabelCont,
+  MCheckbox,
 } from "../../UI";
 
 const PageTabCont = (props) => {
@@ -44,15 +46,31 @@ const ProductDetail = (props) => {
                     <div className="app-prod-det-card-inner">
                       <div className="app-prod-add-form-data-cont">
                         <MTextInput
-                          label="Product title"
+                          label="Title"
                           placeholder="Enter product title"
                         />
                       </div>
                       <div className="app-prod-add-form-data-cont">
                         <MTextArea
-                          label="Product title"
+                          label="Description"
                           placeholder="Enter product description"
                         />
+                      </div>
+                      <div className="app-prod-add-form-data-cont">
+                        <MTextInput
+                          label="URL"
+                          leftLabel="https://market.com/"
+                          rightContent={
+                            <MButton
+                              borderless
+                              icon={<i class="ri-file-copy-line"></i>}
+                            />
+                          }
+                          placeholder="MXSAD"
+                        />
+                      </div>
+                      <div className="app-prod-add-form-data-cont">
+                        <MTextInput label="Tags" placeholder="Enter tags" />
                       </div>
                     </div>
                   </MCard>
@@ -74,8 +92,23 @@ const ProductDetail = (props) => {
                       <div className="app-prod-add-form-data-cont">
                         <MTextInput
                           label="Product Price"
-                          placeholder="Enter product title"
+                          leftLabel={"₹"}
+                          placeholder="Enter product price"
                         />
+                      </div>
+                    </div>
+                  </MCard>
+                </div>
+                <div className="app-prod-det-left-card-cont">
+                  <MCard>
+                    <MCardHeader pad={22}>Inventory</MCardHeader>
+                    <div className="app-prod-det-card-inner">
+                      <div className="app-prod-add-form-data-cont">
+                        <MHorLabelCont
+                          leftLabel={"Available after out of stock?"}
+                        >
+                          <MCheckbox />
+                        </MHorLabelCont>
                       </div>
                     </div>
                   </MCard>

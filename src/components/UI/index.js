@@ -1,16 +1,17 @@
 import { style } from "@mui/system";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import Checkbox from "@mui/material/Checkbox";
 
 const MTextInputLabelS = styled.div`
   margin-bottom: 8px;
-  font-size: 12px;
+  font-size: 13px;
   margin-left: 5px;
 `;
 
 const MTextInputContS = styled.div`
   width: auto;
-  height: 36px;
+  height: 42px;
   background-color: #f8f9fa;
   display: flex;
   align-items: center;
@@ -19,7 +20,7 @@ const MTextInputContS = styled.div`
 `;
 
 const MTextInputS = styled.input`
-  height: 36px;
+  height: 42px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   border-style: none;
@@ -37,12 +38,40 @@ export const MTextInput = (props) => {
         ) : null}
         <MTextInputContS>
           {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
+          {props.leftLabel ? (
+            <MInputLabelCont>{props.leftLabel}</MInputLabelCont>
+          ) : null}
           <MTextInputS {...props} />
+          {props.rightContent ? (
+            <MInputRightCont>{props.rightContent}</MInputRightCont>
+          ) : null}
         </MTextInputContS>
       </div>
     </>
   );
 };
+
+const MInputLabelCont = styled.div`
+  width: auto;
+  height: 26px;
+  font-size: 11px;
+  display: flex;
+  border-radius: 100px;
+  border: 1px solid #bdbdbd;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: inherit;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MInputRightCont = styled.div`
+  width: auto;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const MButtonS = styled.button`
   height: 36px;
@@ -92,12 +121,15 @@ export const MButton = (props) => {
       {...props}
       style={{
         ...props.style,
+        background: `${props.borderless ? "transparent" : null}`,
+        border: `${props.borderless ? "none" : null}`,
         width: props.hfill ? "100%" : "auto",
       }}
     >
       {props.icon ? (
         <MIconCont
           style={{
+            fontSize: "18px",
             marginRight: props.children ? "5px" : "0px",
           }}
         >
@@ -118,7 +150,16 @@ export const MFillButton = (props) => {
         width: props.hfill ? "100%" : "auto",
       }}
     >
-      {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
+      {props.icon ? (
+        <MIconCont
+          style={{
+            fontSize: "18px",
+            marginRight: props.children ? "5px" : "0px",
+          }}
+        >
+          {props.icon}
+        </MIconCont>
+      ) : null}
       {props.children}
     </MFillButtonS>
   );
@@ -129,7 +170,8 @@ const MCardS = styled.div`
   width: 100%;
   border-radius: 5px;
   position: relative;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  // box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
 `;
 
 export const MCard = (props) => {
@@ -155,6 +197,7 @@ const MCardHeaderS = styled.div`
   height: auto;
   font-weight: 600;
   color: #555555;
+
   border-bottom: 1px solid #e0e0e0;
   flex-direction: row;
 `;
@@ -325,5 +368,53 @@ export const MFilePicker = (props) => {
         </div>
       </MFilePickerContS>
     </div>
+  );
+};
+
+const MHorLabContS = styled.div`
+  width: 100%;
+  height: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MHorLabLeftLabelContS = styled.div`
+  width: 50%;
+  height: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+`;
+
+const MHorLabInnerContS = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
+
+export const MHorLabelCont = (props) => {
+  return (
+    <div>
+      <MHorLabContS {...props}>
+        <MHorLabLeftLabelContS>{props.leftLabel}</MHorLabLeftLabelContS>
+        <MHorLabInnerContS>{props.children}</MHorLabInnerContS>
+      </MHorLabContS>
+    </div>
+  );
+};
+
+export const MCheckbox = (props) => {
+  return (
+    <Checkbox
+      sx={{
+        "&:hover": { bgcolor: "transparent" },
+      }}
+      disableRipple
+      color="default"
+      {...props}
+    />
   );
 };
