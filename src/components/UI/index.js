@@ -1,7 +1,8 @@
 import { style } from "@mui/system";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Checkbox from "@mui/material/Checkbox";
+import Checkbox from "@mui/joy/Checkbox";
+import Switch, { switchClasses } from "@mui/joy/Switch";
 
 const MTextInputLabelS = styled.div`
   margin-bottom: 8px;
@@ -58,6 +59,7 @@ const MInputLabelCont = styled.div`
   display: flex;
   border-radius: 100px;
   border: 1px solid #bdbdbd;
+  background-color: #fff;
   padding-left: 12px;
   padding-right: 12px;
   color: inherit;
@@ -171,7 +173,7 @@ const MCardS = styled.div`
   border-radius: 5px;
   position: relative;
   border: 1px solid #e0e0e0;
-  // box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.02);
 `;
 
 export const MCard = (props) => {
@@ -195,9 +197,9 @@ const MCardHeaderS = styled.div`
   position: relative;
   width: 100%;
   height: auto;
+  font-size: 14px;
   font-weight: 600;
   color: #555555;
-
   border-bottom: 1px solid #e0e0e0;
   flex-direction: row;
 `;
@@ -373,7 +375,7 @@ export const MFilePicker = (props) => {
 
 const MHorLabContS = styled.div`
   width: 100%;
-  height: 42px;
+  height: 32px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -382,7 +384,8 @@ const MHorLabContS = styled.div`
 const MHorLabLeftLabelContS = styled.div`
   width: 50%;
   height: 100%;
-  font-size: 13px;
+  font-size: 14px;
+  color: #333333;
   display: flex;
   align-items: center;
 `;
@@ -409,12 +412,63 @@ export const MHorLabelCont = (props) => {
 export const MCheckbox = (props) => {
   return (
     <Checkbox
-      sx={{
-        "&:hover": { bgcolor: "transparent" },
-      }}
-      disableRipple
-      color="default"
       {...props}
+      variant="solid"
+      sx={{
+        color: "#bdbdbd",
+        "&.Joy-checked": {
+          color: "#0057FF ",
+          background: "#E6F2FF",
+          borderRadius: "5px",
+        },
+        "&.JoyCheckbox-root ": {
+          borderStyle: "none",
+          background: "#E6F2FF",
+          borderRadius: "5px",
+        },
+        "&.JoyCheckbox-root:hover": {
+          background: "#E6F2FF",
+        },
+      }}
+    />
+  );
+};
+
+export const MSwitch = (props) => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <Switch
+      onChange={(event) => setChecked(event.target.checked)}
+      checked={checked}
+      sx={(theme) => {
+        return {
+          "--Switch-track-width": "35px",
+          "--Switch-track-height": "22px",
+          "--Switch-thumb-size": "12px",
+          "--Switch-thumb-background": "#fff",
+          "--Switch-track-borderColor": "rgb(96, 94, 92)",
+          "--Switch-track-background": "#e0e0e0",
+          "&:hover": {
+            "--Switch-track-borderColor": "rgb(50, 49, 48)",
+            "--Switch-track-background": "#e0e0e0",
+          },
+          [`&.${switchClasses.checked}`]: {
+            "--Switch-track-background": "#E6F2FF",
+            "--Switch-thumb-background": "#0057FF",
+            "&:hover": {
+              "--Switch-track-background": "#E6F2FF",
+            },
+          },
+          [`&.${switchClasses.disabled}`]: {
+            "--Switch-thumb-color": "#C8C6C4",
+            "--Switch-track-borderColor": "#C8C6C4",
+          },
+          [`&.${switchClasses.disabled}.${switchClasses.checked}`]: {
+            "--Switch-track-background": "#C8C6C4",
+            "--Switch-thumb-color": "#F3F2F1",
+          },
+        };
+      }}
     />
   );
 };

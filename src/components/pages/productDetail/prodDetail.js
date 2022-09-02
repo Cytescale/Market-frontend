@@ -12,6 +12,7 @@ import {
   MFilePicker,
   MHorLabelCont,
   MCheckbox,
+  MSwitch,
 } from "../../UI";
 
 const PageTabCont = (props) => {
@@ -42,7 +43,7 @@ const ProductDetail = (props) => {
               <div className="app-prod-det-left-inner-cont">
                 <div className="app-prod-det-left-card-cont">
                   <MCard>
-                    <MCardHeader pad={22}>Product Details</MCardHeader>
+                    <MCardHeader pad={12}>Product Details</MCardHeader>
                     <div className="app-prod-det-card-inner">
                       <div className="app-prod-add-form-data-cont">
                         <MTextInput
@@ -77,7 +78,7 @@ const ProductDetail = (props) => {
                 </div>
                 <div className="app-prod-det-left-card-cont">
                   <MCard>
-                    <MCardHeader pad={22}>Media</MCardHeader>
+                    <MCardHeader pad={12}>Media</MCardHeader>
                     <div className="app-prod-det-card-inner">
                       <div className="app-prod-add-form-data-cont">
                         <MFilePicker label="Cover" />
@@ -87,7 +88,7 @@ const ProductDetail = (props) => {
                 </div>
                 <div className="app-prod-det-left-card-cont">
                   <MCard>
-                    <MCardHeader pad={22}>Pricing</MCardHeader>
+                    <MCardHeader pad={12}>Pricing</MCardHeader>
                     <div className="app-prod-det-card-inner">
                       <div className="app-prod-add-form-data-cont">
                         <MTextInput
@@ -101,13 +102,45 @@ const ProductDetail = (props) => {
                 </div>
                 <div className="app-prod-det-left-card-cont">
                   <MCard>
-                    <MCardHeader pad={22}>Inventory</MCardHeader>
+                    <MCardHeader pad={12}>Inventory</MCardHeader>
                     <div className="app-prod-det-card-inner">
+                      <div className="app-prod-add-form-data-cont">
+                        <MHorLabelCont leftLabel={"Limit sell?"}>
+                          <MCheckbox />
+                        </MHorLabelCont>
+                      </div>
                       <div className="app-prod-add-form-data-cont">
                         <MHorLabelCont
                           leftLabel={"Available after out of stock?"}
                         >
-                          <MCheckbox />
+                          <MCheckbox defaultChecked />
+                        </MHorLabelCont>
+                      </div>
+                      <div className="app-prod-add-form-data-cont">
+                        <MHorLabelCont leftLabel={"Available stock"}>
+                          <MTextInput value="100" />
+                        </MHorLabelCont>
+                      </div>
+                    </div>
+                  </MCard>
+                </div>
+                <div className="app-prod-det-left-card-cont">
+                  <MCard>
+                    <MCardHeader pad={12}>Settings</MCardHeader>
+                    <div className="app-prod-det-card-inner">
+                      <div className="app-prod-add-form-data-cont">
+                        <MHorLabelCont leftLabel={"Let users choose quantity"}>
+                          <MSwitch />
+                        </MHorLabelCont>
+                      </div>
+                      <div className="app-prod-add-form-data-cont">
+                        <MHorLabelCont leftLabel={"Show sales to users"}>
+                          <MSwitch />
+                        </MHorLabelCont>
+                      </div>
+                      <div className="app-prod-add-form-data-cont">
+                        <MHorLabelCont leftLabel={"Item is giftable"}>
+                          <MSwitch />
                         </MHorLabelCont>
                       </div>
                     </div>
