@@ -21,7 +21,7 @@
  height: 100vh;
  min-height: 100vh;
  max-height: 100vh;
- background-color: #fff;
+ /* background-color: #fff; */
  overflow: hidden;
 }
 .app-page-base-cont{
