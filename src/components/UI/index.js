@@ -172,6 +172,7 @@ const MCardS = styled.div`
   width: 100%;
   border-radius: 5px;
   position: relative;
+
   border: 1px solid #e0e0e0;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.02);
 `;
