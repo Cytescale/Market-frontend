@@ -170,7 +170,7 @@ export const MFillButton = (props) => {
 const MCardS = styled.div`
   background-color: #fff;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 7px;
   position: relative;
   border: 1px solid #e0e0e0;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
@@ -199,7 +199,10 @@ const MCardHeaderS = styled.div`
   height: auto;
   font-size: 14px;
   font-weight: 500;
-  color: #666666;
+  background-color: #f9f9f9;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  color: #000;
   border-bottom: 1px solid #e0e0e0;
   flex-direction: row;
 `;

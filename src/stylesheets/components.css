@@ -1,5 +1,5 @@
 .app-sidebar-cont{
-     width:  10%;
+     width:  14%;
      min-width: 200px;
      /* background-color: #fff; */
      height: 100vh;  
@@ -19,6 +19,7 @@
 .sidebar-button-cont{
      width: 90%;
      margin-left: 5%;
+     margin-bottom: 12px;
      border-radius: 5px;
      height: fit-content;
      color: #333333;
@@ -28,7 +29,7 @@
 .sidebar-add-button-cont{
      width: 100%;   
      padding: 12px;
-     padding-bottom: 0px;
+     padding-bottom: 22px;
 }
 
 
@@ -185,8 +186,8 @@ align-items: center;
      height: auto;
      position: absolute;
      z-index: 100;
-     background: rgba(248, 249, 250, 0.3);
-     backdrop-filter: blur(12px);
+     background: rgba(248, 249, 250, 0.704);
+     backdrop-filter: blur(22px);
      /* margin-bottom: 32px; */
      display: inline-flex;
      /* justify-content: center; */

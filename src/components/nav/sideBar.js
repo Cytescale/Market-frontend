@@ -75,7 +75,7 @@ const SideBar = (props) => {
               Add Product
             </MFillButton>
           </div>
-          <SideBarLabel label={"Navigation"} />
+
           <SideBarButton
             selected={false}
             icon={
