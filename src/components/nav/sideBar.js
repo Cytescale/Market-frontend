@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MFillButton } from "../UI";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const SideBarButton = (props) => {
   return (
@@ -8,10 +9,12 @@ const SideBarButton = (props) => {
         props.selected === true ? "sidebar-button-selec-cont" : ""
       }`}
     >
-      <button className="sidebar-button">
+      {/* <button className="sidebar-button"> */}
+      <Link className="sidebar-button-lnk" to={props.toLink}>
         {props.icon}
         <span className="sidebar-button-lab">{props.label}</span>
-      </button>
+      </Link>
+      {/* </button> */}
     </div>
   );
 };
@@ -65,19 +68,27 @@ const CompanyLogo = (props) => {
 };
 
 const SideBar = (props) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="app-sidebar-cont">
         <CompanyLogo />
         <div className="app-sidebar-top-cont">
           <div className={`sidebar-add-button-cont`}>
-            <MFillButton icon={<i class="ri-add-line"></i>} hfill>
+            <MFillButton
+              icon={<i class="ri-add-line"></i>}
+              hfill
+              onClick={(e) => {
+                navigate("/products/add");
+              }}
+            >
               Add Product
             </MFillButton>
           </div>
-
+              
           <SideBarButton
             selected={false}
+            toLink="/"
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -97,6 +108,7 @@ const SideBar = (props) => {
           />
           <SideBarButton
             selected={false}
+            toLink="/"
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -116,6 +128,7 @@ const SideBar = (props) => {
           />
           <SideBarButton
             selected={false}
+            toLink="/"
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -142,6 +155,7 @@ const SideBar = (props) => {
           />
           <SideBarButton
             selected={true}
+            toLink="/products"
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -161,6 +175,7 @@ const SideBar = (props) => {
           />
           <SideBarButton
             selected={false}
+            toLink="/"
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -183,6 +198,7 @@ const SideBar = (props) => {
         <div className="app-sidebar-bottom-cont">
           <SideBarButton
             selected={false}
+            toLink="/"
             icon={
               <svg
                 className="sidebar-button-ico"

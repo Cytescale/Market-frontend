@@ -10,8 +10,11 @@ import {
   MDropButton,
   MTextBox,
 } from "../../UI";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       {" "}
@@ -55,7 +58,13 @@ const AddProduct = (props) => {
                   </MButton>
                   <MButton icon={<i class="ri-draft-line"></i>}>Draft</MButton>
                   <div className="app-prod-add-form-footer-right-cont"></div>
-                  <MFillButton>Next</MFillButton>
+                  <MFillButton
+                    onClick={(e) => {
+                      navigate("/productname/edit");
+                    }}
+                  >
+                    Next
+                  </MFillButton>
                 </div>
               </MCardFooter>
             </MCard>

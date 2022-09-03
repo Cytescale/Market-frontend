@@ -1,8 +1,11 @@
 import React, { useState, ReactText } from "react";
 import { MButton, MFillButton, MTextInput, MCard, MPageHeader } from "../../UI";
 import ProductTable from "./productTable";
+import { useNavigate } from "react-router-dom";
 
 const ProdTableOpt = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="prod-list-opt-con">
@@ -22,7 +25,13 @@ const ProdTableOpt = (props) => {
         <div className="prod-list-opt-list-right-cont">
           <MButton className="prod-list-opt-list-butt-cont">Export</MButton>
           <MButton className="prod-list-opt-list-butt-cont">Import</MButton>
-          <MFillButton>ADD ITEM</MFillButton>
+          <MFillButton
+            onClick={(e) => {
+              navigate("/products/add");
+            }}
+          >
+            ADD ITEM
+          </MFillButton>
         </div>
       </div>
     </>

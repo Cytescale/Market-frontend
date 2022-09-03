@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Checkbox from "@mui/joy/Checkbox";
 import Switch, { switchClasses } from "@mui/joy/Switch";
+import { useNavigate } from "react-router-dom";
 
 const MTextInputLabelS = styled.div`
   margin-bottom: 10px;
@@ -264,12 +265,15 @@ const MPageHeaderRightButtonCont = styled.div`
 `;
 
 export const MPageHeader = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <MPageHeaderContS>
         <MPageHeaderLabS>
           {props.back ? (
             <MButton
+              onClick={() => navigate(-1)}
               style={{ marginRight: "22px", color: "#757575" }}
               icon={<i class="ri-arrow-left-line"></i>}
             >
