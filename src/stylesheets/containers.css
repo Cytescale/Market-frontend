@@ -35,7 +35,7 @@
 
 .app-prod-det-bottom-cont{
      width: 100%;
-     height: calc(100% - 92px);
+     height: calc(100% - 72px);
      display: inline-flex;
      justify-content: center;
      align-items: center;
@@ -60,15 +60,12 @@ flex-direction: column;
 position: relative;
 border-right: 1px solid #e0e0e0;
 }
-.app-prod-det-left-tab-cont{
-
-}
 
 .app-prod-det-left-inner-cont{
      overflow-y: scroll;
      z-index: 40;
      padding: 32px;
-     padding-top:27px;
+     padding-top:82px;
 }
 
 .app-prod-det-left-footer-cont{

@@ -1,3 +1,4 @@
+
 .file-picker-inner-cont{
      display: flex;
      flex-direction: column;
@@ -21,3 +22,11 @@
 font-size: 11px;
 margin-top: 7px;
 }
+
+.app-prod-card-desc{
+     padding: 22px;
+     font-size: 13px;
+     color: #555555;
+     
+}
+

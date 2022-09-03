@@ -8,7 +8,7 @@ import {
   MCardFooter,
   MCardHeader,
   MDropButton,
-  MTextBox
+  MTextBox,
 } from "../../UI";
 
 const AddProduct = (props) => {
@@ -16,7 +16,9 @@ const AddProduct = (props) => {
     <>
       {" "}
       <div className="app-page-cont">
-        <MPageHeader back>What are you creating?</MPageHeader>
+        <MPageHeader back help>
+          What are you creating?
+        </MPageHeader>
         <div className="app-prod-list-bottom-cont">
           <div className="app-prod-add-form-cont">
             <MCard>

@@ -5,7 +5,7 @@ import Checkbox from "@mui/joy/Checkbox";
 import Switch, { switchClasses } from "@mui/joy/Switch";
 
 const MTextInputLabelS = styled.div`
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-size: 13px;
   margin-left: 5px;
 `;
@@ -172,9 +172,8 @@ const MCardS = styled.div`
   width: 100%;
   border-radius: 5px;
   position: relative;
-
   border: 1px solid #e0e0e0;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
 `;
 
 export const MCard = (props) => {
@@ -199,8 +198,8 @@ const MCardHeaderS = styled.div`
   width: 100%;
   height: auto;
   font-size: 14px;
-  font-weight: 600;
-  color: #555555;
+  font-weight: 500;
+  color: #666666;
   border-bottom: 1px solid #e0e0e0;
   flex-direction: row;
 `;
@@ -221,10 +220,10 @@ export const MCardHeader = (props) => {
 const MPageHeaderContS = styled.div`
   width: auto;
   position: relative;
-  height: 92px;
-  min-height: 92px;
-  max-height: 92px;
-  padding: 6%;
+  height: 72px;
+  min-height: 72px;
+  max-height: 72px;
+  padding: 3%;
   display: flex;
   align-items: center;
   padding-top: 0px;
@@ -256,6 +255,11 @@ const MPageHeaderHelpButtS = styled.button`
   cursor: pointer;
 `;
 
+const MPageHeaderRightButtonCont = styled.div`
+  display: inline-flex;
+  gap: 12px;
+`;
+
 export const MPageHeader = (props) => {
   return (
     <>
@@ -263,7 +267,7 @@ export const MPageHeader = (props) => {
         <MPageHeaderLabS>
           {props.back ? (
             <MButton
-              style={{ marginRight: "22px" }}
+              style={{ marginRight: "22px", color: "#757575" }}
               icon={<i class="ri-arrow-left-line"></i>}
             >
               Back
@@ -274,11 +278,14 @@ export const MPageHeader = (props) => {
           ) : null}
           {props.children}
         </MPageHeaderLabS>
-        <div>
-          <MPageHeaderHelpButtS>
-            <i class="ri-question-mark"></i>
-          </MPageHeaderHelpButtS>
-        </div>
+        <MPageHeaderRightButtonCont>
+          {props.help ? (
+            <MPageHeaderHelpButtS>
+              <i class="ri-question-mark"></i>
+            </MPageHeaderHelpButtS>
+          ) : null}
+          {props.rightContent ? props.rightContent : null}
+        </MPageHeaderRightButtonCont>
       </MPageHeaderContS>
     </>
   );

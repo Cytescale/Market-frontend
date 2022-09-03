@@ -47,7 +47,7 @@ const ProdListing = (props) => {
   return (
     <>
       <div className="app-page-cont ">
-        <MPageHeader icon={<i class="ri-shopping-bag-line"></i>}>
+        <MPageHeader help icon={<i class="ri-shopping-bag-line"></i>}>
           Products
         </MPageHeader>
         <div className="app-prod-list-bottom-cont">
