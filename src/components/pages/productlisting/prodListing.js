@@ -52,7 +52,7 @@ const ProdListing = (props) => {
         </MPageHeader>
         <div className="app-prod-list-bottom-cont">
           <MCard>
-            <PageTabCont />
+            {/* <PageTabCont /> */}
             <ProdTableOpt />
             <ProductTable />
           </MCard>
