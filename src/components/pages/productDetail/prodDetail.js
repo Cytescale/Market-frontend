@@ -275,6 +275,7 @@ const ProductDetail = (props) => {
               <MFillButton icon={<i class="ri-send-plane-line"></i>}>
                 Publish
               </MFillButton>
+              <MButton icon={<i class="ri-link"></i>}></MButton>
             </>
           }
         >

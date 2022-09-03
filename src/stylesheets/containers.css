@@ -11,7 +11,7 @@
 
 
 .app-prod-add-form-data-cont{
-     margin-bottom: 22px;
+     margin-bottom: 16px;
 }
 
 
@@ -45,7 +45,7 @@
 
 
 .app-prod-det-main-cont{
-width: 50%;
+width: 55%;
 display: flex;
 flex: 1;
 height: 100%;
@@ -64,8 +64,8 @@ border-right: 1px solid #e0e0e0;
 .app-prod-det-left-inner-cont{
      overflow-y: scroll;
      z-index: 40;
-     padding: 32px;
-     padding-top:82px;
+     padding: 4%;
+     padding-top:102px;
 }
 
 .app-prod-det-left-footer-cont{
@@ -86,7 +86,7 @@ left: 0;
 }
 
 .app-prod-det-right-main-cont{
-     width: 50%;
+     width: 45%;
      height: 100%;
      position: relative;
      max-height: 100%;

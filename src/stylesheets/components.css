@@ -191,7 +191,7 @@ align-items: center;
      display: inline-flex;
      /* justify-content: center; */
      align-items: center;
-     /* border-bottom: 1px solid #e0e0e0; */
+     border-bottom: 1px solid #e0e0e0;
 }
 
 .app-tab-main-cont{
@@ -419,10 +419,6 @@ align-items: center;
      padding-bottom: 1px;
 }
 
-
-.app-prod-add-form-data-cont{
-     margin-bottom: 22px;
-}
 
 
 .app-prod-add-footer-inner{
