@@ -1,13 +1,13 @@
 .app-sidebar-cont{
      width:  14%;
      min-width: 200px;
-     /* background-color: #fff; */
      height: 100vh;  
      position: relative;
      left: 0;
      top: 0;
      bottom: 0;
      z-index: 0;
+     background-color: #017D5C;
      border-right: 1px solid #e0e0e0;
      /* box-shadow: 4px 0px 12px  rgba(0, 0, 0, 0.01); */
 }
@@ -17,19 +17,19 @@
 }
 
 .sidebar-button-cont{
-     width: 90%;
-     margin-left: 5%;
-     margin-top: 12px;
+     width: 86%;
+     margin-left: 6%;
+     margin-top: 7px;
      border-radius: 5px;
      height: fit-content;
-     color: #333333;
+     color: #A4DDCE;
 }
 
 
 .sidebar-add-button-cont{
      width: 100%;   
-     padding: 12px;
-     padding-top: 17px;
+     /* padding: 12px; */
+     /* padding-top: 17px; */
      
      /* padding-bottom: 17px; */
      /* border-bottom: 1px solid #e0e0e0; */
@@ -37,32 +37,17 @@
 
 
 .sidebar-button-selec-cont{
-     background-color: #E6F2FF;
-     color: #0057FF;
+     background-color: #05936D;
+     color: #fff;
      
-}
-
-.sidebar-button{
-     background-color: rgba(0, 0, 0, 0);
-     width: 100%;
-     padding-left: 12px;
-     padding-top: 6px;
-     padding-bottom: 6px;
-     margin-bottom: 9px;
-     border-style: none;
-     display: flex;
-     color:inherit;
-     /* justify-content: center; */
-     align-items: center;
-     cursor: pointer;
 }
 
 .sidebar-button-lnk{
      background-color: rgba(0, 0, 0, 0);
      width: 100%;
-     padding-left: 12px;
-     padding-top: 6px;
-     padding-bottom: 6px;
+     padding-left:12px;
+     padding-top: 8px;
+     padding-bottom: 8px;
      margin-bottom: 9px;
      border-style: none;
      display: flex;
@@ -74,51 +59,62 @@
 }
 
 .sidebar-dark-button{
-     background-color: #f4f4f4;
-     width: calc(100% - 24px);
-     margin-left: 12px;
+     background-color: #016A4D;
+     width: calc(100% );
      margin-right: 12px;
-     padding-top: 6px;
-     padding-bottom: 6px;
+     padding-top: 9px;   
+     padding-bottom: 9px;
      margin-bottom: 8px;
      border-style: none;
+     border: 1px solid #008965;
      border-radius: 5px;
      display: flex;
      color:inherit;
-     /* justify-content: center; */
+     justify-content: center;
      align-items: center;
      cursor: pointer;
 }
+.sidebar-dark-butt-lab{
+     margin-left: 7px;
+     font-family: 'inter';
+     font-weight: 600;
+     font-size: 11px;
+     
+     color: #fff;
+}
 
 .sidebar-button-ico{
-     width: 19px;
-     height: 19px;
+     width: 17px;
+     height: 17px;
      color: inherit;
 }    
 
 .sidebar-button-lab{
-     margin-left: 5px;
-     font-family: 'poppins';
-     font-weight: 600;
+     margin-left: 7px;
+     font-family: 'inter';
+     font-weight: 500;
      font-size: 12px;
      color: inherit;
 }
 
 .sidebar-lab-cont
 {
-     color: #666666;
-     font-size: 13px;
-     font-weight: 600;
-     padding-left: 22px;
-     padding-top: 12px;
-     padding-bottom: 12px;
+     color: #5CB89F;
+     font-size: 11px;
+     font-family: inter;
+     font-weight: 700;
+     padding-left: 25px;
+     padding-top: 22px;
+     padding-bottom: 6px;
+     letter-spacing: 3px;
+     /* padding-bottom: 12px; */
 }
 
 .sidebar-div-cont{
      width: 80%;
      margin-left: 10%;
      height: 1px;
-     background-color: #e0e0e0;
+     background-color: #188C6D;
      margin-top: 12px;
      margin-bottom: 12px;
 }
@@ -135,22 +131,22 @@
      height: 72px;
      align-items: center;
      padding-left: 22px;
-     
-     border-bottom: 1px solid #e0e0e0;
+     background-color: #008965;
+     /* border-bottom: 1px solid #e0e0e0; */
 }
 
 .sidebar-logo-lable{
      font-weight: 800;
      font-size: 17px;
-     color: #000;
+     color: #fff;
      font-family: inter;
-     margin-right: 6px;
+     margin-left: 6px;
 }
 
 .sidebar-logo-ico{
      width: 32px;
      height: 32px;
-     color: #000;
+     color: #fff;
 }
 
 .app-page-head-right-cont{

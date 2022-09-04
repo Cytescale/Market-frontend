@@ -6,7 +6,7 @@
      height: 100%;
      width: 100%;
      /* background-color: #F8F9FA; */
-     background-color: #F6F6F7; 
+     background-color: #ECF0F3; 
      z-index: 70;
      
      /* background-color: #fff; */
@@ -24,7 +24,7 @@
  min-height: 100vh;
  max-height: 100vh;
  background-color: #fefefe;
- /* box-shadow: -4px 0px 6px  rgba(0, 0, 0, 0.03); */
+ box-shadow: -4px 0px 6px  rgba(0, 0, 0, 0.03);
  overflow: hidden;
 }
 .app-page-base-cont{

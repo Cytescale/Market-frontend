@@ -32,7 +32,9 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
     cursor: "pointer",
     borderBottom: "1px solid #f1f1f1",
-    padding: "8px",
+    padding: "9px",
+    paddingTop: "12px",
+    paddingBottom: "12px",
   },
   "tr:hover": {
     backgroundColor: "#f5f5f5",

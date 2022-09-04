@@ -8,13 +8,15 @@ import { useNavigate } from "react-router-dom";
 const MTextInputLabelS = styled.div`
   margin-bottom: 10px;
   font-size: 13px;
+  color: ${(props) => (props.foc ? "#0057FF" : "#000")};
   margin-left: 5px;
 `;
 
 const MTextInputContS = styled.div`
   width: auto;
   height: 42px;
-  background-color: #f8f9fa;
+  background-color: ${(props) => (props.foc ? "#E6F2FF" : "null")};
+  border: ${(props) => (props.foc ? "1px solid #E6F2FF" : "1px solid #e0e0e0")};
   display: flex;
   align-items: center;
   padding-left: 12px;
@@ -32,18 +34,30 @@ const MTextInputS = styled.input`
 `;
 
 export const MTextInput = (props) => {
+  const [foc, setFoc] = useState(false);
+  const handleFocus = () => {
+    setFoc(true);
+  };
+  const handleBlur = () => {
+    setFoc(false);
+  };
   return (
     <>
       <div>
         {props.label ? (
-          <MTextInputLabelS>{props.label}</MTextInputLabelS>
+          <MTextInputLabelS foc={foc}>{props.label}</MTextInputLabelS>
         ) : null}
-        <MTextInputContS>
+        <MTextInputContS foc={foc}>
           {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
           {props.leftLabel ? (
             <MInputLabelCont>{props.leftLabel}</MInputLabelCont>
           ) : null}
-          <MTextInputS {...props} />
+          <MTextInputS
+            {...props}
+            foc={foc}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          />
           {props.rightContent ? (
             <MInputRightCont>{props.rightContent}</MInputRightCont>
           ) : null}
@@ -82,7 +96,7 @@ const MButtonS = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  color: #0057ff;
+  color: #017d5c;
   background-color: #fff;
   padding-left: 16px;
   padding-right: 16px;
@@ -99,7 +113,7 @@ const MFillButtonS = styled.button`
   justify-content: center;
   font-size: 13px;
   color: #fff;
-  background-color: #0057ff;
+  background-color: #017d5c;
   padding-left: 16px;
   padding-right: 16px;
   border-radius: 6px;
@@ -200,7 +214,7 @@ const MCardHeaderS = styled.div`
   height: auto;
   font-size: 14px;
   font-weight: 500;
-  background-color: #f9f9f9;
+  // background-color: #f9f9f9;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   color: #000;
