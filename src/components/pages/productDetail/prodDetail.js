@@ -221,32 +221,32 @@ const ProductDetailCont = (props) => {
   );
 };
 
-const TabIndexArr = ["Product", "Content", "Checkout"];
+  const TabIndexArr = ["Product", "Content", "Checkout"];
 
-const PageTabCont = (props) => {
-  useEffect(() => {}, [props.slideInd]);
-  return (
-    <>
-      <div className="app-page-tab-cont">
-        <div className="app-tab-main-cont">
-          {TabIndexArr.map((e, i) => {
-            return (
-              <button
-                key={i}
-                className={`app-tab-butt ${
-                  props.slideInd == i ? "app-tab-selec" : null
-                }`}
-                onClick={() => props.setSlideInd(i)}
-              >
-                {e}
-              </button>
-            );
-          })}
+  const PageTabCont = (props) => {
+    useEffect(() => {}, [props.slideInd]);
+    return (
+      <>
+        <div className="app-page-tab-cont">
+          <div className="app-tab-main-cont">
+            {TabIndexArr.map((e, i) => {
+              return (
+                <button
+                  key={i}
+                  className={`app-tab-butt ${
+                    props.slideInd == i ? "app-tab-selec" : null
+                  }`}
+                  onClick={() => props.setSlideInd(i)}
+                >
+                  {e}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  };
 
 const ProductTabSwitch = (props) => {
   switch (props.slideInd) {

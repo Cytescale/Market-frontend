@@ -1,9 +1,19 @@
 import React, { useState } from "react";
-import { MFillButton } from "../UI";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Avatar from "@mui/joy/Avatar";
+import {
+  MModal,
+  MCard,
+  MCardFooter,
+  MButton,
+  MTextInput,
+  MCardHeader,
+  MDropButton,
+  MFillButton,
+} from "../UI";
 
 const SideBarButton = (props) => {
+  
   return (
     <div
       className={`sidebar-button-cont ${
@@ -27,7 +37,7 @@ const DarkSideBarButton = (props) => {
         props.selected === true ? "sidebar-button-selec-cont" : ""
       }`}
     >
-      <button className="sidebar-dark-button">
+      <button className="sidebar-dark-button" {...props}>
         {props.icon}
         <span className="sidebar-dark-butt-lab">{props.label}</span>
       </button>
@@ -68,12 +78,73 @@ const CompanyLogo = (props) => {
   );
 };
 
+const AddProductModal = (props) => {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <MCard>
+        <MCardHeader pad={22}>Add Product</MCardHeader>
+        <div className="app-prod-add-form-inner">
+          <div className="app-prod-add-form-data-cont">
+            <MTextInput
+              label="Product title"
+              placeholder="Enter product title"
+            />
+          </div>
+          <div className="app-prod-add-form-data-cont">
+            <MDropButton
+              label="Product type"
+              buttonlabel="Not selected"
+              hfill
+            ></MDropButton>
+          </div>
+          <div className="app-prod-add-form-data-cont">
+            <MTextInput
+              label="Product Price"
+              icon={<i class="ri-money-dollar-circle-line"></i>}
+              placeholder="Enter product price"
+            />
+          </div>
+        </div>
+        <MCardFooter>
+          <div className="app-prod-add-footer-inner">
+            <MButton
+              icon={<i class="ri-close-line"></i>}
+              style={{ marginRight: "12px" }}
+            >
+              Cancel
+            </MButton>
+            <MButton icon={<i class="ri-draft-line"></i>}>Draft</MButton>
+            <div className="app-prod-add-form-footer-right-cont"></div>
+            <MFillButton
+              onClick={(e) => {
+                props.handleClose();
+                navigate("/productname/edit");
+              }}
+            >
+              Next
+            </MFillButton>
+          </div>
+        </MCardFooter>
+      </MCard>
+    </>
+  );
+};
+
 const SideBar = (props) => {
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <div className="app-sidebar-cont">
         <CompanyLogo />
+        <MModal open={open} handleClose={handleClose}>
+          <AddProductModal navigate={navigate} handleClose={handleClose} />
+        </MModal>
         <div className="app-sidebar-top-cont">
           <SideBarLabel label="PRODUCT" />
           <DarkSideBarButton
@@ -81,7 +152,8 @@ const SideBar = (props) => {
             icon={<i class="ri-add-line"></i>}
             label={`ADD PRODUCT`}
             onClick={(e) => {
-              navigate("/products/add");
+              // navigate("/products/add");
+              handleOpen();
             }}
           />
 

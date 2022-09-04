@@ -4,6 +4,34 @@ import styled from "styled-components";
 import Checkbox from "@mui/joy/Checkbox";
 import Switch, { switchClasses } from "@mui/joy/Switch";
 import { useNavigate } from "react-router-dom";
+import Modal from "@mui/material/Modal";
+
+const MModalContS = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+`;
+
+export const MModal = (props) => {
+  return (
+    <>
+      <Modal
+        open={props.open}
+        onClose={props.handleClose}
+        sx={{
+          bgcolor: "rgba(5, 147, 109, 0.3)",
+        }}
+      >
+        <MModalContS>
+          <div className="card-main-cont">{props.children}</div>
+        </MModalContS>
+      </Modal>
+    </>
+  );
+};
 
 const MTextInputLabelS = styled.div`
   margin-bottom: 10px;
@@ -465,6 +493,7 @@ export const MCheckbox = (props) => {
 
 export const MSwitch = (props) => {
   const [checked, setChecked] = useState(false);
+
   return (
     <Switch
       onChange={(event) => setChecked(event.target.checked)}

@@ -15,11 +15,12 @@ import { useNavigate } from "react-router-dom";
 
 const MTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    // backgroundColor: "#f9f9f9",
-    color: "#666666",
-    padding: "4px",
-    fontSize: 13,
-    borderBottom: "4px solid #f5f5f5",
+    backgroundColor: "#f9f9f9",
+    color: "#858585",
+    padding: "5px",
+    fontSize: 12,
+    fontWeight: "600",
+    borderBottom: "1px solid #e0e0e0",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 12,
