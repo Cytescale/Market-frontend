@@ -480,7 +480,8 @@ export const MCheckbox = (props) => {
         },
         "&.JoyCheckbox-root ": {
           borderStyle: "none",
-          background: "#E6F2FF",
+          background: "#fff",
+          border: "2px solid #e0e0e0",
           borderRadius: "5px",
         },
         "&.JoyCheckbox-root:hover": {
@@ -493,6 +494,9 @@ export const MCheckbox = (props) => {
 
 export const MSwitch = (props) => {
   const [checked, setChecked] = useState(false);
+  useEffect(() => {
+    setChecked(props.checked);
+  }, []);
 
   return (
     <Switch

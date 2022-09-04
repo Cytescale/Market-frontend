@@ -41,7 +41,7 @@ const ProdTableOpt = (props) => {
 const PageTabCont = (props) => {
   return (
     <>
-      <div className="app-page-tab-cont">
+      <div className="app-product-listing-tab-cont">
         <div className="app-tab-main-cont">
           <button className="app-tab-butt app-tab-selec">All</button>
           <button className="app-tab-butt">Active</button>
@@ -60,11 +60,13 @@ const ProdListing = (props) => {
           Products
         </MPageHeader>
         <div className="app-prod-list-bottom-cont">
-          <MCard>
-            {/* <PageTabCont /> */}
-            <ProdTableOpt />
-            <ProductTable />
-          </MCard>
+          <div className="app-prod-tab-cont">
+            <MCard>
+              <PageTabCont />
+              <ProdTableOpt />
+              <ProductTable />
+            </MCard>
+          </div>
         </div>
       </div>
     </>

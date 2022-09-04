@@ -3,6 +3,7 @@ import DATA from "./fakeProdData";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
+import TablePagination from "@mui/material/TablePagination";
 import Checkbox from "@mui/material/Checkbox";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
@@ -10,7 +11,15 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Switch } from "@mui/material";
 import { Link } from "react-router-dom";
-import { MCheckbox } from "../../UI";
+import {
+  MButton,
+  MCheckbox,
+  MSwitch,
+  MModal,
+  MCard,
+  MFillButton,
+  MCardHeader,
+} from "../../UI";
 import { useNavigate } from "react-router-dom";
 
 const MTableCell = styled(TableCell)(({ theme }) => ({
@@ -40,6 +49,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "tr:hover": {
     backgroundColor: "#f5f5f5",
   },
+  "&:nth-of-type(even)": {
+    // backgroundColor: "#f9f9f9",
+  },
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
 }));
 
 const ProductTableRender = (props) => {
@@ -50,7 +65,7 @@ const ProductTableRender = (props) => {
       <Table>
         <TableHead>
           <TableRow>
-            <MTableCell align="center" padding="checkbox">
+            <MTableCell align="center" className="data-tab-selec-cell-cont">
               <MCheckbox color="primary" checked={false} onChange={null} />
             </MTableCell>
             <MTableCell
@@ -58,22 +73,21 @@ const ProductTableRender = (props) => {
               className="data-tab-selec-img-cont"
             ></MTableCell>
             <MTableCell align="left">Product</MTableCell>
+            <MTableCell align="center">Link</MTableCell>
             <MTableCell align="center">Status</MTableCell>
             <MTableCell align="center">Sales</MTableCell>
             <MTableCell align="center">Inventory</MTableCell>
             <MTableCell align="center">Revenue</MTableCell>
+            <MTableCell
+              align="center"
+              className="data-tab-act-cont"
+            ></MTableCell>
           </TableRow>
         </TableHead>
         <TableBody className="data-tab-body-cont">
           {DATA.map((row) => (
-            <StyledTableRow
-              key={row.name}
-              className="data-tab-row-cont"
-              onClick={(e) => {
-                navigate("/productname/edit");
-              }}
-            >
-              <MTableCell align="center" padding="checkbox">
+            <StyledTableRow key={row.name} className="data-tab-row-cont">
+              <MTableCell align="center" className="data-tab-selec-cell-cont">
                 <MCheckbox color="primary" checked={false} onChange={null} />
               </MTableCell>
               <MTableCell align="left" className="data-tab-selec-img-cont">
@@ -81,6 +95,20 @@ const ProductTableRender = (props) => {
               </MTableCell>
               <MTableCell className="data-tab-data-name-cont">
                 <div className="data-tab-data-name-data">{row.product}</div>
+              </MTableCell>
+              <MTableCell className="data-tab-data-name-cont" align="center">
+                <div className="data-tab-data-link-data">
+                  <Link
+                    to="api.market.com/24234/asd"
+                    className="data-tab-data-link"
+                  >
+                    api.market.com/24234/asd
+                  </Link>
+                  <MButton
+                    borderless
+                    icon={<i class="ri-clipboard-line"></i>}
+                  />
+                </div>
               </MTableCell>
               <MTableCell align="center">
                 <div className="data-tab-data-stat-data-cont">
@@ -90,6 +118,22 @@ const ProductTableRender = (props) => {
               <MTableCell align="center">{row.sales}</MTableCell>
               <MTableCell align="center">{row.inventory}</MTableCell>
               <MTableCell align="center">{row.revenue}</MTableCell>
+              <MTableCell align="center" className="data-tab-act-cont">
+                <div className="data-tab-data-act-cont">
+                  <MButton
+                    borderless={true}
+                    onClick={props.handleDelVisOpen}
+                    icon={<i class="ri-delete-bin-line"></i>}
+                  />
+                  <MButton
+                    borderless={true}
+                    icon={<i class="ri-pencil-line"></i>}
+                    onClick={(e) => {
+                      navigate("/productname/edit");
+                    }}
+                  />
+                </div>
+              </MTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
@@ -98,11 +142,36 @@ const ProductTableRender = (props) => {
   );
 };
 
+const ProductDelModalCont = (props) => {
+  return (
+    <MCard>
+      <MCardHeader pad={22}>Delete Product</MCardHeader>
+      <div className="prod-tab-del-mod-cont">
+        <div className="app-del-mess-desc">
+          Are you sure you want to delete this product? The product cannot be
+          restored again after getting deleted.
+        </div>
+
+        <MFillButton hfill style={{ backgroundColor: "#FF6839" }}>
+          Confirm delete
+        </MFillButton>
+      </div>
+    </MCard>
+  );
+};
+
 const ProductTable = (props) => {
+  const [delModalVis, setDelModalVis] = React.useState(false);
+  const handleDelVisOpen = () => setDelModalVis(true);
+  const handleDelVisClose = () => setDelModalVis(false);
+
   return (
     <>
       <div className="data-tab-main-cont">
-        <ProductTableRender />
+        <MModal open={delModalVis} handleClose={handleDelVisClose}>
+          <ProductDelModalCont handleDelVisClose={handleDelVisClose} />
+        </MModal>
+        <ProductTableRender handleDelVisOpen={handleDelVisOpen} />
       </div>
     </>
   );

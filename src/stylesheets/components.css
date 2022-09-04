@@ -208,6 +208,14 @@ align-items: center;
      align-items: center;
      border-bottom: 1px solid #e0e0e0;
 }
+.app-product-listing-tab-cont{
+     width: 100%;
+     height: auto;
+     display: inline-flex;
+     align-items: center;
+
+     border-bottom: 1px solid #e0e0e0;
+}
 
 .app-tab-main-cont{
      margin-left: 32px;
@@ -277,6 +285,39 @@ align-items: center;
      
 }
 
+.app-prod-tab-cont{
+width: 100%;
+
+}
+
+.app-prod-anal-card-lab{
+     font-size: 14px;
+color: #323232;
+font-weight: 600;
+}
+
+.app-prod-anal-list-main-cont{
+    margin-bottom: 22px; 
+    display: inline-flex;
+    gap: 22px;
+}
+
+.app-prod-anal-data-lab{
+     font-size: 28px;
+     color: #188C6D;
+     
+     /* margin-top: 6px; */
+     font-weight: 700;
+}
+
+
+
+.app-anal-card-cont{
+     width: 100px;
+     height: 200px;
+     background-color: red;
+}
+
 .prod-list-opt-con{
      width: 100%;
      /* padding: 12px; */
@@ -284,7 +325,6 @@ align-items: center;
      padding-bottom: 22px;
      display: inline-flex;
      position: relative;
-     
      border-bottom: 1px solid #e0e0e0;
 }
 
@@ -382,15 +422,17 @@ align-items: center;
      padding-left: 12px;
      padding-right: 12px;
      display: flex;
+     color: #008965;
      justify-content: center;
      align-items: center;
-     padding-bottom: 3px;
+     padding-top: 5px;
+     padding-bottom: 5px;
      border-radius: 8px;
 
 }
 
 .data-tab-selec-cell-cont{
-     width: 50px;
+     width: 40px;
 }
 
 .data-tab-selec-img-cont{
@@ -403,9 +445,42 @@ align-items: center;
      max-width: 200px;
 }
 
+.data-tab-act-cont{
+     width: 150px;
+}
+
 .data-tab-data-name-data{
-     font-weight: 500;
+     /* font-weight: 500; */
      font-family: 'poppins';
+}
+
+.data-tab-data-link-data{
+display: inline-flex;
+align-items: center;
+}
+
+.app-tab-del-mod-lab{
+     font-size: 18px;
+     font-weight: 700;
+     color:#555555;
+}
+
+.app-del-mess-desc{
+     margin-bottom: 22px;
+     font-size: 13px;
+     color: #555555;
+     
+}
+
+
+.data-tab-data-link
+{
+     color: #0057FF;
+     text-decoration: none;
+}
+
+.prod-tab-del-mod-cont{
+     padding: 22px;
 }
 
 .data-tab-data-img-data{
@@ -415,6 +490,12 @@ align-items: center;
      border-radius: 8px;
 }
 
+.data-tab-data-act-cont{
+     
+     display: inline-flex;
+
+     
+}
 
 .data-tab-data-nrm-data{
      font-size: 13px;
