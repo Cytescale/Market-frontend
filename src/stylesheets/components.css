@@ -532,3 +532,20 @@ align-items: center;
      width: auto;
      justify-content: end;
 }
+
+.app-popover-cont{
+     width: 200px;
+     padding: 7px;
+     font-size: 13px;
+}
+
+.app-popover-lab-cont{
+ /* margin-bottom: 12px; */
+
+ padding: 12px;
+ 
+}
+
+.app-popover-rad-data-cont{
+     width: 100%;
+}

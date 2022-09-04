@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DATA from "./fakeProdData";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";

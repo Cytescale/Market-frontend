@@ -4,7 +4,9 @@ import styled from "styled-components";
 import Checkbox from "@mui/joy/Checkbox";
 import Switch, { switchClasses } from "@mui/joy/Switch";
 import { useNavigate } from "react-router-dom";
-import Modal from "@mui/material/Modal";
+import { Modal } from "@mui/material";
+import Popover from "@mui/material/Popover";
+import Radio from "@mui/material/Radio";
 
 const MModalContS = styled.div`
   position: absolute;
@@ -33,6 +35,79 @@ export const MModal = (props) => {
   );
 };
 
+const MRadioButtonContS = styled.div`
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+  border-radius: 6px;
+  width: 100%;
+`;
+const MRadioLabelS = styled.div`
+  width: 100%;
+  font-size: 12px;
+  cursor: pointer;
+`;
+
+export const MRadioButton = (props) => {
+  return (
+    <MRadioButtonContS
+      style={{
+        background: `${props.value === props.selected ? "#E6F2FF" : "#fff"}`,
+      }}
+    >
+      <Radio
+        checked={props.value === props.selected ? true : false}
+        onChange={props.handleChange}
+        value={props.value}
+        disableRipple
+        sx={{
+          fontSize: "13px",
+          fontFamily: "poppins",
+          color: "#E6F2FF",
+          "& .MuiSvgIcon-root": {
+            fontSize: 17,
+          },
+          "&:hover": {
+            background: "transparent",
+          },
+          "&.Mui-checked": {
+            color: "#0077E6",
+          },
+        }}
+      />
+      {props.label ? (
+        <MRadioLabelS onClick={props.handleChange}>{props.label}</MRadioLabelS>
+      ) : null}
+    </MRadioButtonContS>
+  );
+};
+
+export const MPopover = (props) => {
+  return (
+    <>
+      <Popover
+        elevation={0}
+        open={props.open}
+        anchorEl={props.childRef}
+        onClose={props.handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        style={{
+          marginTop: "12px",
+        }}
+      >
+        <div className="popover-main-cont">{props.children}</div>
+      </Popover>
+    </>
+  );
+};
+
 const MTextInputLabelS = styled.div`
   margin-bottom: 10px;
   font-size: 13px;
@@ -42,7 +117,7 @@ const MTextInputLabelS = styled.div`
 
 const MTextInputContS = styled.div`
   width: auto;
-  height: 42px;
+  height: 36px;
   background-color: ${(props) => (props.foc ? "#E6F2FF" : "null")};
   border: ${(props) => (props.foc ? "1px solid #E6F2FF" : "1px solid #e0e0e0")};
   display: flex;

@@ -1,4 +1,6 @@
 
+/*/////////STYLE FOR  "ONLY" INDEX FILE OF UI////////////////////////////////////*/
+
 .file-picker-inner-cont{
      display: flex;
      flex-direction: column;
@@ -35,6 +37,7 @@ margin-top: 7px;
      box-sizing: border-box;
 }
 
-.MuiBackdrop-root{
-     
+.popover-main-cont{
+border-radius: 7px;
+border: 1px solid #e0e0e0;
 }
