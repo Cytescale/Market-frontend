@@ -5,7 +5,13 @@ import ProductDetail from "./components/pages/productDetail/prodDetail";
 import AddProduct from "./components/pages/addProduct/addProduct";
 import ProfileBase from "./components/pages/profile/profileBase";
 import LoginBase from "./components/pages/login";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import { useState } from "react";
 
 const ShellComp = (props) => {
@@ -35,6 +41,7 @@ function App() {
                 </ShellComp>
               }
             ></Route>
+            <Route exact path="/" element={<Navigate to="/products" />}></Route>
             <Route exact path="/analytics" element={<ShellComp />}></Route>
             <Route exact path="/customers" element={<ShellComp />}></Route>
             <Route exact path="/home" element={<ShellComp />}></Route>
