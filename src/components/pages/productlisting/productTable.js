@@ -122,11 +122,13 @@ const ProductTableRender = (props) => {
                 <div className="data-tab-data-act-cont">
                   <MButton
                     borderless={true}
+                    style={{ color: "#bdbdbd" }}
                     onClick={props.handleDelVisOpen}
                     icon={<i class="ri-delete-bin-line"></i>}
                   />
                   <MButton
                     borderless={true}
+                    style={{ color: "#bdbdbd" }}
                     icon={<i class="ri-pencil-line"></i>}
                     onClick={(e) => {
                       navigate("/products/productname/edit");

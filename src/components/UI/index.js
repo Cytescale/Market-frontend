@@ -207,7 +207,7 @@ const MButtonS = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  color: #017d5c;
+  color: #0077e6;
   background-color: #fff;
   padding-left: 16px;
   padding-right: 16px;
@@ -224,7 +224,7 @@ const MFillButtonS = styled.button`
   justify-content: center;
   font-size: 13px;
   color: #fff;
-  background-color: #017d5c;
+  background-color: #0077e6;
   padding-left: 16px;
   padding-right: 16px;
   border-radius: 6px;

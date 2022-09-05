@@ -31,6 +31,22 @@ const SideBarActionButton = (props) => {
   );
 };
 
+const AccLogModalCont = (props) => {
+  return (
+    <MCard>
+      <MCardHeader pad={22}>Account Logout</MCardHeader>
+      <div className="prod-tab-del-mod-cont">
+        <MButton hfill style={{ marginBottom: "12px" }}>
+          Cancel
+        </MButton>
+        <MFillButton hfill style={{ backgroundColor: "#FF6839" }}>
+          Confirm Logout
+        </MFillButton>
+      </div>
+    </MCard>
+  );
+};
+
 const SideBarLinkButton = (props) => {
   const location = useLocation();
   const isActive = location.pathname.includes(props.toLink);
@@ -153,9 +169,15 @@ const AddProductModal = (props) => {
 
 const SideBar = (props) => {
   const navigate = useNavigate();
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [accLogModVis, setAccLogModVis] = React.useState(false);
+  const handleAccLogOpen = () => setAccLogModVis(true);
+  const handleAccLogClose = () => setAccLogModVis(false);
+
   const [profPopVisi, setProfPopVisi] = useState(null);
   const handleProfPopClose = () => {
     setProfPopVisi(null);
@@ -168,6 +190,12 @@ const SideBar = (props) => {
         <CompanyLogo />
         <MModal open={open} handleClose={handleClose}>
           <AddProductModal navigate={navigate} handleClose={handleClose} />
+        </MModal>
+        <MModal open={accLogModVis} handleClose={handleAccLogClose}>
+          <AccLogModalCont
+            navigate={navigate}
+            handleClose={handleAccLogClose}
+          />
         </MModal>
         <MPopover
           open={profPopVisiBool}
@@ -197,6 +225,10 @@ const SideBar = (props) => {
               style={{ color: "#FF6839" }}
               borderless
               icon={<i class="ri-logout-box-r-line"></i>}
+              onClick={() => {
+                handleProfPopClose();
+                handleAccLogOpen();
+              }}
             >
               Logout
             </MButton>
