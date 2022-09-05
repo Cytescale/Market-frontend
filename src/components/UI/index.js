@@ -90,14 +90,22 @@ export const MPopover = (props) => {
         open={props.open}
         anchorEl={props.childRef}
         onClose={props.handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
+        anchorOrigin={
+          props.anchorOrigin
+            ? props.anchorOrigin
+            : {
+                vertical: "bottom",
+                horizontal: "center",
+              }
+        }
+        transformOrigin={
+          props.transformOrigin
+            ? props.transformOrigin
+            : {
+                vertical: "top",
+                horizontal: "center",
+              }
+        }
         style={{
           marginTop: "12px",
         }}
@@ -290,7 +298,7 @@ const MCardS = styled.div`
   width: 100%;
   border-radius: 7px;
   position: relative;
-  border: 1px solid #e0e0e0;
+  border: ${(props) => (props.borderless ? null : "1px solid #e0e0e0")};
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
 `;
 
@@ -411,6 +419,65 @@ export const MPageHeader = (props) => {
           {props.rightContent ? props.rightContent : null}
         </MPageHeaderRightButtonCont>
       </MPageHeaderContS>
+    </>
+  );
+};
+
+const MPageHeaderCont2S = styled.div`
+  width: auto;
+  position: relative;
+  height: 102px;
+  min-height: 102px;
+  max-height: 102px;
+  padding: 3%;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-bottom: 1px solid #e0e0e0;
+`;
+const MPageHeaderLab2S = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  color: #555555;
+
+  width: auto;
+  align-items: center;
+`;
+
+export const MPageHeader2 = (props) => {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <MPageHeaderCont2S>
+        <MPageHeaderLab2S>
+          {props.icon ? (
+            <div className="app-page-head-cont-ico-cont">{props.icon}</div>
+          ) : null}
+          {props.children}
+        </MPageHeaderLab2S>
+
+        <MPageHeaderRightButtonCont
+          style={{
+            position: "absolute",
+            right: "22px",
+            top: 0,
+            height: "100%",
+            alignItems: "center",
+            bottom: 0,
+          }}
+        >
+          {props.help ? (
+            <MPageHeaderHelpButtS>
+              <i class="ri-question-mark"></i>
+            </MPageHeaderHelpButtS>
+          ) : null}
+          {props.rightContent ? props.rightContent : null}
+        </MPageHeaderRightButtonCont>
+      </MPageHeaderCont2S>
     </>
   );
 };

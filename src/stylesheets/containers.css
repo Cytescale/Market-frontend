@@ -99,3 +99,39 @@ left: 0;
 .app-prod-det-left-card-cont{
      margin-bottom: 22px;    
 }
+
+
+/*//////////////PROFILE SECTION ///////////////*/
+
+.app-prof-out-main-cont{
+     width: 100%;
+     height: 100%;
+     display: flex;
+     overflow-y: scroll;
+     justify-content: center;
+     background-color: #f9f9f9;    
+}
+
+.app-prof-main-cont{
+width: 50%;
+height: 100%;
+position: relative;
+}
+
+.app-prof-card-lab-cont{
+
+margin-bottom: 12px;
+font-size: 19px;
+color:#656565;
+font-weight: 600;
+}
+
+.app-prof-card-main-cont{
+     margin-top: 32px;
+}
+
+.app-prof-inner-cont{
+     z-index: 40;
+     padding: 5%;
+     padding-top:82px;
+}

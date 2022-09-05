@@ -129,7 +129,7 @@ const ProductTableRender = (props) => {
                     borderless={true}
                     icon={<i class="ri-pencil-line"></i>}
                     onClick={(e) => {
-                      navigate("/productname/edit");
+                      navigate("/products/productname/edit");
                     }}
                   />
                 </div>

@@ -42,6 +42,22 @@
      
 }
 
+.sidebar-act-button{
+     background-color: rgba(0, 0, 0, 0);
+     width: 100%;
+     padding-left:12px;
+     padding-top: 8px;
+     padding-bottom: 8px;
+     margin-bottom: 9px;
+     border-style: none;
+     display: flex;
+     text-decoration: none;
+     color:inherit;
+     /* justify-content: center; */
+     align-items: center;
+     cursor: pointer;
+}
+
 .sidebar-button-lnk{
      background-color: rgba(0, 0, 0, 0);
      width: 100%;
@@ -208,6 +224,20 @@ align-items: center;
      align-items: center;
      border-bottom: 1px solid #e0e0e0;
 }
+
+.app-profile-tab-cont{
+     width: 100%;     
+     height: auto;
+     position: absolute;
+     z-index: 100;
+     background: rgba(248, 249, 250, 0.704);
+     backdrop-filter: blur(22px);
+     margin-top: 12px;
+     display: inline-flex;
+     align-items: center;
+
+}
+
 .app-product-listing-tab-cont{
      width: 100%;
      height: auto;
@@ -535,6 +565,12 @@ align-items: center;
 
 .app-popover-cont{
      width: 200px;
+     padding: 7px;
+     font-size: 13px;
+}
+
+.app-side-bar-popover-cont{
+     width: 150px;
      padding: 7px;
      font-size: 13px;
 }

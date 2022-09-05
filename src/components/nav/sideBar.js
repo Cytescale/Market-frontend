@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Avatar from "@mui/joy/Avatar";
 import {
   MModal,
@@ -10,22 +10,41 @@ import {
   MCardHeader,
   MDropButton,
   MFillButton,
+  MPopover,
 } from "../UI";
 
-const SideBarButton = (props) => {
-  
+const SideBarActionButton = (props) => {
+  const location = useLocation();
+  const isActive = location.pathname.includes(props.toLink);
+
   return (
     <div
       className={`sidebar-button-cont ${
-        props.selected === true ? "sidebar-button-selec-cont" : ""
+        isActive ? "sidebar-button-selec-cont" : ""
       }`}
     >
-      {/* <button className="sidebar-button"> */}
+      <button className="sidebar-act-button" {...props}>
+        {props.icon}
+        <span className="sidebar-button-lab">{props.label}</span>
+      </button>
+    </div>
+  );
+};
+
+const SideBarLinkButton = (props) => {
+  const location = useLocation();
+  const isActive = location.pathname.includes(props.toLink);
+
+  return (
+    <div
+      className={`sidebar-button-cont ${
+        isActive ? "sidebar-button-selec-cont" : ""
+      }`}
+    >
       <Link className="sidebar-button-lnk" to={props.toLink}>
         {props.icon}
         <span className="sidebar-button-lab">{props.label}</span>
       </Link>
-      {/* </button> */}
     </div>
   );
 };
@@ -137,6 +156,11 @@ const SideBar = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [profPopVisi, setProfPopVisi] = useState(null);
+  const handleProfPopClose = () => {
+    setProfPopVisi(null);
+  };
+  const profPopVisiBool = Boolean(profPopVisi);
 
   return (
     <>
@@ -145,55 +169,85 @@ const SideBar = (props) => {
         <MModal open={open} handleClose={handleClose}>
           <AddProductModal navigate={navigate} handleClose={handleClose} />
         </MModal>
+        <MPopover
+          open={profPopVisiBool}
+          handleClose={handleProfPopClose}
+          childRef={profPopVisi}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+        >
+          <div className="app-side-bar-popover-cont">
+            <MButton
+              borderless
+              icon={<i class="ri-user-3-line"></i>}
+              onClick={() => {
+                handleProfPopClose();
+                navigate("/profile");
+              }}
+            >
+              Profile
+            </MButton>
+            <MButton
+              style={{ color: "#FF6839" }}
+              borderless
+              icon={<i class="ri-logout-box-r-line"></i>}
+            >
+              Logout
+            </MButton>
+          </div>
+        </MPopover>
         <div className="app-sidebar-top-cont">
           <SideBarLabel label="PRODUCT" />
           <DarkSideBarButton
-            selected={false}
             icon={<i class="ri-add-line"></i>}
             label={`ADD PRODUCT`}
             onClick={(e) => {
-              // navigate("/products/add");
               handleOpen();
             }}
           />
 
           <SideBarLabel label="MENU" />
-          <SideBarButton
-            selected={false}
-            toLink="/"
+          <SideBarLinkButton
+            toLink="/home"
             icon={<i class="ri-home-line"></i>}
             label={`Home`}
           />
-          <SideBarButton
-            selected={false}
-            toLink="/"
+          <SideBarLinkButton
+            toLink="/analytics"
             icon={<i class="ri-bar-chart-line"></i>}
             label={`Analytics`}
           />
-          <SideBarButton
-            selected={false}
-            toLink="/"
+          <SideBarLinkButton
+            toLink="/customers"
             icon={<i class="ri-group-line"></i>}
             label={`Customers`}
           />
-          <SideBarButton
+          <SideBarLinkButton
             selected={true}
             toLink="/products"
             icon={<i class="ri-handbag-line"></i>}
             label={`Products`}
           />
-          <SideBarButton
+          <SideBarLinkButton
             selected={false}
-            toLink="/"
+            toLink="/earnings"
             icon={<i class="ri-coin-line"></i>}
             label={`Earnings`}
           />
           <div className="sidebar-div-cont" />
         </div>
         <div className="app-sidebar-bottom-cont">
-          <SideBarButton
-            selected={false}
-            toLink="/"
+          <SideBarActionButton
+            toLink="/profile"
+            onClick={(e) => {
+              setProfPopVisi(e.currentTarget);
+            }}
             icon={
               <Avatar
                 size="sm"
