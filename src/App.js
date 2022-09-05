@@ -4,36 +4,73 @@ import ProdListing from "./components/pages/productlisting/prodListing";
 import ProductDetail from "./components/pages/productDetail/prodDetail";
 import AddProduct from "./components/pages/addProduct/addProduct";
 import ProfileBase from "./components/pages/profile/profileBase";
+import LoginBase from "./components/pages/login";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+
+const ShellComp = (props) => {
+  return (
+    <BaseCont>
+      <SideBar />
+      <InnerCont>
+        <PageCont>{props.children}</PageCont>
+      </InnerCont>
+    </BaseCont>
+  );
+};
 
 function App() {
+  const [auth, setAuth] = useState(true);
   return (
-    <Router>
+    <>
       <div className="App">
-        <BaseCont>
-          <SideBar />
-          <InnerCont>
-            {/* <TopBar /> */}
-            <PageCont>
-              <Routes>
-                <Route exact path="/products" element={<ProdListing />}></Route>
-                <Route
-                  exact
-                  path="/products/productname/edit"
-                  element={<ProductDetail />}
-                ></Route>
-                <Route
-                  exact
-                  path="/products/add"
-                  element={<AddProduct />}
-                ></Route>
-                <Route exact path="/profile" element={<ProfileBase />}></Route>
-              </Routes>
-            </PageCont>
-          </InnerCont>
-        </BaseCont>
+        <Router>
+          <Routes>
+            <Route
+              exact
+              path="/products"
+              element={
+                <ShellComp>
+                  <ProdListing />
+                </ShellComp>
+              }
+            ></Route>
+            <Route exact path="/analytics" element={<ShellComp />}></Route>
+            <Route exact path="/customers" element={<ShellComp />}></Route>
+            <Route exact path="/home" element={<ShellComp />}></Route>
+            <Route exact path="/earnings" element={<ShellComp />}></Route>
+            <Route
+              exact
+              path="/products/productname/edit"
+              element={
+                <ShellComp>
+                  <ProductDetail />
+                </ShellComp>
+              }
+            ></Route>
+            <Route
+              exact
+              path="/products/add"
+              element={
+                <ShellComp>
+                  <AddProduct />
+                </ShellComp>
+              }
+            ></Route>
+            <Route
+              exact
+              path="/profile"
+              element={
+                <ShellComp>
+                  <ProfileBase />
+                </ShellComp>
+              }
+            ></Route>
+            <Route exact path="/login" element={<LoginBase />}></Route>
+          </Routes>
+        </Router>
       </div>
-    </Router>
+    </>
   );
 }
 

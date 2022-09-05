@@ -617,3 +617,54 @@ align-items: center;
      align-items: center;
      font-size: 14px;
 }
+
+.app-login-left-tab-cont{
+     font-size: 23px;
+     font-weight: 600;
+
+}
+
+.app-login-logo-cont{
+     padding: 22px;
+     position: absolute;
+     top: 0;
+     left: '22px';
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 110;
+     
+}
+
+.app-login-logo{
+     width: 42px;
+     height: 42px;
+     z-index: 110;
+     color: #000;
+}
+
+.app-login-left-sub-tab-cont{
+     font-size: 14px;
+
+}
+
+.app-login-cred-crt-cont{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     
+}
+
+.app-login-for-link{
+          font-size: 12px;
+          text-decoration: none;
+          color: #008965;
+}
+
+.app-login-cret-link{
+     font-size: 13px;
+     font-weight: 600;
+     color: #008965;
+     text-decoration: none;
+}

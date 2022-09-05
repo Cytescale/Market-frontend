@@ -47,3 +47,17 @@
  
 }
 
+
+.app-login-main-cont{
+     min-width: 100wh;
+     max-width: 100wh;
+     min-height: 100vh;
+     max-height: 100vh;
+     height: 100%;
+     width: 100%;
+     background-color: #ECF0F3; 
+     z-index: 70;
+     display: flex;
+     overflow: hidden;
+
+}

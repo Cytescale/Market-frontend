@@ -1,4 +1,7 @@
 import React, { useState, ReactText, useEffect } from "react";
+import { BaseCont, InnerCont, PageCont } from "../../base/holder";
+import SideBar from "../../nav/sideBar";
+
 import {
   MPageHeader,
   MCard,
@@ -14,7 +17,6 @@ import {
   MCheckbox,
   MSwitch,
 } from "../../UI";
-
 
 const DiscountCardCont = (props) => {
   return (
@@ -221,32 +223,32 @@ const ProductDetailCont = (props) => {
   );
 };
 
-  const TabIndexArr = ["Product", "Content", "Checkout"];
+const TabIndexArr = ["Product", "Content", "Checkout"];
 
-  const PageTabCont = (props) => {
-    useEffect(() => {}, [props.slideInd]);
-    return (
-      <>
-        <div className="app-page-tab-cont">
-          <div className="app-tab-main-cont">
-            {TabIndexArr.map((e, i) => {
-              return (
-                <button
-                  key={i}
-                  className={`app-tab-butt ${
-                    props.slideInd == i ? "app-tab-selec" : null
-                  }`}
-                  onClick={() => props.setSlideInd(i)}
-                >
-                  {e}
-                </button>
-              );
-            })}
-          </div>
+const PageTabCont = (props) => {
+  useEffect(() => {}, [props.slideInd]);
+  return (
+    <>
+      <div className="app-page-tab-cont">
+        <div className="app-tab-main-cont">
+          {TabIndexArr.map((e, i) => {
+            return (
+              <button
+                key={i}
+                className={`app-tab-butt ${
+                  props.slideInd == i ? "app-tab-selec" : null
+                }`}
+                onClick={() => props.setSlideInd(i)}
+              >
+                {e}
+              </button>
+            );
+          })}
         </div>
-      </>
-    );
-  };
+      </div>
+    </>
+  );
+};
 
 const ProductTabSwitch = (props) => {
   switch (props.slideInd) {

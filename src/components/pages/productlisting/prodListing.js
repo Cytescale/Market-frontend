@@ -1,4 +1,7 @@
 import React, { useState, ReactText } from "react";
+import { BaseCont, InnerCont, PageCont } from "../../base/holder";
+import SideBar from "../../nav/sideBar";
+
 import {
   MButton,
   MFillButton,
