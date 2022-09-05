@@ -47,18 +47,3 @@
  
 }
 
-.noscroll{
-     overflow-y: hidden;
-}
-
-.flex{
-     display: flex;
-}
-
-.flex-col{
-flex-direction: column;
-}
-
-.flex-row{
-     flex-direction: row;
-}

@@ -574,7 +574,7 @@ export const MFilePicker = (props) => {
 
 const MHorLabContS = styled.div`
   width: 100%;
-  height: 32px;
+  height: auto;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -583,25 +583,37 @@ const MHorLabContS = styled.div`
 const MHorLabLeftLabelContS = styled.div`
   width: 50%;
   height: 100%;
-  font-size: 14px;
-  color: #333333;
-  display: flex;
-  align-items: center;
 `;
 
 const MHorLabInnerContS = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
+
   justify-content: end;
   align-items: center;
+`;
+
+const MHorPriLab = styled.div`
+  font-size: 14px;
+  display: flex;
+  font-weight: 600;
+  color: #454545;
+`;
+const MHorSecLab = styled.div`
+  font-size: 12px;
+  color: #858585;
+  margin-top: 1px;
 `;
 
 export const MHorLabelCont = (props) => {
   return (
     <div>
       <MHorLabContS {...props}>
-        <MHorLabLeftLabelContS>{props.leftLabel}</MHorLabLeftLabelContS>
+        <MHorLabLeftLabelContS>
+          <MHorPriLab>{props.leftLabel}</MHorPriLab>
+          <MHorSecLab>{props.leftSecLabel}</MHorSecLab>
+        </MHorLabLeftLabelContS>
         <MHorLabInnerContS>{props.children}</MHorLabInnerContS>
       </MHorLabContS>
     </div>

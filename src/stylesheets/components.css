@@ -228,13 +228,15 @@ align-items: center;
 .app-profile-tab-cont{
      width: 100%;     
      height: auto;
-     position: absolute;
+     /* position: absolute; */
      z-index: 100;
      background: rgba(248, 249, 250, 0.704);
      backdrop-filter: blur(22px);
-     margin-top: 12px;
+     border-bottom: 1px solid #e0e0e0;
+     /* margin-top: 12px; */
      display: inline-flex;
      align-items: center;
+     justify-content: center;
 
 }
 
@@ -254,8 +256,8 @@ align-items: center;
 .app-tab-butt{
      height: 52px;
      width: auto;
-     padding-left: 22px;
-     padding-right: 22px;
+     padding-left: 32px;
+     padding-right: 32px;
      border-style: none;
      color: #555555;
      background-color: transparent;
@@ -263,6 +265,12 @@ align-items: center;
      /* border-radius: 115px; */
      cursor: pointer;
      font-size: 14px;
+}
+
+.app-profile-tab-selec{
+     color: #017D5C;
+     
+     border-top: 4px solid #017D5C ;
 }
 
 .app-tab-selec{
@@ -584,4 +592,28 @@ align-items: center;
 
 .app-popover-rad-data-cont{
      width: 100%;
+}
+
+.app-prof-pic-cont{
+     width: 102px;
+     height: 102px;
+     background-color: #f1f1f1;
+     border-radius: 200px;
+     
+}
+
+.app-prof-card-lab-cont{
+     margin-bottom: 12px;
+     font-size: 14px;
+     color:#656565;
+     font-weight: 600;
+     }
+
+.app-prof-marker-cont{
+     padding-bottom: 32px;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 14px;
 }

@@ -21,15 +21,42 @@ const ProfileCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <div className="app-prof-card-main-cont">
+            <MCard>
+              <div className="app-prod-det-card-inner">
+                <div className="app-prod-add-form-data-cont">
+                  <MHorLabelCont
+                    leftLabel={"Account Status"}
+                    leftSecLabel={
+                      "Set the active status of your current account, if the account is publicly visible or not."
+                    }
+                  >
+                    <MSwitch />
+                  </MHorLabelCont>
+                </div>
+              </div>
+            </MCard>
+          </div>
+
+          <div className="app-prof-card-main-cont">
             <div className="app-prof-card-lab-cont">Profile Information</div>
             <MCard>
               {/* <MCardHeader pad={17}>Profile</MCardHeader> */}
               <div className="app-prod-det-card-inner">
-                <div className="app-prod-add-form-data-cont">
-                  <MTextInput label="Name" placeholder="Enter product title" />
-                </div>
-                <div className="app-prod-add-form-data-cont">
-                  <MTextArea label="Bio" placeholder="Enter Your Bio" />
+                <div className="app-prof-prof-data-main-cont">
+                  <div className="app-prod-add-form-data-cont">
+                    <div className="app-prof-pic-cont"></div>
+                  </div>
+                  <div className="app-prof-name-data-main-cont">
+                    <div className="app-prod-add-form-data-cont">
+                      <MTextInput
+                        label="Name"
+                        placeholder="Enter product title"
+                      />
+                    </div>
+                    <div className="app-prod-add-form-data-cont">
+                      <MTextArea label="Bio" placeholder="Enter Your Bio" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </MCard>
@@ -39,8 +66,9 @@ const ProfileCont = (props) => {
             <MCard>
               {/* <MCardHeader pad={17}>Profile</MCardHeader> */}
               <div className="app-prod-det-card-inner">
-                <div className="app-prod-add-form-data-cont">
-                  <MTextInput label="Name" placeholder="Enter product title" />
+                <div className="app-prod-card-desc">
+                  Select which products you sell are publicly Available and in
+                  which order.
                 </div>
               </div>
             </MCard>
@@ -52,14 +80,22 @@ const ProfileCont = (props) => {
               {/* <MCardHeader pad={17}>Profile</MCardHeader> */}
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-add-form-data-cont">
-                  <MHorLabelCont leftLabel={"Change password for account"}>
+                  <MHorLabelCont
+                    leftLabel={"Change password"}
+                    leftSecLabel={"Change password for this account"}
+                  >
                     <MButton icon={<i class="ri-key-2-line"></i>}>
                       Change Password
                     </MButton>
                   </MHorLabelCont>
                 </div>
                 <div className="app-prod-add-form-data-cont">
-                  <MHorLabelCont leftLabel={"Delete this account"}>
+                  <MHorLabelCont
+                    leftLabel={"Delete this account"}
+                    leftSecLabel={
+                      "Permanently delete this account , it cannot be restored again."
+                    }
+                  >
                     <MFillButton
                       style={{ backgroundColor: "#FF6839", color: "#fff" }}
                       icon={<i class="ri-delete-bin-4-line"></i>}
@@ -84,13 +120,13 @@ const PageTabCont = (props) => {
   return (
     <>
       <div className="app-profile-tab-cont">
-        <div className="app-tab-main-cont">
+        <div className="app-profile-tab-main-cont">
           {TabIndexArr.map((e, i) => {
             return (
               <button
                 key={i}
                 className={`app-tab-butt ${
-                  props.slideInd == i ? "app-tab-selec" : null
+                  props.slideInd == i ? "app-profile-tab-selec" : null
                 }`}
                 onClick={() => props.setSlideInd(i)}
               >
@@ -136,12 +172,13 @@ const ProductDetail = (props) => {
         >
           My Account
         </MPageHeader2>
+        <PageTabCont slideInd={slideInd} setSlideInd={setSlideInd} />
         <div className="app-prod-det-bottom-cont">
           <div className="app-prof-out-main-cont">
             <div className="app-prof-main-cont">
-              <PageTabCont slideInd={slideInd} setSlideInd={setSlideInd} />
               <div className="app-prof-inner-cont">
                 <ProductTabSwitch slideInd={slideInd} />
+                <div className="app-prof-marker-cont">Made with 💖 </div>
               </div>
             </div>
           </div>
