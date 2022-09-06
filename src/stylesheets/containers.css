@@ -200,3 +200,34 @@ box-shadow: 4px 0px 6px  rgba(0, 0, 0, 0.07);
 .app-login-cred-form-data-cont{
      margin-top: 16px;     
 }
+
+
+/*////////////////EARNINGS SECTION//////////////////////////*/
+
+
+.app-earn-card-main-cont{
+     display: inline-flex;
+     gap:22px;
+     margin-bottom: 42px;
+     width: 100%;
+     justify-content: center;
+}
+
+.app-prod-lab-cont{
+     margin-bottom: 32px;
+     
+}
+
+.app-earn-tabl-main-cont{
+     border:1px solid #e0e0e0;
+     border-radius: 7px;
+
+}
+.app-earn-butt-cont{
+     width: 100%;
+     height: auto;
+     gap:12px;
+     display: flex;
+     justify-content: end;
+     margin-bottom: 22px;
+}

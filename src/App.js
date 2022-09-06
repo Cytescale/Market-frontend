@@ -5,6 +5,7 @@ import ProductDetail from "./components/pages/productDetail/prodDetail";
 import AddProduct from "./components/pages/addProduct/addProduct";
 import ProfileBase from "./components/pages/profile/profileBase";
 import LoginBase from "./components/pages/login";
+import EarningBase from "./components/pages/earnings/earnings";
 import {
   BrowserRouter as Router,
   Routes,
@@ -45,7 +46,15 @@ function App() {
             <Route exact path="/analytics" element={<ShellComp />}></Route>
             <Route exact path="/customers" element={<ShellComp />}></Route>
             <Route exact path="/home" element={<ShellComp />}></Route>
-            <Route exact path="/earnings" element={<ShellComp />}></Route>
+            <Route
+              exact
+              path="/earnings"
+              element={
+                <ShellComp>
+                  <EarningBase />
+                </ShellComp>
+              }
+            ></Route>
             <Route
               exact
               path="/products/productname/edit"

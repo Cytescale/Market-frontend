@@ -485,6 +485,7 @@ export const MPageHeader2 = (props) => {
 const MDropButtonS = styled.button`
   position: relative;
   height: 36px;
+  min-width: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -686,5 +687,47 @@ export const MSwitch = (props) => {
         };
       }}
     />
+  );
+};
+
+const MPageLabelS = styled.div`
+  font-size: 20px;
+  color: #555555;
+  // color: #0077e6;
+  padding-left: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const MPagePriLabelS = styled.div`
+  font-size: 22px;
+  color: #353535;
+  // color: #0077e6;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+const MPageSecLabelS = styled.div`
+  font-size: 13px;
+  margin-top: 1px;
+  color: #959595;
+  // color: #0077e6;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const MPageLabel = (props) => {
+  return (
+    <>
+      <MPageLabelS>
+        <div>
+          <MPagePriLabelS>{props.priLabel}</MPagePriLabelS>
+          <MPageSecLabelS>{props.secLabel}</MPageSecLabelS>
+        </div>
+      </MPageLabelS>
+    </>
   );
 };

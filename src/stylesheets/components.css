@@ -668,3 +668,44 @@ align-items: center;
      color: #008965;
      text-decoration: none;
 }
+
+.app-earn-card-cont{
+     border:1px solid #e0e0e0;
+     width: 230px;     
+     height: auto;
+     border-radius: 8px;
+     
+}
+
+.app-earn-card-lab-cont{
+     font-size: 14px;
+     font-family: inter;
+     color: #017D5C;
+     position: relative;
+     padding: 15px;
+     border-bottom: 1px solid #e0e0e0;
+}
+
+.app-earn-card-lab-right-cont{
+     position: absolute;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     width: auto;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.app-earn-card-data-cont{
+     font-size: 32px;
+     padding: 22px;
+     padding-top: 11px;
+     padding-bottom: 11px;
+}
+
+.data-earn-tab-ind-cont{
+     width: 50px;
+     
+}

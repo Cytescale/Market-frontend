@@ -7,6 +7,7 @@ import {
   MFillButton,
   MTextInput,
   MCard,
+  MPageLabel,
   MPageHeader,
   MModal,
   MCardHeader,
@@ -149,6 +150,12 @@ const ProdListing = (props) => {
         </MPageHeader>
         <div className="app-prod-list-bottom-cont">
           <div className="app-prod-tab-cont">
+            <div className="app-prod-lab-cont">
+              <MPageLabel
+                priLabel="All Products"
+                secLabel="Earning as per all the listed products"
+              />
+            </div>
             <MCard>
               <PageTabCont />
               <ProdTableOpt
