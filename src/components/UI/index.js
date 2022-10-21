@@ -305,6 +305,8 @@ export const MFillButton = (props) => {
 
 const MCardS = styled.div`
   background-color: #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   width: 100%;
   border-radius: 12px;
   position: relative;
@@ -659,7 +661,7 @@ export const MDropButton = (props) => {
 
 const MTextAreaS = styled.textarea`
   width: 100%;
-  height: 100px;
+  height: 150px;
   resize: none;
   border-radius: 4px;
   outline: none;

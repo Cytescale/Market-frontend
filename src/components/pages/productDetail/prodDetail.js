@@ -1,6 +1,9 @@
 import React, { useState, ReactText, useEffect } from "react";
 import { BaseCont, InnerCont, PageCont } from "../../base/holder";
 import SideBar from "../../nav/sideBar";
+import EditorPane from "./descEditor";
+import SiennaEdior from "../../editor";
+
 
 import {
   MPageHeader,
@@ -126,19 +129,20 @@ const ProductDetailCont = (props) => {
           <MCard>
             <MCardHeader pad={22}>Product Details</MCardHeader>
             <div className="app-prod-card-desc">
-              When a customer makes a purchase, they'll see a receipt and
-              receive an email with a thank you note and a button to access your
-              content.
+              When a customer makes a purchase, they'll see a receipt and receive an email with a thank you note and a button to access your content.
             </div>
             <div className="app-prod-det-card-inner">
               <div className="app-prod-add-form-data-cont">
                 <MTextInput label="Title" placeholder="Enter product title" />
               </div>
-              <div className="app-prod-add-form-data-cont">
+              {/* <div className="app-prod-add-form-data-cont">
                 <MTextArea
                   label="Description"
                   placeholder="Enter product description"
                 />
+              </div> */}
+              <div className="app-prod-add-form-data-cont">
+                <SiennaEdior/>
               </div>
             </div>
           </MCard>
@@ -166,9 +170,9 @@ const ProductDetailCont = (props) => {
                   placeholder="MXSAD"
                 />
               </div>
-              <div className="app-prod-add-form-data-cont">
+              {/* <div className="app-prod-add-form-data-cont">
                 <MTextInput label="Tags" placeholder="Enter tags" />
-              </div>
+              </div> */}
             </div>
           </MCard>
         </div>
