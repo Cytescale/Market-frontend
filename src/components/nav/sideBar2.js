@@ -66,7 +66,7 @@ const ProdTypeCard = (props)=>{
     
   </div>)
 }
-
+//now
 
 const AccLogModalCont = (props) => {
     return (
