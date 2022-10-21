@@ -15,7 +15,10 @@ import {
   MFilePicker,
   MHorLabelCont,
   MCheckbox,
+  MNotiCard,
+  MErrorCard,
   MSwitch,
+  MPageHeaderBread,
 } from "../../UI";
 
 const DiscountCardCont = (props) => {
@@ -100,6 +103,7 @@ const ProductCheckoutCont = (props) => {
           <MCard>
             <MCardHeader pad={17}>Discount Codes</MCardHeader>
             <div className="app-prod-det-card-inner">
+              
               <div className="app-prod-add-form-data-cont">
                 <DiscountCardCont />
               </div>
@@ -120,7 +124,12 @@ const ProductDetailCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Product Details</MCardHeader>
+            <MCardHeader pad={22}>Product Details</MCardHeader>
+            <div className="app-prod-card-desc">
+              When a customer makes a purchase, they'll see a receipt and
+              receive an email with a thank you note and a button to access your
+              content.
+            </div>
             <div className="app-prod-det-card-inner">
               <div className="app-prod-add-form-data-cont">
                 <MTextInput label="Title" placeholder="Enter product title" />
@@ -131,6 +140,19 @@ const ProductDetailCont = (props) => {
                   placeholder="Enter product description"
                 />
               </div>
+            </div>
+          </MCard>
+        </div>
+        <div className="app-prod-det-left-card-cont">
+          <MCard>
+            <div className="app-prod-det-card-inner">
+            <MNotiCard dismiss style={{marginBottom:22,}} >
+              This is a test notifiaction card
+              This is a test notifiaction card
+              This is a test notifiaction card
+              
+            </MNotiCard>
+            
               <div className="app-prod-add-form-data-cont">
                 <MTextInput
                   label="URL"
@@ -268,8 +290,27 @@ const ProductDetail = (props) => {
   return (
     <>
       <div className="app-page-cont flex flex-col noscroll">
-        <MPageHeader
-          back
+        <div className="app-prod-det-bottom-cont">
+          <div className="app-prod-det-main-cont">
+            <div className="app-prod-det-left-main-cont">
+
+              <div className="app-prof-det-left-top-main-cont">
+              <MPageHeader back bottomBorderless>
+                <MPageHeaderBread>Products</MPageHeaderBread>
+                <MPageHeaderBread><i class="ri-arrow-right-s-line"></i></MPageHeaderBread>
+                <MPageHeaderBread isLast>Product name</MPageHeaderBread>
+                
+                </MPageHeader>
+              <PageTabCont slideInd={slideInd} setSlideInd={setSlideInd} />
+              </div>
+
+              <div className="app-prod-det-left-inner-cont">
+                  <ProductTabSwitch slideInd={slideInd} />
+              </div>
+            </div>
+          </div>
+          <div className="app-prod-det-right-main-cont">
+          <MPageHeader
           rightContent={
             <>
               <MButton icon={<i class="ri-save-line"></i>}>
@@ -281,19 +322,8 @@ const ProductDetail = (props) => {
               <MButton icon={<i class="ri-link"></i>}></MButton>
             </>
           }
-        >
-          Product name
-        </MPageHeader>
-        <div className="app-prod-det-bottom-cont">
-          <div className="app-prod-det-main-cont">
-            <div className="app-prod-det-left-main-cont">
-              <PageTabCont slideInd={slideInd} setSlideInd={setSlideInd} />
-              <div className="app-prod-det-left-inner-cont">
-                <ProductTabSwitch slideInd={slideInd} />
-              </div>
-            </div>
+        />
           </div>
-          <div className="app-prod-det-right-main-cont"></div>
         </div>
       </div>
     </>

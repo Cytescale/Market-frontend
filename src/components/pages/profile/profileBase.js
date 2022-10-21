@@ -1,5 +1,6 @@
 import React, { useState, ReactText, useEffect } from "react";
 import {
+  MPageHeader,
   MPageHeader2,
   MCard,
   MTextInput,
@@ -13,7 +14,9 @@ import {
   MHorLabelCont,
   MCheckbox,
   MSwitch,
+  MNotiCard
 } from "../../UI";
+import { SideBarActionButton,SideBarLinkButton } from "../../nav/sideBar";
 
 const ProfileCont = (props) => {
   return (
@@ -21,7 +24,7 @@ const ProfileCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <div className="app-prof-card-main-cont">
-            <MCard>
+            <MCard >
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-add-form-data-cont">
                   <MHorLabelCont
@@ -38,8 +41,10 @@ const ProfileCont = (props) => {
           </div>
 
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Profile Information</div>
-            <MCard>
+            <div className="app-prof-card-lab-cont">
+            <i class="ri-arrow-down-s-line"></i>  
+              Profile Information</div>
+            <MCard >
               {/* <MCardHeader pad={17}>Profile</MCardHeader> */}
               <div className="app-prod-det-card-inner">
                 <div className="app-prof-prof-data-main-cont">
@@ -58,12 +63,16 @@ const ProfileCont = (props) => {
                     </div>
                   </div>
                 </div>
+                <MNotiCard>This is a notion card</MNotiCard>
               </div>
+              
             </MCard>
           </div>
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Product Listing</div>
-            <MCard>
+            <div className="app-prof-card-lab-cont">
+            <i class="ri-arrow-down-s-line"></i>  
+              Product Listing</div>
+            <MCard >
               {/* <MCardHeader pad={17}>Profile</MCardHeader> */}
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-card-desc">
@@ -75,8 +84,10 @@ const ProfileCont = (props) => {
           </div>
 
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Danger Zone</div>
-            <MCard>
+            <div className="app-prof-card-lab-cont">
+            <i class="ri-arrow-down-s-line"></i>  
+              Danger Zone</div>
+            <MCard >
               {/* <MCardHeader pad={17}>Profile</MCardHeader> */}
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-add-form-data-cont">
@@ -119,7 +130,9 @@ const SettingCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Account</div>
+            <div className="app-prof-card-lab-cont">
+            <i class="ri-arrow-down-s-line"></i>  
+              Account</div>
             <MCard>
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-add-form-data-cont">
@@ -149,7 +162,9 @@ const SettingCont = (props) => {
             </MCard>
           </div>
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Notification</div>
+            <div className="app-prof-card-lab-cont">
+            <i class="ri-arrow-down-s-line"></i>  
+              Notification</div>
             <MCard>
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-add-form-data-cont">
@@ -198,7 +213,10 @@ const PayoutCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Account Type</div>
+            <div className="app-prof-card-lab-cont">
+              <i class="ri-arrow-down-s-line"></i>
+              Account Type 
+              </div>
             <MCard>
               <div className="app-prod-det-card-inner">
                 <div className="app-prod-add-form-data-cont">
@@ -215,7 +233,9 @@ const PayoutCont = (props) => {
             </MCard>
           </div>
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Personal Information</div>
+            <div className="app-prof-card-lab-cont">
+              <i class="ri-arrow-down-s-line"></i>
+              Personal Information </div>
             <MCard>
               <div className="app-prod-det-card-inner">
                 <div className="app-prof-info-name-cont">
@@ -244,7 +264,9 @@ const PayoutCont = (props) => {
             </MCard>
           </div>
           <div className="app-prof-card-main-cont">
-            <div className="app-prof-card-lab-cont">Date of Birth</div>
+            <div className="app-prof-card-lab-cont">
+            <i class="ri-arrow-down-s-line"></i>  
+              Date of Birth</div>
             <MCard>
               <div className="app-prod-det-card-inner">
                 <div className="app-prof-info-name-cont">
@@ -307,13 +329,34 @@ const ProductTabSwitch = (props) => {
   }
 };
 
+ const SideBarLightActionButton = (props) => {
+  return (
+    <div
+      className={`light-sidebar-button-cont ${
+        props.isActive ? "light-sidebar-button-selec-cont" : ""
+      }`}
+    >
+      <button className="light-sidebar-act-button" {...props}>
+        {props.icon}
+        <span className="light-sidebar-button-lab">{props.label}</span>
+      </button>
+    </div>
+  );
+};
+
+
 const ProductDetail = (props) => {
   const [slideInd, setSlideInd] = useState(0);
+  useEffect(()=>{
+    console.log(slideInd);
+    
+  },[slideInd])
+  
   return (
     <>
       <div className="app-page-cont flex flex-col noscroll">
-        <MPageHeader2
-          help
+      <MPageHeader
+          
           rightContent={
             <>
               <MButton icon={<i class="ri-save-line"></i>}>Update</MButton>
@@ -323,18 +366,37 @@ const ProductDetail = (props) => {
               <MButton icon={<i class="ri-link"></i>}></MButton>
             </>
           }
-        >
-          My Account
-        </MPageHeader2>
-        <PageTabCont slideInd={slideInd} setSlideInd={setSlideInd} />
-        <div className="app-prod-det-bottom-cont">
-          <div className="app-prof-out-main-cont">
-            <div className="app-prof-main-cont">
-              <div className="app-prof-inner-cont">
-                <ProductTabSwitch slideInd={slideInd} />
-                <div className="app-prof-marker-cont">Made with 💖 </div>
-              </div>
-            </div>
+        />
+          <div className="app-prof-main-out-cont">
+          <div className="app-prof-tab-out-main-cont">
+            <SideBarLightActionButton
+                icon={<i class="ri-user-settings-line"></i>}
+                label={`Profile`}
+                onClick={() =>{ setSlideInd(0)}}
+                isActive={slideInd==0??true}
+              />
+              <SideBarLightActionButton
+                icon={<i class="ri-settings-3-line"></i>}
+                label={`Settings`}
+                onClick={() => {console.log(11);setSlideInd(1)}}
+                isActive={slideInd==1??true}
+              />
+              <SideBarLightActionButton
+
+                icon={<i class="ri-bank-card-line"></i>}
+                label={`Payout`}
+                onClick={() => setSlideInd(2)}
+                isActive={slideInd==2??true}
+              />
+              <div className="app-prof-side-bar-hr-cont"></div>
+          </div>
+          
+                  <div className="app-prof-inner-cont">
+                    <div className="app-prof-inner-form-cont">
+                    <ProductTabSwitch slideInd={slideInd} />
+                    <div className="app-prof-marker-cont">Made with 💖 </div>
+                    </div>
+                  
           </div>
         </div>
       </div>

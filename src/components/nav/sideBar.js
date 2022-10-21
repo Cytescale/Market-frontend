@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Avatar from "@mui/joy/Avatar";
 import {
@@ -11,43 +11,38 @@ import {
   MDropButton,
   MFillButton,
   MPopover,
+  MErrorCard,
+  MNotiCard
 } from "../UI";
+import { padding } from "@mui/system";
 
-const SideBarActionButton = (props) => {
-  const location = useLocation();
-  const isActive = location.pathname.includes(props.toLink);
 
-  return (
-    <div
-      className={`sidebar-button-cont ${
-        isActive ? "sidebar-button-selec-cont" : ""
-      }`}
-    >
-      <button className="sidebar-act-button" {...props}>
-        {props.icon}
-        <span className="sidebar-button-lab">{props.label}</span>
-      </button>
-    </div>
-  );
-};
 
 const AccLogModalCont = (props) => {
   return (
     <MCard>
       <MCardHeader pad={22}>Account Logout</MCardHeader>
       <div className="prod-tab-del-mod-cont">
+      <MErrorCard dismiss style={{marginBottom:22,}}>
+            This is a test notifiaction card
+              This is a test notifiaction card
+              This is a test notifiaction card              
+            </MErrorCard>
+        <div className="prod-tab-del-mod-butt-cont">
         <MButton hfill style={{ marginBottom: "12px" }}>
           Cancel
         </MButton>
         <MFillButton hfill style={{ backgroundColor: "#FF6839" }}>
           Confirm Logout
         </MFillButton>
+        </div>
       </div>
     </MCard>
   );
 };
 
-const SideBarLinkButton = (props) => {
+
+export const SideBarActionButton = (props) => {
   const location = useLocation();
   const isActive = location.pathname.includes(props.toLink);
 
@@ -56,34 +51,108 @@ const SideBarLinkButton = (props) => {
       className={`sidebar-button-cont ${
         isActive ? "sidebar-button-selec-cont" : ""
       }`}
+      
     >
-      <Link className="sidebar-button-lnk" to={props.toLink}>
+      <button className="sidebar-act-button" {...props}
+       style={{
+        width:props.expanded?"100%":'42px',
+        height:props.expanded?"36px":'42px',
+        padding:!props.expanded??"0px",
+        paddingLeft:props.expanded?"12px":"null",
+        justifyContent:props.expanded?"start":"center",
+        fontSize:props.expanded??"16px",
+      }}  
+      >
         {props.icon}
         <span className="sidebar-button-lab">{props.label}</span>
-      </Link>
-    </div>
-  );
-};
-
-const DarkSideBarButton = (props) => {
-  return (
-    <div
-      className={`sidebar-button-cont ${
-        props.selected === true ? "sidebar-button-selec-cont" : ""
-      }`}
-    >
-      <button className="sidebar-dark-button" {...props}>
-        {props.icon}
-        <span className="sidebar-dark-butt-lab">{props.label}</span>
       </button>
     </div>
   );
 };
 
+export const SideBarLinkButton = (props) => {
+  const location = useLocation();
+  const isActive = location.pathname.includes(props.toLink);
+
+  return (
+    <div
+      className={`sidebar-button-cont ${
+        isActive ? "sidebar-button-selec-cont" : ""
+      }`}
+      style={{
+        width:props.expanded?"100%":'42px',
+        height:props.expanded?"36px":'42px',
+        padding:!props.expanded??"0px",
+        fontSize:props.expanded??"16px",
+      }}
+    >
+      <Link
+      className={`sidebar-button-lnk ${
+        isActive ? "sidebar-button-lnk-selec-cont" : ""
+      }`}
+
+      to={props.toLink}
+     style={{
+      width:props.expanded?"100%":'42px',
+      height:props.expanded?"36px":'42px',
+      padding:!props.expanded??"0px",
+      paddingLeft:props.expanded?"12px":"null",
+      justifyContent:props.expanded?"start":"center",
+      fontSize:props.expanded??"16px",
+    }}
+      >
+        {props.icon}
+        {props.expanded?<span className="sidebar-button-lab">{props.label}</span>:null}
+      </Link>
+    </div>
+  );
+};
+
+export const DarkSideBarButton = (props) => {
+  return (
+    <div
+      className={`sidebar-button-cont`}
+    >
+      <button className="sidebar-dark-button" {...props}
+        style={{
+          width:props.expanded?"100%":'42px',
+          height:props.expanded?"36px":'42px',
+          padding:!props.expanded??"0px",
+          fontSize:props.expanded??"16px",
+        }}
+      >
+        {props.icon}
+        {props.expanded?<span className="sidebar-dark-butt-lab">{props.label}</span>:null}
+      </button>
+    </div>
+  );
+};
+
+export const BorderSideBarButton = (props) => {
+  return (
+    <div
+      className={`sidebar-button-cont`}
+    >
+      <button className="sidebar-border-button" {...props}
+        style={{
+          width:props.expanded?"100%":'42px',
+          height:props.expanded?"36px":'42px',
+          padding:!props.expanded??"0px",
+          fontSize:props.expanded??"16px",
+        }}
+      >
+        {props.icon}
+        {props.expanded?<span className="sidebar-dark-butt-lab">{props.label}</span>:null}
+      </button>
+    </div>
+  );
+};
+
+
 const SideBarLabel = (props) => {
   return (
     <>
-      <div className="sidebar-lab-cont">{props.label}</div>
+       {props.expanded?<div className="sidebar-lab-cont">{props.label}</div>:null}
     </>
   );
 };
@@ -92,6 +161,12 @@ const CompanyLogo = (props) => {
   return (
     <>
       <div className="sidebar-comp-logo-cont">
+        <div className="sidebar-comp-logo-outr-cont"
+        style={{
+          width:props.expanded?"52px":"32px",
+          height:props.expanded?"52px":"32px",
+        }}
+        >
         <svg
           className="sidebar-logo-ico"
           width="59"
@@ -107,6 +182,7 @@ const CompanyLogo = (props) => {
             stroke-linecap="round"
           />
         </svg>
+        </div>
         {/* <span className="sidebar-logo-lable">MARKET</span> */}
       </div>
     </>
@@ -121,6 +197,7 @@ const AddProductModal = (props) => {
       <MCard>
         <MCardHeader pad={22}>Add Product</MCardHeader>
         <div className="app-prod-add-form-inner">
+
           <div className="app-prod-add-form-data-cont">
             <MTextInput
               label="Product title"
@@ -170,6 +247,8 @@ const AddProductModal = (props) => {
 const SideBar = (props) => {
   const navigate = useNavigate();
 
+ const [expanded,setExpanded] = useState(true);
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -186,8 +265,14 @@ const SideBar = (props) => {
 
   return (
     <>
-      <div className="app-sidebar-cont">
-        <CompanyLogo />
+      <div className="app-sidebar-cont"
+      style={{
+        width:expanded?"210px":"fit-content",
+        padding:12,
+      }}
+      
+      >
+        <CompanyLogo expanded={expanded}/>
         <MModal open={open} handleClose={handleClose}>
           <AddProductModal navigate={navigate} handleClose={handleClose} />
         </MModal>
@@ -212,6 +297,7 @@ const SideBar = (props) => {
         >
           <div className="app-side-bar-popover-cont">
             <MButton
+              
               borderless
               icon={<i class="ri-user-3-line"></i>}
               onClick={() => {
@@ -235,48 +321,60 @@ const SideBar = (props) => {
           </div>
         </MPopover>
         <div className="app-sidebar-top-cont">
-          <SideBarLabel label="PRODUCT" />
+          {/* <SideBarLabel label="PRODUCT" /> */}
           <DarkSideBarButton
             icon={<i class="ri-add-line"></i>}
             label={`ADD PRODUCT`}
+            expanded={expanded}
             onClick={(e) => {
               handleOpen();
             }}
           />
 
-          <SideBarLabel label="MENU" />
+          <SideBarLabel label="MENU" expanded={expanded}/>
           <SideBarLinkButton
+          expanded={expanded}
             toLink="/home"
             icon={<i class="ri-home-line"></i>}
             label={`Home`}
           />
           <SideBarLinkButton
+          expanded={expanded}
             toLink="/analytics"
             icon={<i class="ri-bar-chart-line"></i>}
             label={`Analytics`}
           />
           <SideBarLinkButton
             toLink="/customers"
+            expanded={expanded}
             icon={<i class="ri-group-line"></i>}
             label={`Customers`}
           />
           <SideBarLinkButton
             selected={true}
             toLink="/products"
+            expanded={expanded}
             icon={<i class="ri-handbag-line"></i>}
             label={`Products`}
           />
           <SideBarLinkButton
             selected={false}
             toLink="/earnings"
+            expanded={expanded}
             icon={<i class="ri-coin-line"></i>}
             label={`Earnings`}
           />
+          
           <div className="sidebar-div-cont" />
         </div>
-        <div className="app-sidebar-bottom-cont">
+        <div className="app-sidebar-bottom-cont"
+        style={{
+          padding:12,
+        }}        
+        >
           <SideBarActionButton
             toLink="/profile"
+            expanded={expanded}
             onClick={(e) => {
               setProfPopVisi(e.currentTarget);
             }}
@@ -290,10 +388,11 @@ const SideBar = (props) => {
                 EM
               </Avatar>
             }
-            label={`Profile`}
+            label={`${expanded?'Profile':''}`}
           />
-          <DarkSideBarButton
+          <BorderSideBarButton
             selected={false}
+            expanded={expanded}
             icon={
               <svg
                 className="sidebar-button-ico"
@@ -323,6 +422,7 @@ const SideBar = (props) => {
             }
             label={`Support`}
           />
+          
         </div>
       </div>
     </>

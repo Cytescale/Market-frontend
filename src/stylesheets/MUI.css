@@ -26,10 +26,13 @@ margin-top: 7px;
 }
 
 .app-prod-card-desc{
-     padding: 22px;
+     padding: 32px;
+     padding-top: 11px;
+     padding-bottom: 11px;
      font-size: 13px;
      color: #555555;
      
+     margin-right: 22px;     
 }
 
 .card-main-cont{
@@ -38,6 +41,15 @@ margin-top: 7px;
 }
 
 .popover-main-cont{
-border-radius: 7px;
-border: 1px solid #e0e0e0;
+border-radius: 12px;
+
+border: 1px solid #d9d9d9;
+padding: 6px;
+}
+
+.noti-card-icon-cont{
+     font-size: 20px;
+     display: flex;
+     justify-content: start;
+     align-items: flex-start;
 }

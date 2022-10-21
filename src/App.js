@@ -1,5 +1,5 @@
 import { BaseCont, InnerCont, PageCont } from "./components/base/holder";
-import SideBar from "./components/nav/sideBar";
+import SideBar from "./components/nav/sideBar2";
 import ProdListing from "./components/pages/productlisting/prodListing";
 import ProductDetail from "./components/pages/productDetail/prodDetail";
 import AddProduct from "./components/pages/addProduct/addProduct";

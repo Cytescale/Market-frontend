@@ -24,7 +24,8 @@ export const MModal = (props) => {
         open={props.open}
         onClose={props.handleClose}
         sx={{
-          bgcolor: "rgba(5, 147, 109, 0.3)",
+          bgcolor: "rgba(243, 239, 236, 0.33)",
+          backdropFilter:'blur(2px)', 
         }}
       >
         <MModalContS>
@@ -107,7 +108,8 @@ export const MPopover = (props) => {
               }
         }
         style={{
-          marginTop: "12px",
+          borderRadius:22,
+          
         }}
       >
         <div className="popover-main-cont">{props.children}</div>
@@ -117,17 +119,18 @@ export const MPopover = (props) => {
 };
 
 const MTextInputLabelS = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   font-size: 13px;
-  color: ${(props) => (props.foc ? "#0057FF" : "#000")};
+  
+  color: ${(props) => (props.foc ? "#0057FF" : "#353535")};
   margin-left: 5px;
 `;
 
 const MTextInputContS = styled.div`
   width: auto;
   height: 36px;
-  background-color: ${(props) => (props.foc ? "#E6F2FF" : "null")};
-  border: ${(props) => (props.foc ? "1px solid #E6F2FF" : "1px solid #e0e0e0")};
+  background-color: ${(props) => (props.foc ? "#f5f5f5" : "null")};
+  border: ${(props) => (props.foc ? "1px solid #f5f5f5" : "1px solid #d9d9d9")};
   display: flex;
   align-items: center;
   padding-left: 12px;
@@ -135,11 +138,12 @@ const MTextInputContS = styled.div`
 `;
 
 const MTextInputS = styled.input`
-  height: 42px;
+  height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
+  
   border-style: none;
-  padding-left: 12px;
+  // padding-left: 12px;
   outline: none;
   color: inherit;
 `;
@@ -207,14 +211,18 @@ const MButtonS = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 13px;
+  font-weight:500;
   color: #0077e6;
   background-color: #fff;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-radius: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 12px;
   cursor: pointer;
   outline: none;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #b9b9b9;
+  &:hover{
+    background-color: #f7f7f7;
+  }
 `;
 
 const MFillButtonS = styled.button`
@@ -223,15 +231,17 @@ const MFillButtonS = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 13px;
+  font-weight: 700;
   color: #fff;
   background-color: #0077e6;
-  padding-left: 16px;
-  padding-right: 16px;
-  border-radius: 6px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 12px;
   cursor: pointer;
   outline: none;
-  border: 1px solid #dbdbdb;
-  font-weight: 700;
+  // border: 1px solid #dbdbdb;
+  border-style:none;
+  
 `;
 
 const MIconCont = styled.div`
@@ -257,7 +267,7 @@ export const MButton = (props) => {
       {props.icon ? (
         <MIconCont
           style={{
-            fontSize: "18px",
+            fontSize:props.style?props.style.fontSize? props.style.fontSize:'16px':'16px',
             marginRight: props.children ? "5px" : "0px",
           }}
         >
@@ -281,7 +291,7 @@ export const MFillButton = (props) => {
       {props.icon ? (
         <MIconCont
           style={{
-            fontSize: "18px",
+            fontSize: "16px",
             marginRight: props.children ? "5px" : "0px",
           }}
         >
@@ -296,11 +306,13 @@ export const MFillButton = (props) => {
 const MCardS = styled.div`
   background-color: #fff;
   width: 100%;
-  border-radius: 7px;
+  border-radius: 12px;
   position: relative;
   border: ${(props) => (props.borderless ? null : "1px solid #e0e0e0")};
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
+  // box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
 `;
+
+
 
 export const MCard = (props) => {
   return <MCardS {...props}>{props.children}</MCardS>;
@@ -309,8 +321,9 @@ export const MCard = (props) => {
 const MCardFooterS = styled.div`
   position: relative;
   width: 100%;
-
-  border-top: 1px solid #e0e0e0;
+  padding:22px;
+  padding-top:3px;
+  // border-top: 1px solid #e0e0e0;
   flex-direction: row;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
 `;
@@ -323,14 +336,17 @@ const MCardHeaderS = styled.div`
   position: relative;
   width: 100%;
   height: auto;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   // background-color: #f9f9f9;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  color: #000;
-  border-bottom: 1px solid #e0e0e0;
+  color: #525252;
+  // border-bottom: 1px solid #e0e0e0;
   flex-direction: row;
+  padding:32px;
+  padding-left: 22px;
+  padding-bottom:3px;
 `;
 
 export const MCardHeader = (props) => {
@@ -338,13 +354,100 @@ export const MCardHeader = (props) => {
     <MCardHeaderS
       {...props}
       style={{
-        padding: props.pad ? props.pad : "0px",
+        // padding: props.pad ? props.pad : "0px",
       }}
     >
       {props.children}
     </MCardHeaderS>
   );
 };
+
+const MNotiCardS = styled.div`
+    display:inline-flex;
+    gap:10px;
+    width:100%;
+    height:100%;
+    background-color:#DBEAFE;
+    padding:22px;
+    border-radius:12px;
+    color:#0094FF;
+    font-size:13px;
+`;
+
+const MNotiCardInnerS = styled.div`
+    display:flex;
+    flex-direction: column;
+    color:#0094FF;
+    gap:10px;
+    font-size:13px;
+`;
+
+const MNotiDisButtonS = styled.button`
+width: fit-content;
+background-color: transparent;
+border: none;
+outline: none;
+padding: 0px;
+color: #0094FF;
+font-weight: 600;
+`;
+
+export const MNotiCard = (props)=>{
+  return (
+    <MNotiCardS style={{...props.style}}>
+      <div className="noti-card-icon-cont"><i class="ri-information-line"></i></div>
+      <MNotiCardInnerS>
+          {props.children}
+          {props.dismiss?<MNotiDisButtonS className="asv">Dismiss</MNotiDisButtonS>:null}
+      </MNotiCardInnerS>
+    </MNotiCardS>
+  )
+}
+
+
+const MErrorCardS = styled.div`
+      display:inline-flex;
+      gap:10px;
+      width:100%;
+      height:100%;
+      background-color:#FFC3C4;
+      padding:22px;
+      border-radius:12px;
+      color:#E11317;
+      font-size:13px;
+`;
+
+
+const MErrorCardInnerS = styled.div`
+    display:flex;
+    flex-direction: column;
+    color:#E11317;
+    gap:10px;
+    font-size:13px;
+`;
+
+const MErrorDisButtonS = styled.button`
+width: fit-content;
+background-color: transparent;
+border: none;
+outline: none;
+padding: 0px;
+color: #E11317;
+font-weight: 600;
+`;
+
+
+export const MErrorCard = (props)=>{
+  return (
+    <MErrorCardS style={{...props.style}}>
+      <div className="noti-card-icon-cont"><i class="ri-ghost-line"></i></div>
+      <MErrorCardInnerS>
+          {props.children}
+          {props.dismiss?<MErrorDisButtonS className="asv">Dismiss</MErrorDisButtonS>:null}
+      </MErrorCardInnerS>
+    </MErrorCardS>
+  )
+}
 
 const MPageHeaderContS = styled.div`
   width: auto;
@@ -357,17 +460,20 @@ const MPageHeaderContS = styled.div`
   align-items: center;
   padding-top: 0px;
   padding-bottom: 0px;
-  border-bottom: 1px solid #e0e0e0;
+
 `;
 
 const MPageHeaderLabS = styled.div`
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 15px;
   color: #555555;
   display: flex;
+  flex-direction: row;
+  gap:7px;
   flex: 1;
-  width: auto;
+  width: fit-content;
   align-items: center;
+  
 `;
 
 const MPageHeaderHelpButtS = styled.button`
@@ -387,19 +493,41 @@ const MPageHeaderHelpButtS = styled.button`
 const MPageHeaderRightButtonCont = styled.div`
   display: inline-flex;
   gap: 12px;
+  padding-right:22px;
 `;
+
+const MPageHeaderBreadS = styled.div`
+    display: flex;
+     flex-direction: row;
+     width: fit-content;
+     height: fit-content;
+     font-size: 14px;
+    color: ${props => props.isLast?"#000":"#959595"}
+`;
+
+export const MPageHeaderBread = (props)=>{
+  return<>
+  <MPageHeaderBreadS {...props}
+  className="as">{props.children}</MPageHeaderBreadS>
+  </>
+}
 
 export const MPageHeader = (props) => {
   const navigate = useNavigate();
 
   return (
     <>
-      <MPageHeaderContS>
+      <MPageHeaderContS
+        style={{
+           borderBottom:props.bottomBorderless?"none":"1px solid #e0e0e0",
+          }}
+      >
         <MPageHeaderLabS>
           {props.back ? (
             <MButton
+              borderless
               onClick={() => navigate(-1)}
-              style={{ marginRight: "22px", color: "#757575" }}
+              style={{color: "#656565",fontSize:16 }}
               icon={<i class="ri-arrow-left-line"></i>}
             >
               Back
@@ -497,7 +625,10 @@ const MDropButtonS = styled.button`
   border-radius: 6px;
   cursor: pointer;
   outline: none;
-  border: 1px solid #dbdbdb;
+  border: 1px solid #d9d9d9;
+  &:hover{
+    background-color:#f1f1f1;
+  }
 `;
 
 export const MDropButton = (props) => {
@@ -516,6 +647,7 @@ export const MDropButton = (props) => {
           style={{
             position: "absolute",
             right: "12px",
+            fontSize:18,
           }}
         >
           <i class="ri-arrow-down-s-line"></i>
@@ -531,8 +663,9 @@ const MTextAreaS = styled.textarea`
   resize: none;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #e0e0e0;
-  padding: 8px;
+  border: 1px solid #d9d9d9;
+  padding: 12px;
+  font-family:poppins;
   font-size: 14px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -635,6 +768,8 @@ export const MCheckbox = (props) => {
         },
         "&.JoyCheckbox-root ": {
           borderStyle: "none",
+          width:14,
+          height:14,
           background: "#fff",
           border: "2px solid #e0e0e0",
           borderRadius: "5px",
@@ -697,7 +832,7 @@ const MPageLabelS = styled.div`
   padding-left: 12px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 `;
 
 const MPagePriLabelS = styled.div`
@@ -706,7 +841,7 @@ const MPagePriLabelS = styled.div`
   // color: #0077e6;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 `;
 
 const MPageSecLabelS = styled.div`
@@ -716,7 +851,7 @@ const MPageSecLabelS = styled.div`
   // color: #0077e6;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 `;
 
 export const MPageLabel = (props) => {

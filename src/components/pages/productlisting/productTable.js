@@ -24,20 +24,26 @@ import { useNavigate } from "react-router-dom";
 
 const MTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#f9f9f9",
+    backgroundColor: "#f5f5f5",
     color: "#858585",
     padding: "5px",
     fontSize: 12,
+    paddingTop:12,
+    paddingBottom:12,
     fontWeight: "600",
-    borderBottom: "1px solid #e0e0e0",
+    borderBottom: "1px solid #f5f5f5",
+    
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 12,
-    color: "#555555",
+    fontSize: 13,
+    color: "#555555",    
   },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)((theme) => {
+
+  return(
+  {
   "td, th": {
     border: 0,
     cursor: "pointer",
@@ -55,7 +61,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:last-child td, &:last-child th": {
     border: 0,
   },
-}));
+})});
 
 const ProductTableRender = (props) => {
   const navigate = useNavigate();
@@ -65,14 +71,8 @@ const ProductTableRender = (props) => {
       <Table>
         <TableHead>
           <TableRow>
-            <MTableCell align="center" className="data-tab-selec-cell-cont">
-              <MCheckbox color="primary" checked={false} onChange={null} />
-            </MTableCell>
-            <MTableCell
-              align="center"
-              className="data-tab-selec-img-cont"
-            ></MTableCell>
-            <MTableCell align="left">Product</MTableCell>
+            <MTableCell align="center" className="data-tab-selec-cell-cont"/>
+            <MTableCell align="center">Product</MTableCell>
             <MTableCell align="center">Link</MTableCell>
             <MTableCell align="center">Status</MTableCell>
             <MTableCell align="center">Sales</MTableCell>
@@ -88,13 +88,15 @@ const ProductTableRender = (props) => {
           {DATA.map((row) => (
             <StyledTableRow key={row.name} className="data-tab-row-cont">
               <MTableCell align="center" className="data-tab-selec-cell-cont">
-                <MCheckbox color="primary" checked={false} onChange={null} />
+                <div  className="data-tab-selec-cell-innr-cont">
+                <MSwitch color="primary" checked={true} onChange={null} />
+                </div>
               </MTableCell>
-              <MTableCell align="left" className="data-tab-selec-img-cont">
+              <MTableCell   className="data-tab-data-name-cont">
+              <div className="data-tab-data-nm-outer-cont">
                 <div className="data-tab-data-img-data">{row.image}</div>
-              </MTableCell>
-              <MTableCell className="data-tab-data-name-cont">
                 <div className="data-tab-data-name-data">{row.product}</div>
+                </div>
               </MTableCell>
               <MTableCell className="data-tab-data-name-cont" align="center">
                 <div className="data-tab-data-link-data">
@@ -106,6 +108,9 @@ const ProductTableRender = (props) => {
                   </Link>
                   <MButton
                     borderless
+                    style={{
+                      padding:0
+                    }}
                     icon={<i class="ri-clipboard-line"></i>}
                   />
                 </div>
@@ -115,9 +120,9 @@ const ProductTableRender = (props) => {
                   <div className="data-tab-data-stat-data">{row.status}</div>
                 </div>
               </MTableCell>
-              <MTableCell align="center">{row.sales}</MTableCell>
-              <MTableCell align="center">{row.inventory}</MTableCell>
-              <MTableCell align="center">{row.revenue}</MTableCell>
+              <MTableCell align="center"><div className="data-tab-data-ern-data">{row.sales}</div></MTableCell>
+              <MTableCell align="center"><div className="data-tab-data-ern-data">{row.inventory}</div></MTableCell>
+              <MTableCell align="center"><div className="data-tab-data-ern-data">{row.revenue}</div></MTableCell>
               <MTableCell align="center" className="data-tab-act-cont">
                 <div className="data-tab-data-act-cont">
                   <MButton

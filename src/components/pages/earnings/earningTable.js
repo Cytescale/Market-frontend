@@ -55,6 +55,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     padding: "9px",
     paddingTop: "17px",
     paddingBottom: "17px",
+    fontFamily: 'Copse',
+
   },
   "tr:hover": {
     backgroundColor: "#f5f5f5",
@@ -90,7 +92,7 @@ const ProductTableRender = (props) => {
               <MTableIndCell align="center" className="data-earn-tab-ind-cont">
                 {i + 1}
               </MTableIndCell>
-              <MTableCell align="center">{row.product}</MTableCell>
+              <MTableCell align="center"><div className="data-earn-tab-nam-cont">{row.product}</div></MTableCell>
               <MTableCell align="center">{row.gross}</MTableCell>
               <MTableCell align="center">{row.fees}</MTableCell>
               <MTableCell align="center">{row.taxes}</MTableCell>
