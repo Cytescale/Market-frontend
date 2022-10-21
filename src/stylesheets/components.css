@@ -892,3 +892,94 @@ gap: 12px;
      width: 100%;
      
 }
+
+.app-prod-add-form-tit-cont{
+     margin-bottom: 7px;
+     font-size: 13px;
+     color:"#353535";
+     margin-left: 5px;
+}
+
+.app-prod-add-form-type-cont{
+     width: 100%;
+     height: auto;
+     
+     overflow: visible;
+     
+     
+}
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+     display: none;
+}
+   
+   .react-horizontal-scrolling-menu--scroll-container {
+     -ms-overflow-style: none; /* IE and Edge */
+     scrollbar-width: none; /* Firefox */
+}
+   
+
+
+.app-prod-type-card-cont{
+     width: 200px;
+     height: auto;
+     min-width: 100px;
+     min-height: 150px;
+
+     margin-right: 12px;
+     border-radius: 12px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;   
+     background-color: #f9f9f9;
+     z-index: 100;
+     cursor: pointer;
+     
+}
+
+.app-prod-type-card-cont:hover{
+     background-color: red;
+}
+
+.app-prod-type-card-pic-cont{
+width: 100%;
+height: auto;
+display: flex;
+justify-content: flex-end;
+align-items: baseline;
+flex-direction: column;
+padding: 16px;
+padding-bottom: 12px;
+
+}
+
+
+.app-prod-type-card-pic{
+width: 52px;
+height: 52px;
+background-color: #EBE1CE;
+border-radius: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 20px;
+}
+
+
+
+.app-prod-type-card-name-cont{
+     padding: 0px;
+     padding-left: 16px;
+     padding-bottom: 3px;
+     font-size: 13px;
+     font-weight: 600;
+     color: #184A4E;
+}
+
+.app-prod-type-card-desc-cont{
+     padding: 16px;
+     padding-top: 0px;
+     font-size: 11px;
+     color: #656565;
+     word-wrap: break-word;
+     
+}

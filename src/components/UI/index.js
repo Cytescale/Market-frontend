@@ -141,11 +141,13 @@ const MTextInputS = styled.input`
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
-  
   border-style: none;
-  // padding-left: 12px;
   outline: none;
   color: inherit;
+  &::placeholder { 
+    color: #ababab;
+    opacity: 1;
+  }
 `;
 
 export const MTextInput = (props) => {
@@ -163,13 +165,16 @@ export const MTextInput = (props) => {
           <MTextInputLabelS foc={foc}>{props.label}</MTextInputLabelS>
         ) : null}
         <MTextInputContS foc={foc}>
-          {props.icon ? <MIconCont>{props.icon}</MIconCont> : null}
+          {props.icon ? <MIconCont style={{color:foc?"#000":"#bdbdbd"}}>{props.icon}</MIconCont> : null}
           {props.leftLabel ? (
             <MInputLabelCont>{props.leftLabel}</MInputLabelCont>
           ) : null}
           <MTextInputS
             {...props}
             foc={foc}
+            style={{
+              paddingLeft:`${props.icon?'7px':'0px'}`
+            }}
             onFocus={handleFocus}
             onBlur={handleBlur}
           />
@@ -343,7 +348,7 @@ const MCardHeaderS = styled.div`
   // background-color: #f9f9f9;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  color: #525252;
+  color: #184A4E;
   // border-bottom: 1px solid #e0e0e0;
   flex-direction: row;
   padding:32px;

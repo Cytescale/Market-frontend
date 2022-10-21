@@ -8,7 +8,7 @@ import { ReturnHandler, KeyCommandHandler, KeyBinderHandle } from "./handlers";
 import { selectionCorrection } from "./handlers/utils";
 import { EditorMode, EditorLockState, EditorMenuState } from "./constants";
 import { lockScroll } from "./handlers/utils";
-import BlockAdderState from "./component/blockAdderMenu";
+
 
 export default class SiennaEditor extends react.Component {
   CURRENT_LOCK_STATE = EditorLockState.LOCKED;
@@ -24,7 +24,6 @@ export default class SiennaEditor extends react.Component {
 
     this.state = {
       editorState: EditorState.createWithContent(state),
-      BlockAdderState: new BlockAdderState(),
       CURRENT_EDITOR_MODE: EditorMode.BLURRED,
       textEditorVisi: false,
     };
@@ -123,15 +122,7 @@ export default class SiennaEditor extends react.Component {
   }
 
   render() {
-    let focusObject = {
-      current_editor_mode: this.state.CURRENT_EDITOR_MODE,
-      set_editor_mode: this.setEditorMode,
-    };
 
-    let editorAdderMenuObject = {
-      blockAdderState: this.state.BlockAdderState,
-      blockAdderStateChange: this.BlockAdderStateChange,
-    };
     return (
       <>
       <EditorMenuCont/>

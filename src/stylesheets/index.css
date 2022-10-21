@@ -38,7 +38,10 @@ div{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #959595;
-}.noscroll{
+}
+
+
+.noscroll{
   overflow-y: hidden;
 }
 

@@ -3,7 +3,69 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Avatar from "@mui/joy/Avatar";
 import { MButton, MCard, MCardFooter, MCardHeader, MDropButton, MErrorCard, MFillButton, MModal, MNotiCard, MPopover, MTextInput } from "../UI";
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
+
+const ProductTypeData = [
+  {
+    id:1,
+    prod_name:"Physical",
+    desc:"This is some desciption of the product"
+  },
+  {
+    id:2,
+    prod_name:"Digital",
+    desc:"This is some desciption of the product"
+  },
+  {
+    id:3,
+    prod_name:"Template",
+    desc:"This is some desciption of the product"
+  },
+  {
+    id:4,
+    prod_name:"Art",
+    desc:"This is some desciption of the product"
+  },
+  {
+    id:5,
+    prod_name:"Something",
+    desc:"This is some desciption of the product"
+  }
+];
+
+function onWheel(apiObj, ev){
+  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+  if (isThouchpad) {
+    ev.stopPropagation();
+    return;
+  }
+
+  if (ev.deltaY < 0) {
+    apiObj.scrollNext();
+  } else if (ev.deltaY > 0) {
+    apiObj.scrollPrev();
+  }
+}
+
+
+const ProdTypeCard = (props)=>{
+  const visibility = React.useContext(VisibilityContext);
+  
+  return(<div 
+    onClick={() => props.onClick()}
+    className="app-prod-type-card-cont"
+    style={{
+      border:`${props.selected?'1px solid #AEC9FF':'1px solid #d9d9d9'}`,
+      backgroundColor:`${props.selected?'#EDF3FF':'#f9f9f9'}`,   
+    }}
+  >
+    <div className="app-prod-type-card-pic-cont"><div className="app-prod-type-card-pic"><i class="ri-file-3-line"></i></div></div>
+    <div className="app-prod-type-card-name-cont">{props.data.prod_name}</div>
+    <div className="app-prod-type-card-desc-cont">{props.data.desc}</div>
+    
+  </div>)
+}
 
 
 const AccLogModalCont = (props) => {
@@ -30,7 +92,11 @@ const AccLogModalCont = (props) => {
   };
 const AddProductModal = (props) => {
     const navigate = useNavigate();
-  
+    const [selected, setSelected] = useState(0);
+    const handleItemClick =(itemId)=>()=>{
+      setSelected(itemId)
+    };
+
     return (
       <>
         <MCard>
@@ -44,19 +110,31 @@ const AddProductModal = (props) => {
               />
             </div>
             <div className="app-prod-add-form-data-cont">
-              <MDropButton
-                label="Product type"
-                buttonlabel="Not selected"
-                hfill
-              ></MDropButton>
-            </div>
-            <div className="app-prod-add-form-data-cont">
               <MTextInput
                 label="Product Price"
                 icon={<i class="ri-money-dollar-circle-line"></i>}
                 placeholder="Enter product price"
               />
             </div>
+            <div className="app-prod-add-form-data-cont">
+               <div  className="app-prod-add-form-tit-cont">Product Type</div>
+               <div className="app-prod-add-form-type-cont">
+               <ScrollMenu 
+               onWheel={onWheel}
+               >
+                {ProductTypeData.map((el,id)=>(
+                    <ProdTypeCard 
+                    itemId={id} 
+                    key={id} 
+                    data={el}
+                    onClick={handleItemClick(id)}
+                    selected={id === selected}
+                    />
+                ))}
+                </ScrollMenu>
+               </div>
+            </div>
+            
           </div>
           <MCardFooter>
             <div className="app-prod-add-footer-inner">
@@ -71,10 +149,10 @@ const AddProductModal = (props) => {
               <MFillButton
                 onClick={(e) => {
                   props.handleClose();
-                  navigate("/productname/edit");
+                  navigate("/products/productname/edit");
                 }}
               >
-                Next
+                Continue
               </MFillButton>
             </div>
           </MCardFooter>
