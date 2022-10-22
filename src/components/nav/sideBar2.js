@@ -169,13 +169,14 @@ width:230px;
 height: 100vh;
 position:relative;
 padding: 22px;     
-background-color:#F5F0ED;     
+// background-color:#F5F0ED;     
+background-color:#FAF4E8;     
 z-index: 40;
 `;
 
 
 const SideBarSearchContS = styled.div`
-background-color: #F5F0ED;
+background-color: transparent;
 width: 100%;
 height: 32px;
 border-radius: 7px;
@@ -216,7 +217,7 @@ const SideBarLinkButtonS = styled.div`
     font-size: 15px;
     overflow:hidden;
     &:hover{
-        background:#F3E9E2;
+        background:#F4EFE4;
         color:#000;
     }
     
