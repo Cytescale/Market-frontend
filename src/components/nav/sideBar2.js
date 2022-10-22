@@ -54,11 +54,12 @@ const ProdTypeCard = (props)=>{
   
   return(<div 
     onClick={() => props.onClick()}
-    className="app-prod-type-card-cont"
+    
     style={{
       border:`${props.selected?'1px solid #AEC9FF':'1px solid #d9d9d9'}`,
-      backgroundColor:`${props.selected?'#EDF3FF':'#f9f9f9'}`,   
+      backgroundColor:`${props.selected?'#EDF3FF':'#fff'}`,   
     }}
+    className="app-prod-type-card-cont"
   >
     <div className="app-prod-type-card-pic-cont"><div className="app-prod-type-card-pic"><i class="ri-file-3-line"></i></div></div>
     <div className="app-prod-type-card-name-cont">{props.data.prod_name}</div>
@@ -144,7 +145,7 @@ const AddProductModal = (props) => {
               >
                 Cancel
               </MButton>
-              <MButton icon={<i class="ri-draft-line"></i>}>Draft</MButton>
+              {/* <MButton icon={<i class="ri-draft-line"></i>}>Draft</MButton> */}
               <div className="app-prod-add-form-footer-right-cont"></div>
               <MFillButton
                 onClick={(e) => {

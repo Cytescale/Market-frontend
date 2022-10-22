@@ -1,8 +1,8 @@
 import React, { useState, ReactText, useEffect } from "react";
 import { BaseCont, InnerCont, PageCont } from "../../base/holder";
 import SideBar from "../../nav/sideBar";
-import EditorPane from "./descEditor";
 import SiennaEdior from "../../editor";
+import { useFileUpload } from 'use-file-upload'
 
 
 import {
@@ -23,6 +23,7 @@ import {
   MSwitch,
   MPageHeaderBread,
 } from "../../UI";
+import CoverEditorPane from "./prodCoverEditor";
 
 const DiscountCardCont = (props) => {
   return (
@@ -122,6 +123,7 @@ const ProductCheckoutCont = (props) => {
 };
 
 const ProductDetailCont = (props) => {
+
   return (
     <>
       <div className="app-prod-det-left-card-cont">
@@ -180,9 +182,7 @@ const ProductDetailCont = (props) => {
           <MCard>
             <MCardHeader pad={17}>Media</MCardHeader>
             <div className="app-prod-det-card-inner">
-              <div className="app-prod-add-form-data-cont">
-                <MFilePicker label="Cover" />
-              </div>
+                <CoverEditorPane/>
             </div>
           </MCard>
         </div>

@@ -8,6 +8,7 @@ import { Modal } from "@mui/material";
 import Popover from "@mui/material/Popover";
 import Radio from "@mui/material/Radio";
 
+
 const MModalContS = styled.div`
   position: absolute;
   top: 50%;
@@ -690,13 +691,13 @@ export const MTextArea = (props) => {
 
 const MFilePickerContS = styled.div`
   width: 100%;
-  height: 100px;
-  border: 2px dashed #bdbdbd;
-  border-radius: 5px;
+  height: auto;
+  border: 3px dashed #e0e0e0;
+  background-color:#FAFAFA;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 `;
 
 export const MFilePicker = (props) => {
@@ -705,8 +706,15 @@ export const MFilePicker = (props) => {
       {props.label ? <MTextInputLabelS>{props.label}</MTextInputLabelS> : null}
       <MFilePickerContS {...props}>
         <div className="file-picker-inner-cont">
-          <div className="file-picker-lab-cont">Add file</div>
-          <div className="file-picker-sub-cont">Accepts images or videos</div>
+          {/* <div className="file-picker-head-cont">Upload an Image</div> */}
+          <div className="file-picker-lab-cont">
+            <button
+            className="file-picker-upload-button"
+            onClick={props.onClickEvent}
+            ><i class="ri-upload-2-line"></i>Upload File</button>
+          </div>
+          <div className="file-picker-sub-cont">Images should be horizontal, at least <span className="file-pick-txt-high">1280x720px</span>, and 72 DPI (dots per inch).The size limit is <span className="file-pick-txt-high">5Mb</span></div>
+          {/* <div className="file-picker-learn-more">Learn more</div> */}
         </div>
       </MFilePickerContS>
     </div>

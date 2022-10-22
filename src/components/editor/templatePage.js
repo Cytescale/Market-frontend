@@ -1,5 +1,7 @@
 /** @format */
 
+const template_page_code_empt = ``;
+
 const template_page_code = `
 <h1>🚀Introduction of Technology</h1>
 
@@ -21,4 +23,4 @@ asdsadsad
 asdasdasasdaadsdsdads
 
 `;
-export default template_page_code;
+export default template_page_code_empt;

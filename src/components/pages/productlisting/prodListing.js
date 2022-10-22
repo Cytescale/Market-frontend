@@ -157,7 +157,7 @@ const ProdListing = (props) => {
               />
             </div>
             <MCard>
-              <PageTabCont />
+              {/* <PageTabCont /> */}
               <ProdTableOpt
                 handleSortPopOpen={setSortPopVisi}
                 handleExpVisOpen={handleExpVisOpen}
