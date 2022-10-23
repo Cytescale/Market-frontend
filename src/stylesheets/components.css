@@ -295,6 +295,7 @@ align-items: center;
      /* padding-top: 17px; */
      /* padding-bottom: 12px; */
      height: auto;
+
      /* position: absolute; */
      z-index: 100;
      /* background: rgba(248, 249, 250, 0.704); */
@@ -337,8 +338,8 @@ align-items: center;
 .app-tab-butt{
      height: 52px;
      width: auto;
-     padding-left: 32px;
-     padding-right: 32px;
+     padding-left: 22px;
+     padding-right: 22px;
      border-style: none;
      color: #858585;
      background-color: transparent;
@@ -986,42 +987,101 @@ font-size: 20px;
 .app-prod-cov-prev-cont{
      width: 100%;
      height: auto;
-     
+     /* background-color: #f7f7f7; */
      border: 1px solid #d9d9d9;
+     overflow: hidden;
      border-radius: 12px;
      position: relative;
 }
 
 
+.app-prod-bub-prv-cont{
+     position: absolute;    
+     bottom: 0;
+     left: 0;
+     right: 0;
+     height: 32px;
+     width: 100%;
+     gap: 7px;
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     background: linear-gradient(180deg, rgba(247, 247, 247, 0) 0%, #F7F7F7 59.17%);
+}
+
+.app-prod-bub-slec{
+     width: 8px;
+     cursor: pointer;
+     height: 8px;
+     border-radius: 200px;
+     background-color: #000;
+}
+
+.app-prod-bub-unslec{
+     width: 8px;
+     cursor: pointer;
+     height: 8px;
+     border-radius: 200px;
+     background-color: #fff;
+     border:1px solid #000
+}
 
 .app-prod-cov-hori-prev{
      width: 100%;
      height: auto;
-     background-color: #fff;
-     border-bottom-left-radius: 12px;
-     border-bottom-right-radius: 12px;
-     border-top: 1px solid #d9d9d9;
+
+     border-bottom: 1px solid #d9d9d9;
      display: inline-flex;
      gap: 10px;
-     padding: 22px;
+     padding: 12px;
 }
 
 .app-prod-hor-prv-img{
-     height: 80px;
-     width: 80px;
+     height: 100%;
+     width: 100%;
+     border-radius: 12px;
      object-fit: scale-down;
 }
+
 .app-prod-hor-prv-img-cont{
      
      cursor: pointer;
-     height: 80px;
-     width: 80px;
+     height: 62px;
+     width: 62px;
+     border-radius: 12px;
      position: relative;
      border-radius: 7px;
+     
+}
+
+.app-prod-img-adder-butt-cont{
+
+}
+
+.app-prod-img-adder-butt{
+     width: 62px;
+     height: 100%;
+     background-color: #fff;
+     border-radius: 12px;
+     outline: none;
+     border: 1px solid  #0057FF;
+     color: #0057FF;
+     font-size: 22px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+}
+.app-prod-img-adder-butt:hover{
+     background-color: #f1f1f1;
+}
+
+.app-prod-det-cover-big-prev-cont{
+     position: relative;     
 }
 
 .app-prod-cov-hori-prev-selec{
-     border: 2px solid #000;
+     border: 2px solid #0057FF;
 }
 
 .app-prod-hor-prv-img-overlay-cont{
@@ -1035,35 +1095,57 @@ font-size: 20px;
      
 }
 
+.app-prod-hor-prv-img-overlay-check-cont{
+     z-index: 60;
+     width: 14px;
+     height: 14px;
+     background-color: #0057FF;
+     color: #fff;
+     font-size: 9px;
+     position: absolute;
+     right: 0;
+     top: 0;
+     margin-right: -5px;
+     margin-top: -5px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 120px;
+}
+
 .app-prod-hor-prv-img-cont:hover > .app-prod-hor-prv-img-overlay-cont{
      visibility: visible;
 }
 
 .app-prod-cov-prev-clos-cont{
      position: absolute;
+     left: 0;
      right: 0;
      top: 0;
-     padding: 12px;
+     padding: 22px;
      z-index: 50;
      display: flex;
-     justify-content: center;
-
+     justify-content: flex-end;     
      align-items: center;
+     pointer-events: none;
+     gap: 7px;
 }
 
 .app-prod-cov-prev-clos-butt{
      width: 32px;
      height: 32px;
      display: flex;
-     font-size: 22px;
-     border-radius: 4px;
-     background-color: #fff;
-     border:1px solid #AE2C2C;
+     font-size: 17px;
+     border-radius: 32px;
+     background-color: #F3EFEC;
+     border-style: none;
      outline: none;
-     color: #AE2C2C;
+     color: #03363E;
      justify-content: center;
      align-items: center;
      cursor: pointer;
+     pointer-events: all;
+     z-index: 70;
 }
 
 .app-prod-cov-img{

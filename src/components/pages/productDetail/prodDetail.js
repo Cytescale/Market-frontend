@@ -22,6 +22,7 @@ import {
   MErrorCard,
   MSwitch,
   MPageHeaderBread,
+  MTextInputLabelS,
 } from "../../UI";
 import CoverEditorPane from "./prodCoverEditor";
 
@@ -103,20 +104,20 @@ const ProductCheckoutCont = (props) => {
             </div>
           </MCard>
         </div>
-        <div className="app-prod-det-left-card-cont">
-          <MCard>
-            <MCardHeader pad={17}>Discount Codes</MCardHeader>
-            <div className="app-prod-det-card-inner">
-              
-              <div className="app-prod-add-form-data-cont">
-                <DiscountCardCont />
+          {/* <div className="app-prod-det-left-card-cont">
+            <MCard>
+              <MCardHeader pad={17}>Discount Codes</MCardHeader>
+              <div className="app-prod-det-card-inner">
+                
+                <div className="app-prod-add-form-data-cont">
+                  <DiscountCardCont />
+                </div>
+                <div className="app-prod-add-form-data-cont">
+                  <MButton hfill>Add Discount Code</MButton>
+                </div>
               </div>
-              <div className="app-prod-add-form-data-cont">
-                <MButton hfill>Add Discount Code</MButton>
-              </div>
-            </div>
-          </MCard>
-        </div>
+            </MCard>
+          </div> */}
       </div>
     </>
   );
@@ -146,35 +147,38 @@ const ProductDetailCont = (props) => {
               <div className="app-prod-add-form-data-cont">
                 <SiennaEdior/>
               </div>
-            </div>
-          </MCard>
-        </div>
-        <div className="app-prod-det-left-card-cont">
-          <MCard>
-            <div className="app-prod-det-card-inner">
-            <MNotiCard dismiss style={{marginBottom:22,}} >
+
+                  <div className="app-prod-add-form-data-cont">
+                    <MTextInput
+                      label="URL"
+                      leftLabel="https://market.com/"
+                      rightContent={
+                        <MButton
+                          borderless
+                          icon={<i class="ri-file-copy-line"></i>}
+                        />
+                      }
+                      placeholder="MXSAD"
+                    />
+                  </div>
+                  <div className="app-prod-add-form-data-cont">
+                    <MTextInput
+                      label="Tags"
+                      placeholder="Type your tag"
+                    />
+                    <div className="app-prod-add-form-tag-cont">
+                          <div className="app-prod-add-form-tag">Value1</div>
+                          <div className="app-prod-add-form-tag">Value1</div>
+                          <div className="app-prod-add-form-tag">Value1</div>
+                    </div>
+                  </div>
+                  <MNotiCard dismiss style={{marginBottom:22,}} >
               This is a test notifiaction card
               This is a test notifiaction card
               This is a test notifiaction card
               
-            </MNotiCard>
-            
-              <div className="app-prod-add-form-data-cont">
-                <MTextInput
-                  label="URL"
-                  leftLabel="https://market.com/"
-                  rightContent={
-                    <MButton
-                      borderless
-                      icon={<i class="ri-file-copy-line"></i>}
-                    />
-                  }
-                  placeholder="MXSAD"
-                />
-              </div>
-              {/* <div className="app-prod-add-form-data-cont">
-                <MTextInput label="Tags" placeholder="Enter tags" />
-              </div> */}
+                </MNotiCard>
+                
             </div>
           </MCard>
         </div>
@@ -182,6 +186,7 @@ const ProductDetailCont = (props) => {
           <MCard>
             <MCardHeader pad={17}>Media</MCardHeader>
             <div className="app-prod-det-card-inner">
+              <MTextInputLabelS>Cover</MTextInputLabelS> 
                 <CoverEditorPane/>
             </div>
           </MCard>
@@ -193,9 +198,27 @@ const ProductDetailCont = (props) => {
               <div className="app-prod-add-form-data-cont">
                 <MTextInput
                   label="Product Price"
-                  leftLabel={"₹"}
+                  leftLabel={"INR(₹)"}
                   placeholder="Enter product price"
                 />
+              </div>
+              <div className="app-prod-add-form-data-cont">
+                <MTextInput
+                  label="Compare Product Price"
+                  leftLabel={"INR(₹)"}
+                  placeholder="Enter product price"
+                />
+              </div>
+              <div  className="app-prod-add-form-data-hr"/>
+              <div className="app-prod-add-form-data-cont">
+                <MHorLabelCont
+                      leftLabel={"Tax charge"}
+                      leftSecLabel={
+                        "Charge tax on the sale of the product with this."
+                      }
+                    >
+                        <MSwitch />
+                  </MHorLabelCont>
               </div>
             </div>
           </MCard>
@@ -204,20 +227,36 @@ const ProductDetailCont = (props) => {
           <MCard>
             <MCardHeader pad={17}>Inventory</MCardHeader>
             <div className="app-prod-det-card-inner">
+            <div className="app-prod-add-form-data-cont">
+                <MHorLabelCont
+                      leftLabel={"Inventory tracking"}
+                      leftSecLabel={
+                        "Charge tax on the sale of the product with this."
+                      }
+                    >
+                        <MSwitch />
+                  </MHorLabelCont>
+              </div>
+            <div  className="app-prod-add-form-data-hr"/>
               <div className="app-prod-add-form-data-cont">
-                <MHorLabelCont leftLabel={"Limit sell?"}>
-                  <MCheckbox />
-                </MHorLabelCont>
+                  <MHorLabelCont
+                    leftLabel={"Limmit Product Sales"}
+                    leftSecLabel={
+                      "Sales of product must be as per given limit."
+                    }
+                  >
+                      <MCheckbox/>
+                    </MHorLabelCont>
               </div>
               <div className="app-prod-add-form-data-cont">
-                <MHorLabelCont leftLabel={"Available after out of stock?"}>
-                  <MCheckbox defaultChecked />
-                </MHorLabelCont>
-              </div>
-              <div className="app-prod-add-form-data-cont">
-                <MHorLabelCont leftLabel={"Available stock"}>
-                  <MTextInput value="100" />
-                </MHorLabelCont>
+              <MHorLabelCont
+                    leftLabel={"Available inventory"}
+                    leftSecLabel={
+                      "Permanently delete this account , it cannot be restored again."
+                    }
+                  >
+                      <MTextInput placeholder="Quantity"/>
+                    </MHorLabelCont>
               </div>
             </div>
           </MCard>
@@ -227,11 +266,22 @@ const ProductDetailCont = (props) => {
             <MCardHeader pad={17}>Settings</MCardHeader>
             <div className="app-prod-det-card-inner">
               <div className="app-prod-add-form-data-cont">
-                <MHorLabelCont leftLabel={"Let users choose quantity"}>
+                <MHorLabelCont leftLabel={"Show quantity Left"}>
                   <MSwitch />
                 </MHorLabelCont>
               </div>
               <div className="app-prod-add-form-data-cont">
+                <MHorLabelCont leftLabel={"Show ratings of the products"}>
+                  <MSwitch />
+                </MHorLabelCont>
+              </div>
+              <div className="app-prod-add-form-data-cont">
+                <MHorLabelCont leftLabel={"Let users choose quantity"}>
+                  <MSwitch />
+                </MHorLabelCont>
+              </div>
+              <div
+               className="app-prod-add-form-data-cont">
                 <MHorLabelCont leftLabel={"Show sales to users"}>
                   <MSwitch />
                 </MHorLabelCont>

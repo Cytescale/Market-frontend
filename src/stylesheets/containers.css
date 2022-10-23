@@ -6,6 +6,7 @@
 
 .app-prod-add-form-inner{
      padding: 22px;
+     
      padding-bottom: 1px;
 }
 
@@ -14,6 +15,31 @@
      margin-bottom: 22px;
 }
 
+.app-prod-add-form-tag-cont{
+     display: inline-flex;
+     gap: 7px;
+     margin-top: 12px;
+     justify-content: center;
+     align-items: center;
+}
+
+.app-prod-add-form-tag{
+     background: #DAEFFF;
+     color: #0094FF;
+     font-size:11px;
+     padding: 3px;
+     padding-left: 8px;
+     padding-right: 8px;
+     border-radius: 4px;
+     cursor: pointer;
+}
+
+.app-prod-add-form-data-hr{
+     width: 100%;
+     height: 1px;
+     border-bottom: 1px solid #d9d9d9;
+     margin-bottom: 22px;
+}
 
 .app-prod-add-footer-inner{
      padding: 0px;
@@ -104,7 +130,7 @@ left: 0;
 }
 
 .app-prod-det-left-card-cont{
-     margin-bottom: 52px;    
+     margin-bottom: 42px;    
 }
 
 
@@ -404,3 +430,4 @@ box-shadow: 4px 0px 6px  rgba(0, 0, 0, 0.07);
      background-color: #fff;
      color: #184A4E;
 }
+

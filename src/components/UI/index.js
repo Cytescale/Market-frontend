@@ -119,7 +119,7 @@ export const MPopover = (props) => {
   );
 };
 
-const MTextInputLabelS = styled.div`
+export const MTextInputLabelS = styled.div`
   margin-bottom: 7px;
   font-size: 13px;
   
@@ -129,7 +129,7 @@ const MTextInputLabelS = styled.div`
 
 const MTextInputContS = styled.div`
   width: auto;
-  height: 36px;
+  height: 42px;
   background-color: ${(props) => (props.foc ? "#f5f5f5" : "null")};
   border: ${(props) => (props.foc ? "1px solid #f5f5f5" : "1px solid #d9d9d9")};
   display: flex;
@@ -174,7 +174,7 @@ export const MTextInput = (props) => {
             {...props}
             foc={foc}
             style={{
-              paddingLeft:`${props.icon?'7px':'0px'}`
+              paddingLeft:`${props.icon || props.leftLabel?'7px':'0px'}`
             }}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -224,6 +224,8 @@ const MButtonS = styled.button`
   padding-right: 18px;
   border-radius: 12px;
   cursor: pointer;
+  pointer-events: all;
+
   outline: none;
   border: 1px solid #b9b9b9;
   &:hover{
@@ -703,7 +705,7 @@ const MFilePickerContS = styled.div`
 export const MFilePicker = (props) => {
   return (
     <div>
-      {props.label ? <MTextInputLabelS>{props.label}</MTextInputLabelS> : null}
+      
       <MFilePickerContS {...props}>
         <div className="file-picker-inner-cont">
           {/* <div className="file-picker-head-cont">Upload an Image</div> */}
