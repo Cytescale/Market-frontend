@@ -24,13 +24,13 @@ import { useNavigate } from "react-router-dom";
 
 const MTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    color: "#0077E6",
+    color: "#589183",
 
-    paddingTop: "12px",
-    paddingBottom: "12px",
+    paddingTop: "16px",
+    paddingBottom: "16px",
     fontSize: 13,
     fontWeight: "600",
-    borderBottom: "1px solid #e0e0e0",
+    borderBottom: "0px solid #e0e0e0",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -77,7 +77,7 @@ const ProductTableRender = (props) => {
       <Table>
         <TableHead>
           <TableRow>
-            <MTableIndCell align="center"></MTableIndCell>
+            
             <MTableCell align="center">Product</MTableCell>
             <MTableCell align="center">Gross</MTableCell>
             <MTableCell align="center">Fees</MTableCell>
@@ -89,9 +89,7 @@ const ProductTableRender = (props) => {
         <TableBody className="data-tab-body-cont">
           {DATA.map((row, i) => (
             <StyledTableRow key={row.name} className="data-tab-row-cont">
-              <MTableIndCell align="center" className="data-earn-tab-ind-cont">
-                {i + 1}
-              </MTableIndCell>
+              
               <MTableCell align="center"><div className="data-earn-tab-nam-cont">{row.product}</div></MTableCell>
               <MTableCell align="center">{row.gross}</MTableCell>
               <MTableCell align="center">{row.fees}</MTableCell>
