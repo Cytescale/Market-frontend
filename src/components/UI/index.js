@@ -219,7 +219,7 @@ const MButtonS = styled.button`
   justify-content: center;
   font-size: 13px;
   font-weight:500;
-  color: #0077e6;
+  color: #000;
   background-color: #fff;
   padding-left: 18px;
   padding-right: 18px;
@@ -632,7 +632,7 @@ const MDropButtonS = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  color: #0057ff;
+  color: #000;
   background-color: #fff;
   padding-left: 16px;
   padding-right: 16px;

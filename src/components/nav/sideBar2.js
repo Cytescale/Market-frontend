@@ -458,7 +458,7 @@ const navigate = useNavigate();
                 </SideBarOptHolderS>    
                 <SideBarOptHolderS > 
                     <SideBarLinkButton 
-                    icon={<i class="ri-line-chart-line"></i>} 
+                    icon={<i class="ri-group-line"></i>} 
                     label={"Customers"}
                     toLink="/customers"
                     />
