@@ -1,6 +1,20 @@
 
 /*/////////STYLE FOR  "ONLY" INDEX FILE OF UI////////////////////////////////////*/
 
+.page-header-left-cont{
+     display: flex;
+     flex: 1;
+     flex-direction: column;    
+}
+
+.page-header-right-cont{
+     display: flex;
+     flex: 1;
+     flex-direction: row;
+     justify-content: flex-end;
+     gap: 12px;    
+}
+
 .file-picker-inner-cont{
      display: flex;
      flex-direction: column;
@@ -41,6 +55,15 @@
      font-size: 13px;
 }
 
+.file-picker-upload-url-butt{
+     font-size: 12px;
+     font-weight: 500;
+     color: #184A4E;
+     text-decoration: underline;
+     margin-top: 3px;
+     cursor: pointer;
+}
+
 .file-pick-txt-high{
      color: #0094FF; 
      font-weight: 500;
@@ -72,7 +95,7 @@ text-align: center;
      padding-top: 11px;
      padding-bottom: 11px;
      font-size: 13px;
-     color: #555555;
+     color: #858585;
      
      margin-right: 22px;     
 }

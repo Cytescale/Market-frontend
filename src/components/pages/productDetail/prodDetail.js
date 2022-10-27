@@ -1,8 +1,6 @@
 import React, { useState, ReactText, useEffect } from "react";
-import { BaseCont, InnerCont, PageCont } from "../../base/holder";
-import SideBar from "../../nav/sideBar";
+import ContentEditorPane from "./prodContentEditor";
 import SiennaEdior from "../../editor";
-import { useFileUpload } from 'use-file-upload'
 
 
 import {
@@ -74,7 +72,7 @@ const ProductCheckoutCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Payment from</MCardHeader>
+            <MCardHeader pad={32}>Payment from</MCardHeader>
             <div className="app-prod-det-card-inner">
               <div className="app-prod-add-form-data-cont">
                 <MDropButton
@@ -84,11 +82,11 @@ const ProductCheckoutCont = (props) => {
                 ></MDropButton>
               </div>
             </div>
-          </MCard>
+        </MCard>
         </div>
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Reciept</MCardHeader>
+            <MCardHeader pad={32}>Reciept</MCardHeader>
             <div className="app-prod-card-desc">
               When a customer makes a purchase, they'll see a receipt and
               receive an email with a thank you note and a button to access your
@@ -106,7 +104,7 @@ const ProductCheckoutCont = (props) => {
         </div>
           {/* <div className="app-prod-det-left-card-cont">
             <MCard>
-              <MCardHeader pad={17}>Discount Codes</MCardHeader>
+              <MCardHeader pad={32}>Discount Codes</MCardHeader>
               <div className="app-prod-det-card-inner">
                 
                 <div className="app-prod-add-form-data-cont">
@@ -130,7 +128,7 @@ const ProductDetailCont = (props) => {
       <div className="app-prod-det-left-card-cont">
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={22}>Product Details</MCardHeader>
+            <MCardHeader pad={32}>Product Details</MCardHeader>
             <div className="app-prod-card-desc">
               When a customer makes a purchase, they'll see a receipt and receive an email with a thank you note and a button to access your content.
             </div>
@@ -184,7 +182,7 @@ const ProductDetailCont = (props) => {
         </div>
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Media</MCardHeader>
+            <MCardHeader pad={32}>Media</MCardHeader>
             <div className="app-prod-det-card-inner">
               <MTextInputLabelS>Cover</MTextInputLabelS> 
                 <CoverEditorPane/>
@@ -193,7 +191,7 @@ const ProductDetailCont = (props) => {
         </div>
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Pricing</MCardHeader>
+            <MCardHeader pad={32}>Pricing</MCardHeader>
             <div className="app-prod-det-card-inner">
               <div className="app-prod-add-form-data-cont">
                 <MTextInput
@@ -209,23 +207,14 @@ const ProductDetailCont = (props) => {
                   placeholder="Enter product price"
                 />
               </div>
-              <div  className="app-prod-add-form-data-hr"/>
-              <div className="app-prod-add-form-data-cont">
-                <MHorLabelCont
-                      leftLabel={"Tax charge"}
-                      leftSecLabel={
-                        "Charge tax on the sale of the product with this."
-                      }
-                    >
-                        <MSwitch />
-                  </MHorLabelCont>
-              </div>
+              
+              
             </div>
           </MCard>
         </div>
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Inventory</MCardHeader>
+            <MCardHeader pad={32}>Inventory</MCardHeader>
             <div className="app-prod-det-card-inner">
             <div className="app-prod-add-form-data-cont">
                 <MHorLabelCont
@@ -263,7 +252,7 @@ const ProductDetailCont = (props) => {
         </div>
         <div className="app-prod-det-left-card-cont">
           <MCard>
-            <MCardHeader pad={17}>Settings</MCardHeader>
+            <MCardHeader pad={32}>Settings</MCardHeader>
             <div className="app-prod-det-card-inner">
               <div className="app-prod-add-form-data-cont">
                 <MHorLabelCont leftLabel={"Show quantity Left"}>
@@ -331,7 +320,7 @@ const ProductTabSwitch = (props) => {
     case 0:
       return <ProductDetailCont />;
     case 1:
-      return <ProductDetailCont />;
+      return <ContentEditorPane />;
     case 2:
       return <ProductCheckoutCont />;
     default:

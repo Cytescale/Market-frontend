@@ -16,7 +16,7 @@ import {
   MSwitch,
   MNotiCard
 } from "../../UI";
-import { SideBarActionButton,SideBarLinkButton } from "../../nav/sideBar";
+
 
 const ProfileCont = (props) => {
   return (

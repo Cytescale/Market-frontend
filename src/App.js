@@ -2,7 +2,7 @@ import { BaseCont, InnerCont, PageCont } from "./components/base/holder";
 import SideBar from "./components/nav/sideBar2";
 import ProdListing from "./components/pages/productlisting/prodListing";
 import ProductDetail from "./components/pages/productDetail/prodDetail";
-import AddProduct from "./components/pages/addProduct/addProduct";
+
 import ProfileBase from "./components/pages/profile/profileBase";
 import LoginBase from "./components/pages/login";
 import EarningBase from "./components/pages/earnings/earnings";
@@ -69,7 +69,7 @@ function App() {
               path="/products/add"
               element={
                 <ShellComp>
-                  <AddProduct />
+                  {/* <AddProduct /> */}
                 </ShellComp>
               }
             ></Route>

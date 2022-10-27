@@ -1,6 +1,6 @@
 import React, { useState, ReactText } from "react";
 import { BaseCont, InnerCont, PageCont } from "../../base/holder";
-import SideBar from "../../nav/sideBar";
+
 
 import {
   MButton,
@@ -36,6 +36,7 @@ const ProdTableOpt = (props) => {
       <div className="prod-list-opt-con">
         <div className="prod-list-srch-cont">
           <MTextInput
+            height={"36px"}
             icon={<i class="ri-search-line"></i>}
             placeholder="Search for products"
           />
@@ -49,39 +50,9 @@ const ProdTableOpt = (props) => {
         >
           Sort
         </MButton>
-        <MButton icon={<i class="ri-filter-3-line"></i>}>Filter</MButton>
-        <div className="prod-list-opt-list-right-cont">
-          <MButton
-            className="prod-list-opt-list-butt-cont"
-            onClick={() => {
-              props.handleExpVisOpen();
-            }}
-          >
-            Export
-          </MButton>
-          {/* <MButton className="prod-list-opt-list-butt-cont">Import</MButton> */}
-          <MFillButton
-            onClick={(e) => {
-              navigate("/products/add");
-            }}
-          >
-            ADD ITEM
-          </MFillButton>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const PageTabCont = (props) => {
-  return (
-    <>
-      <div className="app-product-listing-tab-cont">
-        <div className="app-tab-main-cont">
-          <button className="app-tab-butt app-tab-selec">All</button>
-          <button className="app-tab-butt">Active</button>
-          <button className="app-tab-butt">Draft</button>
-        </div>
+        <MButton className="prod-list-opt-list-butt-cont" icon={<i class="ri-filter-3-line"></i>}>Filter</MButton>
+        <MButton className="prod-list-opt-list-butt-cont" icon={<i class="ri-refresh-line"></i>}>Refresh</MButton>
+        
       </div>
     </>
   );
@@ -154,6 +125,22 @@ const ProdListing = (props) => {
               <MPageLabel
                 priLabel="All Products"
                 secLabel="Earning as per all the listed products"
+                rightContent={
+                  <>
+                  <MButton
+                    icon={<i class="ri-download-line"></i>}
+                    onClick={() => {handleExpVisOpen();}}>
+                    Export
+                  </MButton>
+                  <MFillButton
+                    icon={<i class="ri-add-line"></i>}
+                    onClick={(e) => {
+                      // navigate("/products/add");
+                    }}
+                  >
+                    ADD ITEM
+                  </MFillButton></>
+                }
               />
             </div>
             <MCard>

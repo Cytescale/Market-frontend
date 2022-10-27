@@ -129,7 +129,7 @@ export const MTextInputLabelS = styled.div`
 
 const MTextInputContS = styled.div`
   width: auto;
-  height: 42px;
+  height: ${(props) => (props.height ? props.height : "42px")};
   background-color: ${(props) => (props.foc ? "#f5f5f5" : "null")};
   border: ${(props) => (props.foc ? "1px solid #f5f5f5" : "1px solid #d9d9d9")};
   display: flex;
@@ -165,7 +165,8 @@ export const MTextInput = (props) => {
         {props.label ? (
           <MTextInputLabelS foc={foc}>{props.label}</MTextInputLabelS>
         ) : null}
-        <MTextInputContS foc={foc}>
+        <MTextInputContS {...props}>
+          
           {props.icon ? <MIconCont style={{color:foc?"#000":"#bdbdbd"}}>{props.icon}</MIconCont> : null}
           {props.leftLabel ? (
             <MInputLabelCont>{props.leftLabel}</MInputLabelCont>
@@ -222,12 +223,13 @@ const MButtonS = styled.button`
   background-color: #fff;
   padding-left: 18px;
   padding-right: 18px;
-  border-radius: 12px;
+  border-radius: 36px;
   cursor: pointer;
   pointer-events: all;
 
   outline: none;
-  border: 1px solid #b9b9b9;
+  // border: 1px solid #e0e0e0;
+  border: 1px solid #BEBEBE;
   &:hover{
     background-color: #f7f7f7;
   }
@@ -238,13 +240,14 @@ const MFillButtonS = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
   color: #fff;
+  font-family:inter;
   background-color: #0077e6;
   padding-left: 18px;
   padding-right: 18px;
-  border-radius: 12px;
+  border-radius: 36px;
   cursor: pointer;
   outline: none;
   // border: 1px solid #dbdbdb;
@@ -283,7 +286,7 @@ export const MButton = (props) => {
         </MIconCont>
       ) : null}
       {props.children}
-    </MButtonS>
+  </MButtonS>
   );
 };
 
@@ -320,6 +323,7 @@ const MCardS = styled.div`
   position: relative;
   border: ${(props) => (props.borderless ? null : "1px solid #e0e0e0")};
   // box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
+  // box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.05);
 `;
 
 
@@ -364,7 +368,8 @@ export const MCardHeader = (props) => {
     <MCardHeaderS
       {...props}
       style={{
-        // padding: props.pad ? props.pad : "0px",
+        padding: props.pad ? props.pad : "0px",
+        paddingBottom:"3px",
       }}
     >
       {props.children}
@@ -512,13 +517,12 @@ const MPageHeaderBreadS = styled.div`
      width: fit-content;
      height: fit-content;
      font-size: 14px;
-    color: ${props => props.isLast?"#000":"#959595"}
+    color: ${props => props.isLast?"#000":"#bdbdbd"}
 `;
 
 export const MPageHeaderBread = (props)=>{
   return<>
-  <MPageHeaderBreadS {...props}
-  className="as">{props.children}</MPageHeaderBreadS>
+  <MPageHeaderBreadS {...props}>{props.children}</MPageHeaderBreadS>
   </>
 }
 
@@ -537,7 +541,7 @@ export const MPageHeader = (props) => {
             <MButton
               borderless
               onClick={() => navigate(-1)}
-              style={{color: "#656565",fontSize:16 }}
+              style={{color: "#656565",fontSize:14 }}
               icon={<i class="ri-arrow-left-line"></i>}
             >
               Back
@@ -632,10 +636,10 @@ const MDropButtonS = styled.button`
   background-color: #fff;
   padding-left: 16px;
   padding-right: 16px;
-  border-radius: 6px;
+  border-radius: 36px;
   cursor: pointer;
   outline: none;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #BEBEBE;
   &:hover{
     background-color:#f1f1f1;
   }
@@ -713,7 +717,7 @@ export const MFilePicker = (props) => {
             <button
             className="file-picker-upload-button"
             onClick={props.onClickEvent}
-            ><i class="ri-upload-2-line"></i>Upload File</button>
+            ><i class="ri-upload-2-line"></i>Upload Files</button>
           </div>
           <div className="file-picker-sub-cont">Images should be horizontal, at least <span className="file-pick-txt-high">1280x720px</span>, and 72 DPI (dots per inch).The size limit is <span className="file-pick-txt-high">5Mb</span></div>
           {/* <div className="file-picker-learn-more">Learn more</div> */}
@@ -847,15 +851,20 @@ const MPageLabelS = styled.div`
   color: #555555;
   // color: #0077e6;
   padding-left: 12px;
+  padding-top:22px;
+  padding-bottom:22px;
   width: 100%;
   display: flex;
-  justify-content: start;
+  flex-direction: row;
+  align-items: center;
+  // justify-content: start;
 `;
 
 const MPagePriLabelS = styled.div`
-  font-size: 22px;
+  font-size: 26px;
+  font-weight:400;
+  // color: #184A4E;
   color: #353535;
-  // color: #0077e6;
   width: 100%;
   display: flex;
   justify-content: start;
@@ -875,9 +884,13 @@ export const MPageLabel = (props) => {
   return (
     <>
       <MPageLabelS>
-        <div>
+        <div className="page-header-left-cont">
           <MPagePriLabelS>{props.priLabel}</MPagePriLabelS>
           <MPageSecLabelS>{props.secLabel}</MPageSecLabelS>
+        </div>
+        <div className="page-header-right-cont">
+          {props.rightContent}
+          
         </div>
       </MPageLabelS>
     </>
