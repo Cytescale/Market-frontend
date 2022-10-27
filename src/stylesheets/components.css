@@ -1368,7 +1368,7 @@ gap: 12px;
 .app-earn-card-cont{
      background-color: #fff;
      /* box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.4); */
-     border:2px solid #000;
+     border:2px solid #e0e0e0;
      width: auto;
      display: flex;
      flex-direction: column;
