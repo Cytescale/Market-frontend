@@ -130,7 +130,7 @@ export const MTextInputLabelS = styled.div`
 const MTextInputContS = styled.div`
   width: auto;
   height: ${(props) => (props.height ? props.height : "42px")};
-  background-color: ${(props) => (props.foc ? "#f5f5f5" : "null")};
+  background-color: ${(props) => (props.foc ? "#f5f5f5" : "#fff")};
   border: ${(props) => (props.foc ? "1px solid #f5f5f5" : "1px solid #d9d9d9")};
   display: flex;
   align-items: center;
@@ -321,7 +321,7 @@ const MCardS = styled.div`
   width: 100%;
   border-radius: 12px;
   position: relative;
-  border: ${(props) => (props.borderless ? null : "1px solid #e0e0e0")};
+  border: ${(props) => (props.borderless ? null : "1px solid #d9d9d9")};
   // box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.03);
   // box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.05);
 `;
@@ -849,6 +849,7 @@ export const MSwitch = (props) => {
 const MPageLabelS = styled.div`
   font-size: 20px;
   color: #555555;
+
   // color: #0077e6;
   padding-left: 12px;
   padding-top:22px;

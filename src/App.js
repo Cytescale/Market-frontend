@@ -2,7 +2,7 @@ import { BaseCont, InnerCont, PageCont } from "./components/base/holder";
 import SideBar from "./components/nav/sideBar2";
 import ProdListing from "./components/pages/productlisting/prodListing";
 import ProductDetail from "./components/pages/productDetail/prodDetail";
-
+import CustomersBase from "./components/pages/customers/customers";
 import ProfileBase from "./components/pages/profile/profileBase";
 import LoginBase from "./components/pages/login";
 import EarningBase from "./components/pages/earnings/earnings";
@@ -44,9 +44,16 @@ function App() {
             ></Route>
             <Route exact path="/" element={<Navigate to="/products" />}></Route>
             <Route exact path="/analytics" element={<ShellComp />}></Route>
-            <Route exact path="/customers" element={<ShellComp />}></Route>
             <Route exact path="/home" element={<ShellComp />}></Route>
             <Route
+              exact
+              path="/customers"
+              element={
+                <ShellComp>
+                  <CustomersBase />
+                </ShellComp>
+              }
+            ></Route><Route
               exact
               path="/earnings"
               element={
