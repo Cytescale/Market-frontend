@@ -226,7 +226,7 @@ const MButtonS = styled.button`
   border-radius: 36px;
   cursor: pointer;
   pointer-events: all;
-
+  // box-shadow:0px 3px 2px rgba(0,0,0,0.09);
   outline: none;
   // border: 1px solid #e0e0e0;
   border: 1px solid #BEBEBE;
@@ -862,8 +862,9 @@ const MPageLabelS = styled.div`
 `;
 
 const MPagePriLabelS = styled.div`
-  font-size: 26px;
-  font-weight:400;
+  font-size: 22px;
+  font-family:inter;
+  font-weight:600;
   // color: #184A4E;
   color: #353535;
   width: 100%;
