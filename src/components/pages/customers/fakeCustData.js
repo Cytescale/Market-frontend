@@ -10,6 +10,7 @@ const DATA = [
     product: "placeholdername",
     date: '8 Feb 2001, 10:00pm',
     price: '10.00$', 
+    return:true,
   },{
     email:"placeholder@email.com",
     product: "placeholdername",
@@ -25,17 +26,20 @@ const DATA = [
     product: "placeholdername",
     date: '8 Feb 2001, 10:00pm',
     price: '10.00$', 
+    return:true,
   },{
     email:"placeholder@email.com",
     product: "placeholdername",
     date: '8 Feb 2001, 10:00pm',
     price: '10.00$', 
+    return:true,
   },
   {
     email:"placeholder@email.com",
     product: "placeholdername",
     date: '8 Feb 2001, 10:00pm',
     price: '10.00$', 
+    return:true,
   },
   {
     email:"placeholder@email.com",

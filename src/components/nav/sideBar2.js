@@ -168,15 +168,16 @@ const SideBarS = styled.div`
 width:230px;
 height: 100vh;
 position:relative;
+overflow:hidden;
 padding: 22px;     
-// background-color:#F5F0ED;     
-background-color:#FAF4E8;     
+ background-color:#111111;     
+//background-color:#FAF4E8;     
 z-index: 40;
 `;
 
 
 const SideBarSearchContS = styled.div`
-background-color: transparent;
+background-color: #252525;
 width: 100%;
 height: 32px;
 border-radius: 7px;
@@ -213,12 +214,12 @@ const SideBarLinkButtonS = styled.div`
     width: 100%;
     border-radius: 7px;
     height: 32px;    
-    color: #828282;
+    color: #929292;
     font-size: 15px;
     overflow:hidden;
     &:hover{
-        background:#F4EFE4;
-        color:#000;
+        background:#252525;
+        color:#fff;
     }
     
 `;
@@ -228,7 +229,7 @@ const SideBarMenuLab = styled.div`
     letter-spacing:3px;
     padding-left:0px;
     font-weight:600;
-    color:#C0B39B;
+    color:#858585;
     font-family:inter;
     padding-left:3px;
     margin-top:22px;
@@ -258,7 +259,7 @@ const SideBarLinkButton = (props) => {
   };
 
 const SideBarLogoS = styled.div`
-    color:#000;
+    color:#fff;
     margin-bottom: 22px;
 `
 
@@ -270,7 +271,7 @@ const  SideBarHrCont= styled.div`
   width:100%;
   height:1px;
   border-radius:100px;
-  background-color:#EBE1CE;
+  background-color:#353535;
 `;
 
 const SideBarActButtonS = styled.button`
@@ -282,11 +283,11 @@ width: 100%;
  align-items: center;
  gap: 4px;
  font-size: 13px;
- color: #03363E;
+ color: #fff;
  outline: none;
  border: none;
  border-radius: 7px;
- background-color: #fff;
+ background-color: #0057FD;
  cursor: pointer;
  font-family: inter;
 `;
@@ -312,7 +313,7 @@ const SideBarProfileBarCont =  styled.div`
         padding-right:12px;
         border-radius:7px;
         &:hover{
-            background:#EBE3DE;
+            background:#353535;
         }
 `;
 
@@ -332,8 +333,8 @@ const SideBarBottButt  = styled.button`
     color: #858585;
     cursor: pointer;
     &:hover{
-        background-color: #fff;
-        color: #184A4E;
+        background-color: #353535;
+        color: #fff;
     }
 `
 
@@ -373,6 +374,7 @@ const navigate = useNavigate();
   const profPopVisiBool = Boolean(profPopVisi);
     return(<>
         <SideBarS>
+          <div className="side-bar-deco-1-cont"/>
         <MModal open={open} handleClose={handleClose}>
           <AddProductModal navigate={navigate} handleClose={handleClose} />
         </MModal>
@@ -431,7 +433,7 @@ const navigate = useNavigate();
                     >
                     <path
                         d="M1.56763 9.18893C3.79306 14.6669 10.3422 22.336 18.7353 9.18893C27.1283 -3.95817 36.5387 3.21297 39.0821 8.69093C41.7314 16.3269 49.5632 23.3078 56.5676 11.1809"
-                        stroke="#000"
+                        stroke="#fff"
                         stroke-width="3"
                         stroke-linecap="round"
                     />

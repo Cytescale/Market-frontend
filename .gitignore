@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/backupcodes
 /.pnp
 .pnp.js
 

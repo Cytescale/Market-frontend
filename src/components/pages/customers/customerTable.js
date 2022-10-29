@@ -22,9 +22,11 @@ import {
 } from "../../UI";
 import { useNavigate } from "react-router-dom";
 
-const MTableCell = styled(TableCell)(({ theme }) => ({
+const MTableCell = styled(TableCell)(({ theme }) => {
+
+  return({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#f5f5f5",
+    // backgroundColor: "#f5f5f5",
     color: "#858585",
     padding: "5px",
     fontSize: 11,
@@ -32,19 +34,23 @@ const MTableCell = styled(TableCell)(({ theme }) => ({
     paddingBottom:12,
     fontWeight: "600",
     borderBottom: "1px solid #f5f5f5",
+    borderTop: "1px solid #f5f5f5",
     
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 12,
+    fontSize: 11,
+    fontFamily:'inter',
+    fontWeight:600,
     paddingTop:14,
     paddingBottom:14,
     color: "#555555",
-
-  },
-}));
+  
+  }})
+  }
+)
 
 const StyledTableRow = styled(TableRow)((theme) => {
-
+  
   return(
   {
   "td, th": {
@@ -83,10 +89,28 @@ const CustomerTableRender = (props) => {
         <TableBody className="data-tab-body-cont">
           {DATA.map((row) => (
             <StyledTableRow key={row.email} >
-              <MTableCell  align="center">{row.email}</MTableCell>
-              <MTableCell align="center">{row.product}</MTableCell>
+              <MTableCell align="center" className="data-cust-emai-cell"
+              style={{  
+                borderLeft:row.return?'5px solid #FFD872':'5px solid #E4F0D3',
+                }}
+              >
+                {row.email}
+              </MTableCell>
+              <MTableCell align="center"><div className="data-tab-data-link-data">
+                  <Link
+                    to="api.market.com/24234/asd"
+                    className="data-tab-data-link"
+                    
+                  >
+                    product1
+                    <i class="ri-external-link-line"></i>
+                  </Link>
+                </div></MTableCell>
               <MTableCell align="center">{row.date}</MTableCell>
-              <MTableCell align="center"><div>{row.price}</div></MTableCell>
+              <MTableCell align="center" style={{  
+                  color:'#01BB35'
+                }}><div>
+                {row.price}</div></MTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
