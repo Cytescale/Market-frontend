@@ -157,7 +157,9 @@ const CustomersBase = (props)=>{
                     </MCard>
                 </div>
             </div>
-            <div className="app-cust-right-main-cont"><CustomerRecpt/></div>
+            <div className="app-cust-right-main-cont">
+                <CustomerRecpt/>
+                </div>
           </div>
         </div>
       

@@ -218,8 +218,8 @@ const MButtonS = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  font-weight:500;
-  color: #000;
+  font-weight:600;
+  color: #555555;
   background-color: #fff;
   padding-left: 18px;
   padding-right: 18px;
