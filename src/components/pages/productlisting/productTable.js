@@ -109,7 +109,8 @@ const ProductTableRender = (props) => {
                   <MButton
                     borderless
                     style={{
-                      padding:0
+                      padding:0,
+                      color:'#bdbdbd',
                     }}
                     icon={<i class="ri-clipboard-line"></i>}
                   />
