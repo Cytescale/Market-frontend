@@ -441,7 +441,15 @@ const navigate = useNavigate();
             </SideBarLogoS>
              
         </div>            
-            <SideBarOptHolderS> <SideBarSearch/></SideBarOptHolderS>
+            {/* <SideBarOptHolderS> <SideBarSearch/></SideBarOptHolderS> */}
+            <SideBarOptHolderS>
+            <SideBarActButt
+            icon={<i class="ri-add-line"></i>}
+            onClick={(e) => {
+                handleOpen();
+              }}
+            >New Product</SideBarActButt>
+            </SideBarOptHolderS>    
             <div className="app-side-butt-opt-main-cont">
                 <SideBarMenuLab>WORKSPACE</SideBarMenuLab>
                 <SideBarOptHolderS > 
@@ -484,14 +492,14 @@ const navigate = useNavigate();
         
             <div className="app-side-butt-prod-main-cont">
             {/* <SideBarMenuLab>PRDODUCT</SideBarMenuLab> */}
-            <SideBarOptHolderS>
+            {/* <SideBarOptHolderS>
             <SideBarActButt
             icon={<i class="ri-add-line"></i>}
             onClick={(e) => {
                 handleOpen();
               }}
             >New Product</SideBarActButt>
-            </SideBarOptHolderS>    
+            </SideBarOptHolderS>     */}
             </div>
 
             <div className="app-side-butt-bott-main-cont" >
