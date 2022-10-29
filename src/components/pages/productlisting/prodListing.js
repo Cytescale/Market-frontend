@@ -116,9 +116,7 @@ const ProdListing = (props) => {
             })}
           </div>
         </MPopover>
-        <MPageHeader help icon={<i class="ri-shopping-bag-line"></i>}>
-          Products
-        </MPageHeader>
+        <MPageHeader help icon={<i class="ri-shopping-bag-line"></i>}>Products</MPageHeader>
         <div className="app-prod-list-bottom-cont">
           <div className="app-prod-tab-cont">
             <div className="app-prod-lab-cont">

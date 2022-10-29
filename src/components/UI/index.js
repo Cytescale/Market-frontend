@@ -852,7 +852,7 @@ const MPageLabelS = styled.div`
 
   // color: #0077e6;
   padding-left: 12px;
-  padding-top:22px;
+  padding-top:0px;
   padding-bottom:22px;
   width: 100%;
   display: flex;
